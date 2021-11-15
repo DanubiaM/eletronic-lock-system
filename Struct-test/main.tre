@@ -1,0 +1,147 @@
+ÀÄmain
+   ÃÄMAIN  0/96  Ram=3
+   ³  ÃÄ@cinit1  (Inline)  Ram=0
+   ³  ÃÄlcd_ini  0/61  Ram=2
+   ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ³  ÃÄlcd_envia_nibble  0/39  Ram=1
+   ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ³  ÃÄlcd_envia_nibble  0/39  Ram=1
+   ³  ³  ÃÄ@const648  0/8  Ram=0
+   ³  ³  ÀÄlcd_envia_byte  0/33  Ram=3
+   ³  ³     ÃÄlcd_envia_nibble  0/39  Ram=1
+   ³  ³     ÀÄlcd_envia_nibble  0/39  Ram=1
+   ³  ÃÄ@PSTRINGC7_664  0/86  Ram=4
+   ³  ³  ÃÄlcd_escreve  0/55  Ram=1
+   ³  ³  ³  ÃÄlcd_envia_byte  0/33  Ram=3
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ³  ³  ÃÄlcd_pos_xy  (Inline)  Ram=4
+   ³  ³  ³  ³  ÀÄlcd_envia_byte  0/33  Ram=3
+   ³  ³  ³  ³     ÀÄ*
+   ³  ³  ³  ÃÄlcd_envia_byte  0/33  Ram=3
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÀÄlcd_envia_byte  0/33  Ram=3
+   ³  ³  ³     ÀÄ*
+   ³  ³  ÀÄlcd_escreve  0/55  Ram=1
+   ³  ³     ÀÄ*
+   ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ÃÄ@PSTRINGC7_664  0/86  Ram=4
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ÃÄsaveUser  0/187  Ram=0
+   ³  ³  ÃÄwrite_ext_eeprom  0/76  Ram=2
+   ³  ³  ³  ÃÄext_eeprom_ready  0/74  Ram=1
+   ³  ³  ³  ³  ÀÄ@I2C_WRITE_1  0/92  Ram=1
+   ³  ³  ³  ÃÄ@I2C_WRITE_1  0/92  Ram=1
+   ³  ³  ³  ÃÄ@I2C_WRITE_1  0/92  Ram=1
+   ³  ³  ³  ÀÄ@I2C_WRITE_1  0/92  Ram=1
+   ³  ³  ÃÄwrite_ext_eeprom  0/76  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄwrite_ext_eeprom  0/76  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄwrite_ext_eeprom  0/76  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄwrite_ext_eeprom  0/76  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄwrite_ext_eeprom  0/76  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄwrite_ext_eeprom  0/76  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄwrite_ext_eeprom  0/76  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄwrite_ext_eeprom  0/76  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄwrite_ext_eeprom  0/76  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄwrite_ext_eeprom  0/76  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄwrite_ext_eeprom  0/76  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄwrite_ext_eeprom  0/76  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄwrite_ext_eeprom  0/76  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄwrite_ext_eeprom  0/76  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄwrite_ext_eeprom  0/76  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄwrite_ext_eeprom  0/76  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄwrite_ext_eeprom  0/76  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄwrite_ext_eeprom  0/76  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄwrite_ext_eeprom  0/76  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÀÄwrite_ext_eeprom  0/76  Ram=2
+   ³  ³     ÀÄ*
+   ³  ÃÄgetAddressByID  0/57  Ram=4
+   ³  ³  ÃÄread_ext_eeprom  0/200  Ram=2
+   ³  ³  ³  ÃÄext_eeprom_ready  0/74  Ram=1
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄ@I2C_WRITE_1  0/92  Ram=1
+   ³  ³  ³  ÃÄ@I2C_WRITE_1  0/92  Ram=1
+   ³  ³  ³  ÃÄ@I2C_WRITE_1  0/92  Ram=1
+   ³  ³  ³  ÀÄ@I2C_READ_1  (Inline)  Ram=3
+   ³  ³  ÃÄread_ext_eeprom  0/200  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PSTRINGCN7_664  0/87  Ram=5
+   ³  ³  ³  ÃÄlcd_escreve  0/55  Ram=1
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÀÄlcd_escreve  0/55  Ram=1
+   ³  ³  ³     ÀÄ*
+   ³  ³  ÃÄ@PRINTF_D_664  0/87  Ram=6
+   ³  ³  ³  ÃÄ@DIV88  0/21  Ram=3
+   ³  ³  ³  ÃÄ@DIV88  0/21  Ram=3
+   ³  ³  ³  ÃÄlcd_escreve  0/55  Ram=1
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄlcd_escreve  0/55  Ram=1
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄlcd_escreve  0/55  Ram=1
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÀÄlcd_escreve  0/55  Ram=1
+   ³  ³  ³     ÀÄ*
+   ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ³  ÀÄ@PSTRINGC7_664  0/86  Ram=4
+   ³  ³     ÀÄ*
+   ³  ÃÄ@PSTRINGCN7_664  0/87  Ram=5
+   ³  ³  ÀÄ*
+   ³  ÃÄ@PRINTF_D_664  0/87  Ram=6
+   ³  ³  ÀÄ*
+   ³  ÃÄdeleteBlock  0/141  Ram=5
+   ³  ³  ÃÄread_ext_eeprom  0/200  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄerase_program_eeprom  0/15  Ram=2
+   ³  ³  ³  ÀÄwrite_ext_eeprom  0/76  Ram=2
+   ³  ³  ³     ÀÄ*
+   ³  ³  ÃÄ@PSTRINGC7_664  0/86  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ³  ÃÄread_ext_eeprom  0/200  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄread_ext_eeprom  0/200  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PSTRINGCN7_664  0/87  Ram=5
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PRINTF_D_664  0/87  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PSTRINGCN7_664  0/87  Ram=5
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PRINTF_D_664  0/87  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄwrite_ext_eeprom  0/76  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PSTRINGCN7_664  0/87  Ram=5
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PRINTF_D_664  0/87  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ³  ÃÄerase_program_eeprom  0/15  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PSTRINGC7_664  0/86  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÀÄ@delay_ms1  0/20  Ram=1
+   ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ÀÄ@delay_ms1  0/20  Ram=1
+   ÃÄTIMER1_isr  0/4  Ram=0
+   ÀÄRTCC_isr  0/4  Ram=0

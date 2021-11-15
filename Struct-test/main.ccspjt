@@ -1,0 +1,49 @@
+[PROJECT]
+Target=main.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.025
+Compiler=PCM
+CCSVersion=5.025
+[Target Data]
+FileList=main.c
+[Directories]
+Include=
+[C:\Users\danub\OneDrive\Área de Trabalho\git\eletronic-lock-system\Struct-test\main]
+Type=4
+[mru-list]
+1=main.c
+
+[ProjectLog]
+Days=1
+D1=15-11-2021
+D1_L=17
+D1_L1=[33298]Project Opened.
+D1_L2=[33300]Started Editing.
+D1_L3=[34138]Stopped Editing.
+D1_L4=[37592]Started Editing.
+D1_L5=[38979]Stopped Editing.
+D1_L6=[54538]Started Editing.
+D1_L7=[54946]Stopped Editing.
+TotalEdit=34
+TotalDebug=0
+D1_E=34
+D1_D=0
+D1_L8=[54946]Project Closed.
+D1_L9=[54946]Project Opened.
+D1_L10=[55100]Started Editing.
+D1_L11=[55450]Stopped Editing.
+D1_L12=[58871]Started Editing.
+D1_L13=[60390]Stopped Editing.
+D1_L14=[60975]Started Editing.
+D1_L15=[61416]Stopped Editing.
+D1_L16=[69358]Started Editing.
+D1_L17=[69659]Stopped Editing.
+
+[Opened Files]
+1=main.c
+2=
+[main.c]
+Type=4
+[Units]
+Count=1
+1=main (main)
