@@ -41,7 +41,6 @@ int deleteBlock(int address);
 void erase_program_eeprom(int addrr);
 int incrementID();
 int lastNewUserPosition();
-void resetMemory();
 // ----------------
 /*
 // ---- MSG from serial communication
@@ -141,7 +140,7 @@ void main()
    //VARIAVEIS
    byte result;
    
-   eeprom_address address = 0;
+   eeprom_address address;
 
    // unsigned char tmp_result;
    setup_timer_0(RTCC_INTERNAL|RTCC_DIV_256|RTCC_8_bit);      //13.1ms overflow
@@ -161,17 +160,24 @@ void main()
    delay_ms(1000);
 
    printf(lcd_escreve, "\fIFMT - Serial");
-   delay_ms(50);
 
-   resetMemory();
+   
+  
+   delay_ms(50);
+   // if(data_avail){
+   output_high(PIN_D3);
+   // erase_program_eeprom(0);
+   // erase_program_eeprom(7);
+   // erase_program_eeprom(14);
+   // erase_program_eeprom(21);
    
    data_avail = FALSE;
    int pass [4] = {1,2,3,4};
-   saveUser(12, pass, 1, 1);
-   saveUser(14, pass, 0, 1);
-   saveUser(5, pass, 1, 1);
-   saveUser(7, pass, 1, 0);
    saveUser(254, pass, 1, 1);
+   // saveUser(12, pass, 1, 1);
+   // saveUser(14, pass, 0, 1);
+   // saveUser(5, pass, 1, 1);
+   // saveUser(7, pass, 1, 0);
    lastNewUserPosition();
    isIdAvailable(254);
    isIdAvailable(200);
@@ -238,7 +244,7 @@ void saveUser(int id, int * pass, int status, int type_usr){
       write_ext_eeprom(address+6, user.type_usr);
 
       printf (lcd_escreve,"\fUsuario Cadastrado");
-      delay_ms(500);
+      delay_ms(1000);
 
    }else{
       printf (lcd_escreve,"\fID incompativel");
@@ -336,25 +342,18 @@ int lastNewUserPosition(){
 }
 
 int isIdAvailable(int id){
-   unsigned int address = 0;
-   int id_temp;
+   int address = 0;
+   
    while( read_ext_eeprom(address) != -1){
       id_temp = read_ext_eeprom(address);
       if (id_temp == id){
-          printf (lcd_escreve,"\fID:%u, Existe", id_temp);
+          printf (lcd_escreve,"\fID Existe:%d", id_temp);
           delay_ms(1000);
-         return 0;//Sucessful
+         return 1;
       }
 
       address += BLOCK_SIZE; 
    }
-   printf (lcd_escreve,"\fID:%u, N Existe", id_temp);
-   delay_ms(1000);
+   printf (lcd_escreve,"\fID N Existe:%d", id_temp);
    return -1;
-}
-
-void resetMemory(){
-   int address = 0;
-   for(; read_ext_eeprom(address) != -1;
-    erase_program_eeprom(address), address += BLOCK_SIZE);
 }
