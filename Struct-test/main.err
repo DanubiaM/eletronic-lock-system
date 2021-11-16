@@ -1,13 +1,16 @@
 >>> Warning 202 "main.c" Line 14(15,18): Variable never used:   tmp
+>>> Warning 202 "main.c" Line 16(13,32): Variable never used:   address_data_delete
 >>> Warning 202 "main.c" Line 27(6,17): Variable never used:   rx_wr_index
 >>> Warning 202 "main.c" Line 28(6,14): Variable never used:   lock_pos
 >>> Warning 202 "main.c" Line 28(20,23): Variable never used:   rxd
 >>> Warning 202 "main.c" Line 28(25,29): Variable never used:   read
 >>> Warning 202 "main.c" Line 28(31,47): Variable never used:   valid_data_count
+>>> Warning 202 "main.c" Line 29(15,24): Variable never used:   rx_buffer
 >>> Warning 202 "main.c" Line 30(25,31): Variable never used:   got_id
+>>> Warning 202 "main.c" Line 32(6,8): Variable never used:   U1
 >>> Warning 202 "main.c" Line 33(6,8): Variable never used:   U2
->>> Warning 202 "main.c" Line 140(9,15): Variable never used:   result
->>> Warning 202 "main.c" Line 142(19,26): Variable never used:   address
-      Memory usage:   ROM=20%      RAM=15% - 20%
-      0 Errors,  10 Warnings.
+>>> Warning 202 "main.c" Line 141(9,15): Variable never used:   result
+>>> Warning 202 "main.c" Line 143(19,26): Variable never used:   address
+      Memory usage:   ROM=17%      RAM=15% - 24%
+      0 Errors,  13 Warnings.
 Build Successful.

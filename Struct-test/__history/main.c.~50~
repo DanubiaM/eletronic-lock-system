@@ -23,7 +23,7 @@ typedef struct { //7Bytes
 }User;
 
 #define RX_BUFFER_SIZE 10
-#define BLOCK_SIZE 7
+#define BLOCK_SIZE 8
 int8 rx_wr_index = 0;
 int8 lock_pos = 0, rxd, read, valid_data_count;
 unsigned int8 rx_buffer[RX_BUFFER_SIZE];
@@ -35,7 +35,7 @@ User U2;
 
 
 // -----------------Functions
-void saveUser(int id, int * pass, int status, int type_usr);
+void saveUser(int * pass, int status, int type_usr);
 void printUser();
 int getAddressByID(int id);    
 int deleteBlock(int address);
@@ -168,11 +168,7 @@ void main()
    output_high(PIN_D3);
    data_avail = FALSE;
    int pass [4] = {1,2,3,4};
-   saveUser(145, pass, 1, 1);
-
-   saveUser(145, pass, 1, 0);  
-   saveUser(141, pass, 1, 1);
- 
+   saveUser(pass, 1, 1);
   // address_data_delete = getAddressByID(6);
   // printf(lcd_escreve, "\f Address ID = %d", address_data_delete);
  //  deleteBlock(address_data_delete);
@@ -209,40 +205,48 @@ int incrementID(){
     
 }
 */
-void saveUser(int id, int * pass, int status, int type_usr){
+void saveUser(int * pass, int status, int type_usr){
 
+   //int id = incrementID();
+   //printf (lcd_escreve,"\f id ret: %d", id);
+  // delay_ms(1000);
    
+   //recebe os parâmetros do usuário
+   User user;
+   user.id = 12;
+   user.pass[0] = pass[0];
+   user.pass[1] = pass[1];
+   user.pass[2] = pass[2];
+   user.pass[3] = pass[3];
+   user.status = status;
+   user.type_usr = type_usr;
    
-   if( id < 256 && getAddressByID(id) > -1 ){
-      //recebe os parâmetros do usuário
-      User user;
-      user.id = id;
-      user.pass[0] = pass[0];
-      user.pass[1] = pass[1];
-      user.pass[2] = pass[2];
-      user.pass[3] = pass[3];
-      user.status = status;
-      user.type_usr = type_usr;
+   write_ext_eeprom(0, user.id);
+   write_ext_eeprom(2, user.pass[0]);
+   write_ext_eeprom(3, user.pass[1]);
+   write_ext_eeprom(4, user.pass[2]);
+   write_ext_eeprom(5, user.pass[3]);       
+   write_ext_eeprom(6, user.status);
+   write_ext_eeprom(7, user.type_usr);
 
-      //Corrigir isso, o endereço tem que ser "dinâmico"
-      
-      write_ext_eeprom(0, user.id);
-      write_ext_eeprom(1, user.pass[0]);
-      write_ext_eeprom(2, user.pass[1]);
-      write_ext_eeprom(3, user.pass[2]);
-      write_ext_eeprom(4, user.pass[3]);       
-      write_ext_eeprom(5, user.status);
-      write_ext_eeprom(6, user.type_usr);
+   printf (lcd_escreve,"\f id ret: %d", read_ext_eeprom(0);
+   delay_ms(1000);
+   // rx_buffer[0] = 5;
+   // rx_buffer[1] = 6;
+   // rx_buffer[2] = 6;
+   // rx_buffer[3] = 7;
+   // rx_buffer[4] = 7;
+   // rx_buffer[5] = 1;
+   // rx_buffer[6] = 1;
 
-      printf (lcd_escreve,"\fUsuario Cadastrado");
-      delay_ms(1000);
-
-   }else{
-      printf (lcd_escreve,"\fID incompativel");
-      printf (lcd_escreve,"\r\nTente novamente");
-      delay_ms(1000);
-
-   }
+   // user.id = rx_buffer[0];
+   // user.pass[0] = rx_buffer[1];
+   // user.pass[1] = rx_buffer[2];
+   // U1.pass[2] = rx_buffer[3];
+   // U1.pass[3] = rx_buffer[4];
+   // u1.status = rx_buffer[5];
+   // u1.type_usr = rx_buffer[6];    
+   
 }
 
 void printUser(){
@@ -254,8 +258,8 @@ void printUser(){
    printf (lcd_escreve,"\f Button: %d", tmp_result);
    printf(lcd_escreve, "\r\nPw:%d%d%d%d St:%d %d", read_ext_eeprom(1), read_ext_eeprom(2), read_ext_eeprom(3), read_ext_eeprom(4), read_ext_eeprom(5), read_ext_eeprom(6));
    
-   //printf(lcd_escreve, "\f Client () else´{}{}
-   // printf(lcd_escreve, "\r\nPw:%c%c%c%c St:%c %c", U1.pass[0], U1.pass[1], U1.pass[2], U1.pass[3], U1.status, U1.type_usr);
+   //printf(lcd_escreve, "\f Client ID = %d", U1.id);
+  // printf(lcd_escreve, "\r\nPw:%c%c%c%c St:%c %c", U1.pass[0], U1.pass[1], U1.pass[2], U1.pass[3], U1.status, U1.type_usr);
 }
 
 int getAddressByID(int id){
