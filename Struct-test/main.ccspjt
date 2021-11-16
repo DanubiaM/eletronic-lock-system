@@ -14,7 +14,7 @@ Type=4
 1=main.c
 
 [ProjectLog]
-Days=1
+Days=2
 D1=15-11-2021
 D1_L=19
 D1_L1=[33298]Project Opened.
@@ -40,6 +40,9 @@ D1_L16=[69358]Started Editing.
 D1_L17=[69659]Stopped Editing.
 D1_L18=[76659]Started Editing.
 D1_L19=[76960]Stopped Editing.
+D2=16-11-2021
+D2_L=1
+D2_L1=[30962]Project Opened.
 
 [Opened Files]
 1=main.c

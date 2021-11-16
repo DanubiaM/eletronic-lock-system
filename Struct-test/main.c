@@ -41,6 +41,7 @@ int getAddressByID(int id);
 int deleteBlock(int address);
 void erase_program_eeprom(int addrr);
 int incrementID();
+int lastNewUserPosition();
 // ----------------
 /*
 // ---- MSG from serial communication
@@ -166,12 +167,19 @@ void main()
    delay_ms(50);
    // if(data_avail){
    output_high(PIN_D3);
+   // erase_program_eeprom(0);
+   // erase_program_eeprom(7);
+   // erase_program_eeprom(14);
+   // erase_program_eeprom(21);
+   
    data_avail = FALSE;
    int pass [4] = {1,2,3,4};
-   saveUser(145, pass, 1, 1);
+   saveUser(12, pass, 1, 1);
+   saveUser(14, pass, 0, 1);
+   saveUser(5, pass, 1, 1);
+   saveUser(7, pass, 1, 0);
+   lastNewUserPosition();
 
-   saveUser(145, pass, 1, 0);  
-   saveUser(141, pass, 1, 1);
  
   // address_data_delete = getAddressByID(6);
   // printf(lcd_escreve, "\f Address ID = %d", address_data_delete);
@@ -211,9 +219,8 @@ int incrementID(){
 */
 void saveUser(int id, int * pass, int status, int type_usr){
 
-   
-   
    if( id < 256 && getAddressByID(id) > -1 ){
+      int address = lastNewUserPosition();
       //recebe os parâmetros do usuário
       User user;
       user.id = id;
@@ -226,13 +233,13 @@ void saveUser(int id, int * pass, int status, int type_usr){
 
       //Corrigir isso, o endereço tem que ser "dinâmico"
       
-      write_ext_eeprom(0, user.id);
-      write_ext_eeprom(1, user.pass[0]);
-      write_ext_eeprom(2, user.pass[1]);
-      write_ext_eeprom(3, user.pass[2]);
-      write_ext_eeprom(4, user.pass[3]);       
-      write_ext_eeprom(5, user.status);
-      write_ext_eeprom(6, user.type_usr);
+      write_ext_eeprom(address, user.id);
+      write_ext_eeprom(address+1, user.pass[0]);
+      write_ext_eeprom(address+2, user.pass[1]);
+      write_ext_eeprom(address+3, user.pass[2]);
+      write_ext_eeprom(address+4, user.pass[3]);       
+      write_ext_eeprom(address+5, user.status);
+      write_ext_eeprom(address+6, user.type_usr);
 
       printf (lcd_escreve,"\fUsuario Cadastrado");
       delay_ms(1000);
@@ -282,7 +289,7 @@ void erase_program_eeprom(int addrr){
          write_ext_eeprom(addrr + i, -1);
    }  
    printf (lcd_escreve,"\f User erased ");
-   delay_ms(2000);
+   delay_ms(500);
 }
 
 int deleteBlock(int8 address){
@@ -318,3 +325,16 @@ int deleteBlock(int8 address){
 
 }
 
+int lastNewUserPosition(){
+   int address = 0;
+   int id_temp;
+
+   while( read_ext_eeprom(address) != -1){
+      address += BLOCK_SIZE; 
+   }
+   printf (lcd_escreve,"\fAddress: %d", address);
+   delay_ms(1000);
+   
+   return address;
+
+}

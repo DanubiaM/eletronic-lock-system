@@ -9,8 +9,9 @@
 >>> Warning 202 "main.c" Line 30(25,31): Variable never used:   got_id
 >>> Warning 202 "main.c" Line 32(6,8): Variable never used:   U1
 >>> Warning 202 "main.c" Line 33(6,8): Variable never used:   U2
->>> Warning 202 "main.c" Line 141(9,15): Variable never used:   result
->>> Warning 202 "main.c" Line 143(19,26): Variable never used:   address
-      Memory usage:   ROM=17%      RAM=15% - 24%
-      0 Errors,  13 Warnings.
+>>> Warning 202 "main.c" Line 142(9,15): Variable never used:   result
+>>> Warning 202 "main.c" Line 144(19,26): Variable never used:   address
+>>> Warning 202 "main.c" Line 329(8,15): Variable never used:   id_temp
+      Memory usage:   ROM=18%      RAM=15% - 24%
+      0 Errors,  14 Warnings.
 Build Successful.
