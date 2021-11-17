@@ -1,16 +1,17 @@
 ÀÄmain
-   ÃÄMAIN  0/136  Ram=3
+   ÃÄMAIN  0/359  Ram=8
    ³  ÃÄ@cinit1  (Inline)  Ram=0
-   ³  ÃÄlcd_ini  0/61  Ram=2
+   ³  ÃÄinit_ext_eeprom  0/13  Ram=0
+   ³  ÃÄlcd_ini  0/91  Ram=2
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
    ³  ³  ÃÄlcd_envia_nibble  0/39  Ram=1
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
    ³  ³  ÃÄlcd_envia_nibble  0/39  Ram=1
-   ³  ³  ÃÄ@const655  0/8  Ram=0
+   ³  ³  ÃÄ@const654  0/8  Ram=0
    ³  ³  ÀÄlcd_envia_byte  0/33  Ram=3
    ³  ³     ÃÄlcd_envia_nibble  0/39  Ram=1
    ³  ³     ÀÄlcd_envia_nibble  0/39  Ram=1
-   ³  ÃÄ@PSTRINGC7_671  0/86  Ram=4
+   ³  ÃÄ@PSTRINGC7_670  0/86  Ram=4
    ³  ³  ÃÄlcd_escreve  0/55  Ram=1
    ³  ³  ³  ÃÄlcd_envia_byte  0/33  Ram=3
    ³  ³  ³  ³  ÀÄ*
@@ -25,116 +26,75 @@
    ³  ³  ÀÄlcd_escreve  0/55  Ram=1
    ³  ³     ÀÄ*
    ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ÃÄ@PSTRINGC7_671  0/86  Ram=4
+   ³  ÃÄ@PSTRINGC7_670  0/86  Ram=4
    ³  ³  ÀÄ*
    ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ÃÄresetMemory  0/44  Ram=2
-   ³  ³  ÃÄread_ext_eeprom  0/200  Ram=2
-   ³  ³  ³  ÃÄext_eeprom_ready  0/74  Ram=1
+   ³  ÃÄ@PSTRINGCN7_670  0/87  Ram=5
+   ³  ³  ÃÄlcd_escreve  0/55  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÀÄlcd_escreve  0/55  Ram=1
+   ³  ³     ÀÄ*
+   ³  ÃÄ@PRINTF_U_670  0/109  Ram=2
+   ³  ³  ÃÄ@DIV88  (Inline)  Ram=3
+   ³  ³  ÃÄlcd_escreve  0/55  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@DIV88  (Inline)  Ram=3
+   ³  ³  ÃÄlcd_escreve  0/55  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÀÄlcd_escreve  0/55  Ram=1
+   ³  ³     ÀÄ*
+   ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ÃÄgetAdminID  (Inline)  Ram=5
+   ³  ³  ÃÄread_ext_eeprom  0/272  Ram=2
+   ³  ³  ³  ÃÄext_eeprom_ready  (Inline)  Ram=1
    ³  ³  ³  ³  ÀÄ@I2C_WRITE_1  0/92  Ram=1
    ³  ³  ³  ÃÄ@I2C_WRITE_1  0/92  Ram=1
    ³  ³  ³  ÃÄ@I2C_WRITE_1  0/92  Ram=1
    ³  ³  ³  ÃÄ@I2C_WRITE_1  0/92  Ram=1
    ³  ³  ³  ÀÄ@I2C_READ_1  (Inline)  Ram=3
-   ³  ³  ÀÄerase_program_eeprom  (Inline)  Ram=2
-   ³  ³     ÃÄwrite_ext_eeprom  0/76  Ram=2
-   ³  ³     ³  ÃÄext_eeprom_ready  0/74  Ram=1
-   ³  ³     ³  ³  ÀÄ*
-   ³  ³     ³  ÃÄ@I2C_WRITE_1  0/92  Ram=1
-   ³  ³     ³  ÃÄ@I2C_WRITE_1  0/92  Ram=1
-   ³  ³     ³  ÀÄ@I2C_WRITE_1  0/92  Ram=1
-   ³  ³     ÃÄ@PSTRINGC7_671  0/86  Ram=4
-   ³  ³     ³  ÀÄ*
-   ³  ³     ÀÄ@delay_ms1  0/20  Ram=1
-   ³  ÃÄsaveUser  0/158  Ram=6
-   ³  ³  ÃÄgetAddressByID  (Inline)  Ram=4
-   ³  ³  ³  ÃÄread_ext_eeprom  0/200  Ram=2
-   ³  ³  ³  ³  ÀÄ*
-   ³  ³  ³  ÃÄread_ext_eeprom  0/200  Ram=2
-   ³  ³  ³  ³  ÀÄ*
-   ³  ³  ³  ÃÄ@PSTRINGCN7_671  0/87  Ram=5
-   ³  ³  ³  ³  ÃÄlcd_escreve  0/55  Ram=1
-   ³  ³  ³  ³  ³  ÀÄ*
-   ³  ³  ³  ³  ÀÄlcd_escreve  0/55  Ram=1
-   ³  ³  ³  ³     ÀÄ*
-   ³  ³  ³  ÃÄ@PRINTF_D_671  0/87  Ram=6
-   ³  ³  ³  ³  ÃÄ@DIV88  0/21  Ram=3
-   ³  ³  ³  ³  ÃÄ@DIV88  0/21  Ram=3
-   ³  ³  ³  ³  ÃÄlcd_escreve  0/55  Ram=1
-   ³  ³  ³  ³  ³  ÀÄ*
-   ³  ³  ³  ³  ÃÄlcd_escreve  0/55  Ram=1
-   ³  ³  ³  ³  ³  ÀÄ*
-   ³  ³  ³  ³  ÃÄlcd_escreve  0/55  Ram=1
-   ³  ³  ³  ³  ³  ÀÄ*
-   ³  ³  ³  ³  ÀÄlcd_escreve  0/55  Ram=1
-   ³  ³  ³  ³     ÀÄ*
-   ³  ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ³  ³  ÀÄ@PSTRINGC7_671  0/86  Ram=4
-   ³  ³  ³     ÀÄ*
-   ³  ³  ÃÄlastNewUserPosition  0/36  Ram=3
-   ³  ³  ³  ÃÄread_ext_eeprom  0/200  Ram=2
-   ³  ³  ³  ³  ÀÄ*
-   ³  ³  ³  ÃÄ@PSTRINGCN7_671  0/87  Ram=5
-   ³  ³  ³  ³  ÀÄ*
-   ³  ³  ³  ÃÄ@PRINTF_D_671  0/87  Ram=6
-   ³  ³  ³  ³  ÀÄ*
-   ³  ³  ³  ÀÄ@delay_ms1  0/20  Ram=1
-   ³  ³  ÃÄwrite_ext_eeprom  0/76  Ram=2
+   ³  ³  ÃÄread_ext_eeprom  0/272  Ram=2
    ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄwrite_ext_eeprom  0/76  Ram=2
+   ³  ³  ÃÄ@PSTRINGCN7_670  0/87  Ram=5
    ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄwrite_ext_eeprom  0/76  Ram=2
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄwrite_ext_eeprom  0/76  Ram=2
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄwrite_ext_eeprom  0/76  Ram=2
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄwrite_ext_eeprom  0/76  Ram=2
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄwrite_ext_eeprom  0/76  Ram=2
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@PSTRINGC7_671  0/86  Ram=4
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÀÄ@delay_ms1  0/20  Ram=1
-   ³  ÃÄsaveUser  0/158  Ram=6
-   ³  ³  ÀÄ*
-   ³  ÃÄsaveUser  0/158  Ram=6
-   ³  ³  ÀÄ*
-   ³  ÃÄsaveUser  0/158  Ram=6
-   ³  ³  ÀÄ*
-   ³  ÃÄsaveUser  0/158  Ram=6
-   ³  ³  ÀÄ*
-   ³  ÃÄlastNewUserPosition  0/36  Ram=3
-   ³  ³  ÀÄ*
-   ³  ÃÄisIdAvailable  0/90  Ram=4
-   ³  ³  ÃÄread_ext_eeprom  0/200  Ram=2
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄread_ext_eeprom  0/200  Ram=2
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@PSTRINGCN7_671  0/87  Ram=5
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@PRINTF_U_671  0/53  Ram=2
-   ³  ³  ³  ÃÄ@DIV88  0/21  Ram=3
-   ³  ³  ³  ÃÄlcd_escreve  0/55  Ram=1
-   ³  ³  ³  ³  ÀÄ*
-   ³  ³  ³  ÃÄ@DIV88  0/21  Ram=3
-   ³  ³  ³  ÃÄlcd_escreve  0/55  Ram=1
-   ³  ³  ³  ³  ÀÄ*
-   ³  ³  ³  ÀÄlcd_escreve  0/55  Ram=1
-   ³  ³  ³     ÀÄ*
-   ³  ³  ÃÄ@PSTRINGCN7_671  0/87  Ram=5
+   ³  ³  ÃÄ@PRINTF_U_670  0/109  Ram=2
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ³  ÃÄ@PSTRINGCN7_671  0/87  Ram=5
+   ³  ³  ÃÄ@PSTRINGC7_670  0/86  Ram=4
    ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@PRINTF_U_671  0/53  Ram=2
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@PSTRINGCN7_671  0/87  Ram=5
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÀÄ@delay_ms1  0/20  Ram=1
-   ³  ÃÄisIdAvailable  0/90  Ram=4
+   ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ³  ÀÄread_ext_eeprom  0/272  Ram=2
+   ³  ³     ÀÄ*
+   ³  ÃÄ@PSTRINGCN7_670  0/87  Ram=5
+   ³  ³  ÀÄ*
+   ³  ÃÄ@PRINTF_U_670  0/109  Ram=2
+   ³  ³  ÀÄ*
+   ³  ÃÄ@PRINTF_U_670  0/109  Ram=2
    ³  ³  ÀÄ*
    ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ÃÄ@delay_ms1  0/20  Ram=1
    ³  ÀÄ@delay_ms1  0/20  Ram=1
-   ÃÄTIMER1_isr  0/4  Ram=0
+   ÃÄTIMER1_isr  0/487  Ram=0
+   ³  ÀÄreadKeyboard  (Inline)  Ram=2
+   ³     ÃÄtc_tecla  (Inline)  Ram=4
+   ³     ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³     ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³     ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³     ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³     ³  ÀÄ@delay_ms1  0/20  Ram=1
+   ³     ÃÄwrite_ext_eeprom  (Inline)  Ram=2
+   ³     ³  ÃÄext_eeprom_ready  (Inline)  Ram=1
+   ³     ³  ³  ÀÄ*
+   ³     ³  ÃÄ@I2C_WRITE_1  0/92  Ram=1
+   ³     ³  ÃÄ@I2C_WRITE_1  0/92  Ram=1
+   ³     ³  ÀÄ@I2C_WRITE_1  0/92  Ram=1
+   ³     ÃÄ@delay_ms1  0/20  Ram=1
+   ³     ÃÄread_ext_eeprom  0/272  Ram=2
+   ³     ³  ÀÄ*
+   ³     ÃÄ@delay_ms1  0/20  Ram=1
+   ³     ÃÄ@PSTRINGCN7_670  0/87  Ram=5
+   ³     ³  ÀÄ*
+   ³     ÃÄlcd_escreve  0/55  Ram=1
+   ³     ³  ÀÄ*
+   ³     ÀÄ@PSTRINGC7_670  0/86  Ram=4
+   ³        ÀÄ*
    ÀÄRTCC_isr  0/4  Ram=0

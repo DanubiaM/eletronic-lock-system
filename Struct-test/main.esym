@@ -1,8 +1,8 @@
-D G "__PCM__" 0 370 ""5.025""
-D G "__DEVICE__" 0 370 "877"
-D G "__DATE__" 0 370 ""16-Nov-21""
-D G "__TIME__" 0 370 ""09:29:32"" "#include <40_save_client.h>"
-c L "set_tris_a" 1 1 6 "FUNCTION"
+D G "__PCM__" 0 435 ""5.025""
+D G "__DEVICE__" 0 435 "877"
+D G "__DATE__" 0 435 ""17-Nov-21""
+D G "__TIME__" 0 435 ""19:46:40"" "Standard Header file for the PIC16F877A device ////////////////"
+c L "set_tris_a" 1 3 6 "FUNCTION"
 v L "value" 1 37 "int8" `54 
 f B "set_tris_a" 1 37 "void(int8 value)" `53 
 v L "value" 1 38 "int8" `56 
@@ -99,7 +99,7 @@ d G "putc" 1 121 "putchar"
 d G "fputc" 1 122 "putchar"
 d G "fgets" 1 123 "gets"
 d G "fputs" 1 124 "puts"
-c L "output_drive" 1 1 3 "FUNCTION"
+c L "output_drive" 1 3 3 "FUNCTION"
 f B "restart_cause" 1 129 "int8()" `105 
 f B "reset_cpu" 1 130 "void()" `106 
 f B "sleep" 1 131 "void()" `107  "Constants returned from RESTART_CAUSE() are:"
@@ -109,7 +109,7 @@ d G "MCLR_FROM_SLEEP" 1 135 "19"
 d G "MCLR_FROM_RUN" 1 136 "27"
 d G "NORMAL_POWER_UP" 1 137 "25"
 d G "BROWNOUT_RESTART" 1 138 "26"
-c L "sleep" 1 1 5 "FUNCTION"
+c L "sleep" 1 3 5 "FUNCTION"
 v L "mode" 1 145 "int8" `109 
 f B "setup_timer_0" 1 145 "void(int8 mode)" `108 
 v L "value" 1 146 "int8" `111 
@@ -147,7 +147,7 @@ d G "RTCC_DIV_64" 1 178 "5"
 d G "RTCC_DIV_128" 1 179 "6"
 d G "RTCC_DIV_256" 1 180 "7"
 d G "RTCC_8_BIT" 1 181 "0"
-c L "get_rtcc" 1 1 8 "FUNCTION"
+c L "get_rtcc" 1 3 8 "FUNCTION"
 v L "mode" 1 192 "int16" `120 
 f B "setup_wdt" 1 192 "void(int16 mode)" `119 
 f B "restart_wdt" 1 193 "void()" `121  "Constants used for SETUP_WDT() are:"
@@ -159,7 +159,7 @@ d G "WDT_288MS" 1 200 "12"
 d G "WDT_576MS" 1 201 "13"
 d G "WDT_1152MS" 1 202 "14"
 d G "WDT_2304MS" 1 203 "15"
-c L "restart_wdt" 1 1 3 "FUNCTION"
+c L "restart_wdt" 1 3 3 "FUNCTION"
 v L "mode" 1 209 "int16" `123 
 f B "setup_timer_1" 1 209 "void(int16 mode)" `122 
 f B "get_timer1" 1 210 "int16()" `124 
@@ -174,7 +174,7 @@ d G "T1_DIV_BY_1" 1 221 "0"
 d G "T1_DIV_BY_2" 1 222 "0x10"
 d G "T1_DIV_BY_4" 1 223 "0x20"
 d G "T1_DIV_BY_8" 1 224 "0x30"
-c L "set_timer1" 1 1 3 "FUNCTION"
+c L "set_timer1" 1 3 3 "FUNCTION"
 v L "mode" 1 229 "int8" `128 
 v L "period" 1 229 "int8" `129 
 v L "postscale" 1 229 "int8" `130 
@@ -186,7 +186,7 @@ d G "T2_DISABLED" 1 233 "0"
 d G "T2_DIV_BY_1" 1 234 "4"
 d G "T2_DIV_BY_4" 1 235 "5"
 d G "T2_DIV_BY_16" 1 236 "6"
-c L "set_timer2" 1 1 4 "FUNCTION"
+c L "set_timer2" 1 3 4 "FUNCTION"
 v L "mode" 1 242 "int32" `135 
 f B "setup_ccp1" 1 242 "void(int32 mode)" `134 
 v L "mode" 1 243 "int32" `137 
@@ -207,7 +207,7 @@ d G "CCP_PWM" 1 255 "0x0C"
 d G "CCP_PWM_PLUS_1" 1 256 "0x1c"
 d G "CCP_PWM_PLUS_2" 1 257 "0x2c"
 d G "CCP_PWM_PLUS_3" 1 258 "0x3c"
-c L "set_pwm1_duty" 1 1 1 "FUNCTION"
+c L "set_pwm1_duty" 1 3 1 "FUNCTION"
 v L "mode" 1 265 "int32" `145 
 f B "setup_ccp2" 1 265 "void(int32 mode)" `144 
 v L "mode" 1 266 "int32" `147 
@@ -215,7 +215,7 @@ v L "pwm" 1 266 "int8" `148
 f G "setup_ccp2" 1 266 "void(int32 mode,int8 pwm)" `146 
 v L "value" 1 267 "int16" `150 
 f B "set_pwm2_duty" 1 267 "void(int16 value)" `149 
-c L "set_pwm2_duty" 1 1 5 "FUNCTION"
+c L "set_pwm2_duty" 1 3 5 "FUNCTION"
 v L "mode" 1 276 "int8" `155 
 f B "setup_psp" 1 276 "void(int8 mode)" `154 
 f B "psp_output_full" 1 277 "int8()" `156 
@@ -223,7 +223,7 @@ f B "psp_input_full" 1 278 "int8()" `157
 f B "psp_overflow" 1 279 "int8()" `158  "Constants used in SETUP_PSP() are:"
 d G "PSP_ENABLED" 1 281 "0x10"
 d G "PSP_DISABLED" 1 282 "0"
-c L "psp_overflow" 1 1 3 "FUNCTION"
+c L "psp_overflow" 1 3 3 "FUNCTION"
 v L "mode" 1 289 "int32" `161 
 f B "setup_spi" 1 289 "void(int32 mode)" `160 
 v L "value" 1 290 "int8" `163 
@@ -248,7 +248,7 @@ d G "SPI_SAMPLE_AT_MIDDLE" 1 309 "0x0000"
 d G "SPI_SAMPLE_AT_END" 1 310 "0x8000"
 d G "SPI_L_TO_H" 1 313 "SPI_SCK_IDLE_LOW"
 d G "SPI_H_TO_L" 1 314 "SPI_SCK_IDLE_HIGH"
-c L "spi_data_in" 1 1 2 "FUNCTION"
+c L "spi_data_in" 1 3 2 "FUNCTION"
 v L "baud" 1 318 "int32" `169 
 f B "setup_uart" 1 318 "void(int32 baud)" `168 
 v L "baud" 1 319 "int32" `171 
@@ -269,7 +269,7 @@ v L "clock" 1 323 "int32" `185
 f G "set_uart_speed" 1 323 "void(int32 baud,int8 stream,int32 clock)" `182  "Constants used in setup_uart() are:"
 d G "UART_ADDRESS" 1 327 "2"
 d G "UART_DATA" 1 328 "4"
-c L "set_uart_speed" 1 1 3 "FUNCTION"
+c L "set_uart_speed" 1 3 3 "FUNCTION"
 v L "mode" 1 332 "int32" `187 
 f B "setup_comparator" 1 332 "void(int32 mode)" `186  "Constants used in setup_comparator() are:"
 d G "A0_A3_A1_A3" 1 334 "0xfff04"
@@ -282,13 +282,13 @@ d G "A0_VR_A1_VR" 1 340 "0x3ff06"
 d G "A3_VR_A2_VR" 1 341 "0xcff0e"
 d G "CP1_INVERT" 1 342 "0x0000010"
 d G "CP2_INVERT" 1 343 "0x0000020"
-c L "setup_comparator" 1 1 2 "FUNCTION"
+c L "setup_comparator" 1 3 2 "FUNCTION"
 v L "mode" 1 350 "int8" `191 
 f B "setup_vref" 1 350 "void(int8 mode)" `190  "Constants used in setup_vref() are:"
 d G "VREF_LOW" 1 352 "0xa0"
 d G "VREF_HIGH" 1 353 "0x80"
 d G "VREF_A2" 1 355 "0x40"
-c L "setup_vref" 1 1 4 "FUNCTION"
+c L "setup_vref" 1 3 4 "FUNCTION"
 v L "mode" 1 363 "int32" `193 
 f B "setup_adc" 1 363 "void(int32 mode)" `192 
 f B "read_adc" 1 364 "int8()" `194 
@@ -306,7 +306,7 @@ d G "ADC_CLOCK_DIV_16" 1 374 "0x4040"
 d G "ADC_CLOCK_DIV_32" 1 375 "0x0080"
 d G "ADC_CLOCK_DIV_64" 1 376 "0x4080"
 d G "ADC_CLOCK_INTERNAL" 1 377 "0x00c0" "Internal 2-6us"
-c L "adc_done" 1 1 1 "FUNCTION"
+c L "adc_done" 1 3 1 "FUNCTION"
 v L "setting" 1 380 "int8" `202 
 f B "setup_adc_ports" 1 380 "void(int8 setting)" `201 
 v L "channel" 1 381 "int8" `204 
@@ -342,7 +342,7 @@ d G "RA0_ANALOG_RA3_RA2_REF" 1 410 "0xF" "!old only provided for compatibility"
 d G "ADC_START_AND_READ" 1 413 "7" "This is the default if nothing is specified"
 d G "ADC_START_ONLY" 1 414 "1"
 d G "ADC_READ_ONLY" 1 415 "6"
-c L "set_adc_channel" 1 1 3 "FUNCTION"
+c L "set_adc_channel" 1 3 3 "FUNCTION"
 v L "x" 1 421 "sint8" `206 
 f B "abs" 1 421 "sint8(sint8 x)" `205 
 v L "x" 1 422 "sint16" `208 
@@ -712,7 +712,7 @@ f G "get_capture_time" 1 598 "int16(int8 stream)" `572
 f B "get_capture_event" 1 599 "int8()" `574 
 v L "stream" 1 600 "int8" `576 
 f G "get_capture_event" 1 600 "int8(int8 stream)" `575  "Enviroment Prototypes:"
-c L "get_capture_event" 1 1 2 "FUNCTION"
+c L "get_capture_event" 1 3 2 "FUNCTION"
 v L "address" 1 613 "int16" `578 
 f B "goto_address" 1 613 "void(int16 address)" `577 
 v L "label" 1 614 "int16" `580 
@@ -738,7 +738,7 @@ f B "read_eeprom" 1 631 "int8(__EEADDRESS__ address)" `597
 v L "address" 1 632 "__EEADDRESS__" `600 
 v L "value" 1 632 "int8" `601 
 f B "write_eeprom" 1 632 "void(__EEADDRESS__ address,int8 value)" `599  "INT"
-c L "write_eeprom" 1 1 4 "FUNCTION"
+c L "write_eeprom" 1 3 4 "FUNCTION"
 v L "interrupt" 1 639 "int32" `603 
 f B "enable_interrupts" 1 639 "void(int32 interrupt)" `602 
 v L "interrupt" 1 640 "int32" `605 
@@ -777,40 +777,40 @@ d G "INT_EEPROM" 1 667 "0x008D10"
 d G "INT_TIMER0" 1 668 "0x000B20"
 d G "INT_COMP" 1 669 "0x008D40"
 C L "jump_to_isr" 0 11 2 "FUNCTION"
-V G "tmp" 0 14 "int8" `621 
-V G "tmp_result" 0 15 "int8" `622 
-V G "address_data_delete" 0 16 "sint8" `623 
+V G "address_data_delete" 0 14 "sint8" `621 
 C L "jump_to_isr" 0 11 1 "FUNCTION"
 C L "jump_to_isr" 0 11 1 "FUNCTION"
-T G "User" 0 23 "{int8 id,int8[4] pass,int8 status,int8 type_usr}" `629 
-D G "RX_BUFFER_SIZE" 0 25 "10"
-D G "BLOCK_SIZE" 0 26 "7"
-V G "rx_wr_index" 0 27 "int8" `630 
-V G "lock_pos" 0 28 "int8" `631 
-V G "rxd" 0 28 "int8" `632 
-V G "read" 0 28 "int8" `633 
-V G "valid_data_count" 0 28 "int8" `634 
-V G "rx_buffer" 0 29 "int8[10]" `635 
-V G "data_avail" 0 30 "int8" `636 
-V G "got_id" 0 30 "int8" `637 
+T G "User" 0 20 "{int8[2] id,int8[4] pass,int8 status}" `626 
+D G "RX_BUFFER_SIZE" 0 22 "10"
+D G "BLOCK_SIZE" 0 23 "sizeof(User)"
+V G "rx_wr_index" 0 24 "int8" `627 
+V G "lock_pos" 0 25 "int8" `628 
+V G "rxd" 0 25 "int8" `629 
+V G "read" 0 25 "int8" `630 
+V G "valid_data_count" 0 25 "int8" `631 
+V G "rx_buffer" 0 26 "int8[10]" `632 
+V G "data_avail" 0 27 "int8" `633 
+V G "got_id" 0 27 "int8" `634 
 C L "jump_to_isr" 0 11 1 "FUNCTION"
-V L "id" 0 36 "int8" `639 
-V L "pass" 0 36 "*int8" `640 
-V L "status" 0 36 "int8" `641 
-V L "type_usr" 0 36 "int8" `642 
-f G "saveUser" 0 36 "void(int8 id,*int8 pass,int8 status,int8 type_usr)" `638 
-f G "printUser" 0 37 "void()" `643 
-V L "id" 0 38 "int8" `645 
-f G "getAddressByID" 0 38 "int8(int8 id)" `644 
-V L "id" 0 39 "int8" `647 
-f G "isIdAvailable" 0 39 "int8(int8 id)" `646 
-V L "address" 0 40 "int8" `649 
-f G "deleteBlock" 0 40 "int8(int8 address)" `648 
-V L "addrr" 0 41 "int8" `651 
-f G "erase_program_eeprom" 0 41 "void(int8 addrr)" `650 
-f G "incrementID" 0 42 "int8()" `652 
-f G "lastNewUserPosition" 0 43 "int8()" `653 
-f G "resetMemory" 0 44 "void()" `654  "---- MSG from serial communication"
+V L "id" 0 33 "*int8" `636 
+V L "pass" 0 33 "*int8" `637 
+V L "status" 0 33 "int8" `638 
+f G "saveUser" 0 33 "void(*int8 id,*int8 pass,int8 status)" `635 
+f G "printUser" 0 34 "void()" `639 
+V L "id" 0 35 "int8" `641 
+f G "getAddressByID" 0 35 "int8(int8 id)" `640 
+V L "id" 0 36 "int8" `643 
+f G "isIdAvailable" 0 36 "int8(int8 id)" `642 
+V L "address" 0 37 "int8" `645 
+f G "deleteUser" 0 37 "int8(int8 address)" `644 
+V L "addrr" 0 38 "int8" `647 
+f G "erase_program_eeprom" 0 38 "void(int8 addrr)" `646 
+f G "incrementID" 0 39 "int8()" `648 
+f G "lastNewUserPosition" 0 40 "int8()" `649 
+f G "resetMemory" 0 41 "void()" `650 
+f G "adminMenu" 0 42 "void()" `651 
+f G "readKeyboard" 0 43 "int8()" `652 
+f G "getAdminID" 0 44 "*int8()" `653  "---- MSG from serial communication"
 D G "lcd_enable" 0 91 "pin_e1"
 D G "lcd_rs" 0 92 "pin_e2"
 D G "lcd_d4" 0 94 "pin_d4"
@@ -819,11 +819,11 @@ D G "lcd_d6" 0 96 "pin_d6"
 D G "lcd_d7" 0 97 "pin_d7"
 D G "lcd_type" 2 20 "2" "0=5x7, 1=5x10, 2=2 linhas"
 D G "lcd_seg_lin" 2 21 "0x40" "Endere�o da segunda linha na RAM do LCD"
-C L "resetMemory" 2 2 1 "FUNCTION"
-V G "INI_LCD" 2 24 "[4]" `655 
+C L "getAdminID" 2 2 1 "FUNCTION"
+V G "INI_LCD" 2 24 "[4]" `654 
 C L "lcd_le_byte" 2 2 1 "FUNCTION"
-F G "lcd_le_byte" 2 28 "int8()" `658 
-V L "dado" 2 29 "int8" `659  "configura os pinos de dados como entradas"
+F G "lcd_le_byte" 2 28 "int8()" `657 
+V L "dado" 2 29 "int8" `658  "configura os pinos de dados como entradas"
 C L "lcd_le_byte" 2 2 1 "FUNCTION"
 C L "lcd_le_byte" 2 2 1 "FUNCTION"
 C L "lcd_le_byte" 2 2 2 "FUNCTION"
@@ -831,31 +831,31 @@ C L "lcd_le_byte" 2 2 1 "FUNCTION"
 C L "lcd_le_byte" 2 2 1 "FUNCTION"
 C L "lcd_le_byte" 2 2 1 "FUNCTION"
 C L "lcd_le_byte" 2 2 1 "FUNCTION"
-V L "dado" 2 58 "int8" `661  "envia um dado de quatro bits para o display"
-F G "lcd_envia_nibble" 2 60 "void(int8 dado,int8 endereco,int8 lcd_le_byte)" `660  "coloca os quatro bits nas saidas"
+V L "dado" 2 58 "int8" `660  "envia um dado de quatro bits para o display"
+F G "lcd_envia_nibble" 2 60 "void(int8 dado)" `659  "coloca os quatro bits nas saidas"
 C L "lcd_envia_nibble" 2 2 1 "FUNCTION"
-V L "endereco" 2 72 "int8" `663 
-V L "dado" 2 72 "int8" `664 
-F G "lcd_envia_byte" 2 73 "void(int8 endereco,int8 dado)" `662  "coloca a linha rs em 0"
+V L "endereco" 2 72 "int8" `662 
+V L "dado" 2 72 "int8" `663 
+F G "lcd_envia_byte" 2 73 "void(int8 endereco,int8 dado)" `661  "coloca a linha rs em 0"
 C L "lcd_envia_byte" 2 2 3 "FUNCTION"
 C L "lcd_envia_byte" 2 2 3 "FUNCTION"
 C L "lcd_envia_byte" 2 2 1 "FUNCTION"
 C L "lcd_envia_byte" 2 2 1 "FUNCTION"
 C L "lcd_ini" 2 2 1 "FUNCTION"
-F G "lcd_ini" 2 96 "void()" `665 
-V L "conta" 2 97 "int8" `666 
+F G "lcd_ini" 2 96 "void()" `664 
+V L "conta" 2 97 "int8" `665 
 C L "lcd_ini" 2 2 3 "FUNCTION"
 C L "lcd_ini" 2 2 1 "FUNCTION"
-V L "x" 2 121 "int8" `668 
-V L "y" 2 121 "int8" `669 
-F G "lcd_pos_xy" 2 122 "void(int8 x,int8 y)" `667 
-V L "endereco" 2 123 "int8" `670 
-V L "c" 2 132 "int8" `672  "envia caractere para o display"
-F G "lcd_escreve" 2 134 "void(int8 c,int8 x,int8 lcd_pos_xy)" `671 
-V L "x" 2 150 "int8" `674 
-V L "y" 2 150 "int8" `675  "le caractere do display"
-F G "lcd_le" 2 152 "int8(int8 x,int8 y)" `673 
-V L "valor" 2 153 "int8" `676  "seleciona a posi��o do caractere"
+V L "x" 2 121 "int8" `667 
+V L "y" 2 121 "int8" `668 
+F G "lcd_pos_xy" 2 122 "void(int8 x,int8 y)" `666 
+V L "endereco" 2 123 "int8" `669 
+V L "c" 2 132 "int8" `671  "envia caractere para o display"
+F G "lcd_escreve" 2 134 "void(int8 c)" `670 
+V L "x" 2 150 "int8" `673 
+V L "y" 2 150 "int8" `674  "le caractere do display"
+F G "lcd_le" 2 152 "int8(int8 x,int8 y)" `672 
+V L "valor" 2 153 "int8" `675  "seleciona a posi��o do caractere"
 C L "lcd_le" 2 2 1 "FUNCTION"
 C L "lcd_le" 2 2 1 "FUNCTION"
 C L "lcd_le" 2 2 1 "FUNCTION"
@@ -864,80 +864,98 @@ D G "EEPROM_SDA" 3 40 "PIN_C4"
 D G "EEPROM_SCL" 3 41 "PIN_C3"
 D G "EEPROM_ADDRESS" 3 48 "BYTE"
 D G "EEPROM_SIZE" 3 49 "128"
-F G "init_ext_eeprom" 3 51 "void()" `682 
-F G "ext_eeprom_ready" 3 56 "int8()" `683 
-V L "ack" 3 57 "int1" `684 
+F G "init_ext_eeprom" 3 51 "void()" `681 
+F G "ext_eeprom_ready" 3 56 "int8()" `682 
+V L "ack" 3 57 "int1" `683 
 C L "ext_eeprom_ready" 3 2 1 "FUNCTION"
 C L "ext_eeprom_ready" 3 2 1 "FUNCTION"
-V L "address" 3 64 "int8" `686 
-V L "data" 3 64 "int8" `687 
-F G "write_ext_eeprom" 3 64 "void(int8 address,int8 data,int8 address)" `685 
-V L "address" 3 74 "int8" `689 
-F G "read_ext_eeprom" 3 74 "int8(int8 address)" `688 
-V L "data" 3 75 "int8" `690 
+V L "address" 3 64 "int8" `685 
+V L "data" 3 64 "int8" `686 
+F G "write_ext_eeprom" 3 64 "void(int8 address,int8 data)" `684 
+V L "address" 3 74 "int8" `688 
+F G "read_ext_eeprom" 3 74 "int8(int8 address)" `687 
+V L "data" 3 75 "int8" `689 
 C L "tc_tecla" 4 1 5 "FUNCTION"
-V L "timeout" 4 7 "int8" `692 
-F G "tc_tecla" 4 8 "int8(int8 timeout)" `691 
-V L "to" 4 9 "int8" `693 
-V L "k" 4 10 "int8" `694 
+V L "timeout" 4 7 "int8" `691 
+F G "tc_tecla" 4 8 "int8(int8 timeout)" `690 
+V L "to" 4 9 "int8" `692 
+V L "k" 4 10 "int8" `693 
 C L "tc_tecla" 4 1 2 "FUNCTION"
 C L "tc_tecla" 4 1 1 "FUNCTION"
 C L "tc_tecla" 4 1 1 "FUNCTION"
 C L "tc_tecla" 4 1 1 "FUNCTION"
 C L "tc_tecla" 4 1 2 "FUNCTION"
-F G "TIMER1_isr" 0 109 "void()" `695  "-------------------------------------------"
-C L "TIMER1_isr" 0 112 11 "FUNCTION"
-F G "RTCC_isr" 0 132 "void()" `696 
-F G "MAIN" 0 140 "void()" `697  "VARIAVEIS"
-V L "result" 0 142 "int8" `698 
-V L "address" 0 144 "int8" `699 
-C L "MAIN" 0 112 1 "FUNCTION"
-C L "MAIN" 0 112 1 "FUNCTION"
-C L "MAIN" 0 112 5 "FUNCTION"
-C L "MAIN" 0 112 1 "FUNCTION"
-V L "pass" 0 173 "int8[4]" `705 
-C L "MAIN" 0 112 3 "FUNCTION"
-C L "MAIN" 0 112 1 "FUNCTION"
-C L "saveUser" 0 112 10 "FUNCTION"
-V L "id" 0 220 "int8" `639 
-V L "pass" 0 220 "*int8" `640 
-V L "status" 0 220 "int8" `641 
-V L "type_usr" 0 220 "int8" `710 
-F G "saveUser" 0 220 "void(int8 id,*int8 pass,int8 status,int8 type_usr)" `638 
-V L "address" 0 223 "int8" `706 
-C L "saveUser" 0 112 1 "FUNCTION"
-V L "User" 0 225 "User" `707 
-C L "saveUser" 0 112 1 "FUNCTION"
-F G "printUser" 0 255 "void()" `643  "delay_ms(50);"
-C L "printUser" 0 112 2 "FUNCTION"
-V L "id" 0 268 "int8" `722 
-F G "getAddressByID" 0 268 "int8(int8 id)" `644 
-V L "id_temp" 0 269 "int8" `721 
-V L "address" 0 270 "int8" `722 
-V L "addrr" 0 287 "int8" `726 
-F G "erase_program_eeprom" 0 287 "void(int8 addrr)" `650 
-V L "i" 0 288 "int8" `725 
-V L "address" 0 295 "int8" `728 
-F G "deleteBlock" 0 295 "int8(int8 address)" `648 
-V L "data_temp" 0 297 "int8" `727 
-V L "previous_block" 0 298 "int8" `728 
-V L "next_block" 0 299 "int8" `729 
-C L "deleteBlock" 0 112 1 "FUNCTION"
-C L "deleteBlock" 0 112 1 "FUNCTION"
-C L "deleteBlock" 0 112 1 "FUNCTION"
-V L "i" 0 310 "int8" `730 
-C L "deleteBlock" 0 112 1 "FUNCTION"
-C L "deleteBlock" 0 112 1 "FUNCTION"
-F G "lastNewUserPosition" 0 328 "int8()" `653 
-V L "address" 0 329 "int8" `731 
-V L "id_temp" 0 330 "int8" `732 
-V L "id" 0 342 "int8" `735 
-F G "isIdAvailable" 0 342 "int8(int8 id)" `646 
-V L "address" 0 343 "int8" `734 
-V L "id_temp" 0 344 "int8" `735 
-C L "isIdAvailable" 0 112 1 "FUNCTION"
-F G "resetMemory" 0 360 "void()" `654 
-V L "address" 0 361 "int8" `741 
+F G "TIMER1_isr" 0 109 "void()" `694 
+F G "RTCC_isr" 0 115 "void()" `695 
+F G "MAIN" 0 123 "void()" `696  "VARIAVEIS"
+V L "result" 0 125 "int8" `697 
+V L "tmp" 0 126 "int8" `698 
+V L "tmp_result" 0 127 "int8" `699 
+V L "address" 0 129 "int8" `700 
+C L "MAIN" 0 131 1 "FUNCTION"
+C L "MAIN" 0 131 1 "FUNCTION"
+C L "MAIN" 0 131 1 "FUNCTION"
+C L "MAIN" 0 131 3 "FUNCTION"
+V L "size" 0 151 "int8" `706 
+C L "MAIN" 0 131 13 "FUNCTION"
+V L "admins" 0 170 "*int8" `716 
+V L "i" 0 173 "int16" `717 
+C L "MAIN" 0 131 5 "FUNCTION"
+C L "MAIN" 0 131 1 "FUNCTION"
+C L "saveUser" 0 131 10 "FUNCTION"
+V L "id" 0 219 "*int8" `636 
+V L "pass" 0 219 "*int8" `637 
+V L "status" 0 219 "int8" `722 
+F G "saveUser" 0 219 "void(*int8 id,*int8 pass,int8 status)" `635 
+V L "address" 0 222 "int8" `719 
+C L "saveUser" 0 131 1 "FUNCTION"
+V L "User" 0 224 "User" `720 
+C L "saveUser" 0 131 1 "FUNCTION"
+F G "printUser" 0 256 "void()" `639  "delay_ms(50);"
+V L "tmp_result" 0 258 "int8" `724 
+C L "printUser" 0 131 2 "FUNCTION"
+V L "id" 0 269 "*int8" `731 
+F G "getAddressByID" 0 269 "int8(*int8 id)" `730 
+V L "id_temp" 0 270 "int8[2]" `732 
+V L "address" 0 271 "int8" `733 
+V L "addrr" 0 290 "int8" `737 
+F G "erase_program_eeprom" 0 290 "void(int8 addrr)" `646 
+V L "i" 0 291 "int8" `736 
+V L "address" 0 298 "int8" `739 
+F G "deleteUser" 0 298 "int8(int8 address)" `644 
+V L "data_temp" 0 300 "int8" `738 
+V L "previous_block" 0 301 "int8" `739 
+V L "next_block" 0 302 "int8" `740 
+C L "deleteUser" 0 131 1 "FUNCTION"
+C L "deleteUser" 0 131 1 "FUNCTION"
+C L "deleteUser" 0 131 1 "FUNCTION"
+V L "i" 0 313 "int8" `741 
+C L "deleteUser" 0 131 1 "FUNCTION"
+C L "deleteUser" 0 131 1 "FUNCTION"
+F G "lastNewUserPosition" 0 331 "int8()" `649 
+V L "address" 0 332 "int8" `742 
+V L "id_temp" 0 333 "int8" `743 
+V L "id" 0 345 "int8" `746 
+F G "isIdAvailable" 0 345 "int8(int8 id)" `642 
+V L "address" 0 346 "int8" `745 
+V L "id_temp" 0 347 "int8" `746 
+C L "isIdAvailable" 0 131 1 "FUNCTION"
+F G "resetMemory" 0 363 "void()" `650 
+V L "address" 0 364 "int8" `749 
+C L "readKeyboard" 0 131 8 "FUNCTION"
+F G "readKeyboard" 0 387 "int8()" `652 
+V L "tmp" 0 388 "int8" `750 
+V L "tmp_result" 0 389 "int8" `751 
+C L "readKeyboard" 0 131 1 "FUNCTION"
+C L "readKeyboard" 0 131 1 "FUNCTION"
+F G "getAdminID" 0 406 "*int8()" `653 
+V L "address" 0 408 "int8" `754 
+V L "temp_status" 0 409 "int8" `755 
+V L "index" 0 410 "int8" `756 
+V L "admins" 0 411 "int8[7]" `757 
+C L "getAdminID" 0 131 1 "FUNCTION"
+V L "i" 0 420 "int8" `760 
+V L "id" 0 421 "int8" `761 
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 0

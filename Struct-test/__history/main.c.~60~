@@ -41,8 +41,7 @@ int lastNewUserPosition();
 void resetMemory();
 void adminMenu();
 unsigned char readKeyboard(); 
-int * getAdminsID();
-void listAdmins();
+int * getAdminID();
 // ----------------
 /*
 // ---- MSG from serial communication
@@ -108,7 +107,7 @@ void RDA_isr(void){
 #int_TIMER1
 void TIMER1_isr(void)
 {
-   // readKeyboard();
+   readKeyboard();
 }
 
 #int_RTCC
@@ -144,7 +143,7 @@ void main()
    lcd_ini();
    delay_us(50);
    printf(lcd_escreve, "\f  iniciando... ");
-   delay_ms(500);
+   delay_ms(1000);
 
    printf(lcd_escreve, "\fIFMT - Serial");
    delay_ms(50);
@@ -153,26 +152,26 @@ void main()
    printf(lcd_escreve, "\fBlock_Size:%u", size);
    delay_ms(500);
 
-   // resetMemory();
+   resetMemory();
    
-   // data_avail = FALSE;
-   // int pass [4] = {1,2,3,4};
-   // int id [2] = {12,12};
-   // saveUser(id, pass, 1);
-   // int id1 [2] = {14,0};
-   // saveUser(id1, pass, 0);
-   // int id2 [2] = {5,5};
-   // saveUser(id2, pass, 1);
-   // int id3 [2] = {70,00};
-   // saveUser(id3, pass, 1);
-   // int id4 [2] = {254,254};
-   // saveUser(id4, pass, 3);//admin
+   data_avail = FALSE;
+   int pass [4] = {1,2,3,4};
+   int id [2] = {12,12};
+   saveUser(id, pass, 1);
+   int id1 [2] = {14,0};
+   saveUser(id1, pass, 0);
+   int id2 [2] = {5,5};
+   saveUser(id2, pass, 1);
+   int id3 [2] = {70,00};
+   saveUser(id3, pass, 1);
+   int id4 [2] = {254,254};
+   saveUser(id4, pass, 3);//admin
 
    int * admins;
 
    admins = getAdminID();
-   for (int16 i=0; i < sizeof(admins); i+=2){
-      printf(lcd_escreve, "\fid:%u%u",admins[i], admins[i+1]);
+   for (int16 i=0; i < 2; i++){
+      printf(lcd_escreve, "\fid:%u %u",admins[i], admins[i+1]);
       delay_ms(1000);
    } 
    
@@ -267,16 +266,14 @@ void printUser(){
    // printf(lcd_escreve, "\r\nPw:%c%c%c%c St:%c %c", U1.pass[0], U1.pass[1], U1.pass[2], U1.pass[3], U1.status, U1.type_usr);
 }
 
-int getAddressByID(int * id){
-   int id_temp[2];
+int getAddressByID(int id){
+   int id_temp;
    int address = 0;
    
    while( read_ext_eeprom(address) != -1){
-      id_temp[0] = read_ext_eeprom(address);
-      id_temp[1] = read_ext_eeprom(address+1);
-      
-      if (id_temp[0] == id[0] && id_temp[1] == id[1]){
-         printf (lcd_escreve,"\fID Encontrado:%u%u", id_temp[0],id_temp[1]);
+      id_temp = read_ext_eeprom(address);
+      if (id_temp == id){
+         printf (lcd_escreve,"\fID Encontrado:%d", id_temp);
          delay_ms(1000);
          return address;
       }
@@ -404,19 +401,19 @@ unsigned char readKeyboard(){
 }
 
 
-int * getAdminsID(){
+int * getAdminID(){
 
    int address = 0;
    int temp_status;
    int index= 0;
    static int admins[BLOCK_SIZE];
-   admins[0] = -1;
+   admins[0] = 0;
    while( read_ext_eeprom(address) != -1){
-      temp_status = read_ext_eeprom(address + (BLOCK_SIZE - 1));//status of the user
+      temp_status = address + (BLOCK_SIZE - 1);//status of the user
       if (temp_status == 3){
          printf (lcd_escreve,"\fAdmin Encontrado");
          delay_ms(1000);
-         for(int i=0; i < 2; i++){
+         for(i=0; i < 2; i++){
             int id = read_ext_eeprom(address+i);   
             admins[index] = id;
             index++;
@@ -429,16 +426,4 @@ int * getAdminsID(){
 
    return admins;
 
-}
-
-void listAdmins(){
-   int * admins;
-
-   admins = getAdminID();
-   if(admins[0] > -1){
-      for (int16 i=0; i < sizeof(admins); i+=2){
-         printf(lcd_escreve, "\fid:%u%u",admins[i], admins[i+1]);
-         delay_ms(1000);
-      } 
-   }
 }
