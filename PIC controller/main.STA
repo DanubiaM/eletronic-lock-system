@@ -1,88 +1,118 @@
 
-ROM used:   1223/8192 (15%)
-            1223/8192 (15%) including unused fragments
+ROM used:   3645/8192 (44%)
+            3650/8192 (45%) including unused fragments
 
-            0.8 Average locations per line
-            3.3 Average locations per statement
+            1.1 Average locations per line
+            4.7 Average locations per statement
 
-RAM used:   46/368 (12%) at main() level
-            80/368 (22%) worst case
+RAM used:   59/368 (16%) at main() level
+            160/368 (43%) worst case
 
 Stack used: 6 worst case (5 in main + 1 for interrupts)
 Stack size: 8
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-  145    14   4  main.c
+  169    15   2  main.c
   672     0   0  ..\..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h
-  304   141  38  functions.c
-   36     0   0  functions.h
-  165    72  19  mod_lcd.c
-   87    23   6  ..\..\..\..\..\Program Files (x86)\PICC\Drivers\2401.c
-   56   123  33  kbd_board4.c
+  385   185  24  functions.c
+   39     0   0  functions.h
+  165    72   9  mod_lcd.c
+   87    23   3  ..\..\..\..\..\Program Files (x86)\PICC\Drivers\2401.c
+   56   123  16  kbd_board4.c
+ 1351   359  46  ..\..\..\..\..\Program Files (x86)\PICC\Drivers\stdlib.h
+   32     0   0  ..\..\..\..\..\Program Files (x86)\PICC\Drivers\stddef.h
+  423     0   0  ..\..\..\..\..\Program Files (x86)\PICC\Drivers\string.h
+   28     0   0  ..\..\..\..\..\Program Files (x86)\PICC\Drivers\ctype.h
 ----- -----
- 1465   373 Total
+ 3407   777 Total
 
 Page ROM  %  RAM    Vol Diff  Functions:
 ---- --- --- ---    --- ----  ----------
-0     20   2    1             @delay_ms1
-0      8   1    0             @const630
-0     39   3    1    260  1.9  lcd_envia_nibble
-0     33   3    3    176  2.7  lcd_envia_byte
-0     61   5    2    433  4.3  lcd_ini
+0     20   1    1             @delay_ms1
+0      8   0    0    496  8.2  @const630
+0     49   1    1    260  1.9  lcd_envia_nibble
+0     41   1    3    176  2.7  lcd_envia_byte
+0     73   2    2    433  4.3  lcd_ini
  Inline         4    186  5.5  lcd_pos_xy
-0     55   4    1    290  4.1  lcd_escreve
-0     13   1    0     32  1.0  init_ext_eeprom
+0     67   2    1    290  4.1  lcd_escreve
+ Inline         3    386  7.4  @I2C_READ_1
+0     92   3    1    276  7.0  @I2C_WRITE_1
+0     13   0    0     32  1.0  init_ext_eeprom
+0     76   2    1     84  2.4  ext_eeprom_ready
+0     80   2    2    134  2.8  write_ext_eeprom
+0    208   6    2    207  3.3  read_ext_eeprom
  Inline         4   3587  6.5  tc_tecla
-0      6   0    0     74  2.5  @const695
-0     86   7    4    654  9.4  @PSTRINGC7_646
-0     10   1    0    466  6.9  @const699
-0      9   1    0      5  1.0  @const700
-0      9   1    0      5  1.0  @const701
-0      7   1    0             @const703
-0     87   7    5             @PSTRINGCN7_646
-0     12   1    0             @const712
-0     10   1    0             @const715
-0      9   1    0             @const719
-0      8   1    0             @const721
-0      7   1    0             @const728
-0      8   1    0             @const733
-0      9   1    0             @const734
-0    171  14   19   1117 10.1  adminMenu
-0      7   1    0             @const738
-0      7   1    0             @const740
-0      7   1    0             @const741
-0      7   1    0    153  4.2  @const743
-0    311  25    2    153  4.2  readKeyboard
-0      7   1    0    654  9.4  @const746
-0      9   1    0    466  6.9  @const751
-0      8   1    0             @const755
-0      5   0    0    153  4.2  @const756
-0      5   0    0      5  1.0  @const758
+0     43   1    9    276  7.0  memchr
+ Inline         6   2308 12.4  @MULS1616
+1    532  15   52   2308 12.4  strtoul
+ Inline         6   1610  7.5  saveUser
+0      6   0    0             @const974
+0    122   3    5             @PSTRINGCN7_646
+0     23   1    3             @DIV88
+0     63   2    2             @PRINTF_U_646
+0     10   0    0             @const985
+0    116   3    4    257  2.2  @PSTRINGC7_646
+0      9   0    0             @const987
+0      9   0    0             @const988
+0      7   0    0             @const990
+ Inline         6             @PRINTF_D_646
+0     12   0    0    578  8.3  @const994
+ Inline         6    578  8.3  getAddressByID
+0     10   0    0             @const997
+0      9   0    0             @const998
+ Inline         2    191  4.9  erase_program_eeprom
+0      8   0    0             @const1000
+ Inline         3    196  4.9  lastNewUserPosition
+0      7   0    0             @const1007
+0      8   0    0             @const1012
+0      9   0    0             @const1013
+0     50   1    2    120  4.2  resetMemory
+1    976  27   18   2748 10.6  adminMenu
+0      7   0    0             @const1017
+0      7   0    0             @const1023
+0      7   0    0             @const1024
+0      5   0    0    153  4.2  @const1025
+0      8   0    0    153  4.2  @const1026
+0      8   0    0    654  9.4  @const1027
+0     10   0    0    654  9.4  @const1029
+0      8   0    0    153  4.2  @const1030
+0      9   0    0    399  6.8  @const1031
+0      6   0    0    654  9.4  @const1033
+0    321   9    2    153  4.2  readKeyboard
+0      7   0    0    501  6.7  @const1036
+0      9   0    0      5  1.0  @const1041
+0      8   0    0      5  1.0  @const1045
+0      5   0    0      5  1.0  @const1047
+0    240   7    6    597  6.8  strToInt
+0      6   0    0      5  1.0  @const1050
+ Inline         2      5  1.0  @PSTRINGR_646
+ Inline         9      5  1.0  @PRINTF_LU_646
+0     19   1    5     98  3.2  strfromchar
 0      4   0    0      5  1.0  TIMER1_isr
 0      4   0    0      5  1.0  RTCC_isr
-0     68   6    4    385  3.3  MAIN
-0      9   1    0    466  6.9  @const767
+1     94   3    4    404  3.3  MAIN
+0      9   0    0             @const1066
  Inline         0             @cinit1
 
 Program metrics:
-    Functions               23
-    Statements              373
-    Comments                351
-    Volume (V)              15546
-    Difficulty (D)          97.7
-    Effort to implement (E) 1518119
-    Time to implement (T)   23 hours, 26 minutes
-    Est Delivered Bugs (B)  4
-    Cyclomatic Complexity   46
-    Maintainability (MI)    80
+    Functions               44
+    Statements              777
+    Comments                919
+    Volume (V)              38721
+    Difficulty (D)          219.3
+    Effort to implement (E) 8492562
+    Time to implement (T)   131 hours, 3 minutes
+    Est Delivered Bugs (B)  14
+    Cyclomatic Complexity   91
+    Maintainability (MI)    125
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00003     4  0  
 00004-00057    84  0  
-00058-007FF  1135  825  
-00800-00FFF     0  2048  
+00058-007FF  1955  5  
+00800-00FFF  1602  446  
 01000-017FF     0  2048  
 01800-01FFF     0  2048  
 

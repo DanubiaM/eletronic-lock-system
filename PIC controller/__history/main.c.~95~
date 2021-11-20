@@ -111,11 +111,11 @@ void main()
    // printf(lcd_escreve, "\fBlock_Size:%u", size);
    // delay_ms(500);
 
-   resetMemory();
-
+   // resetMemory();
+   
    // data_avail = FALSE;
-   // int id [2] = {12,34};
    // int pass [4] = {1,2,3,4};
+   // int id [2] = {12,12};
    // saveUser(id, pass, 1);
    // int id1 [2] = {14,0};
    // saveuser(id1, pass, 0);
@@ -128,31 +128,18 @@ void main()
    // adminMenu();
    
    //// listAdmins();
-   adminMenu();
+   // adminMenu();
 
 
-
-
-   // char keyboard_buffer[]= '6';
-   // char n = '9';
-   // unsigned char temp_pass[2];
-   // unsigned int * buffer;
-   // unsigned int pass[4];
-   // strfromchar(temp_pass,n);
-   // buffer = strToInt(temp_pass);
-   // pass[0] = buffer[0];
-
-   // printf(lcd_escreve,"\foutside:%u", pass[0]);
-   // delay_ms(800);
-
-
-   // int index = 2;
-   // if(index>0){//for testing purposes
-   //    for(int i=0; i < index; i++){
-   //       printf(lcd_escreve,"\foutside:%u", buffer[i]);
-   //       delay_ms(800);
-   //    }
-   // }
+   char keyboard_buffer[] = {'6','9', ' ', '8','8'};
+   char buffer = strToInt(keyboard_buffer);
+   index = 2;
+   if(index>0){//for testing purposes
+      for(int i=0; i < index; i++){
+         printf(lcd_escreve,"\fFOra:%u", buffer[i]);
+         delay_ms(800);
+      }
+   }
  
  
   // address_data_delete = getAddressByID(6);

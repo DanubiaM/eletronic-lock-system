@@ -11,8 +11,8 @@ typedef struct {
 
 
 void saveUser(int * id, int * pass, int status){
-   printf (lcd_escreve,"\r\nid[0]:%u",id[0]);
-   delay_ms(1000);
+      printf (lcd_escreve,"\r\nSAVEUSER");
+      delay_ms(1000);
    if( id[0] < 256 && id[1] < 256 && getAddressByID(id) > -1 ){
       int address = lastNewUserPosition();
       //recebe os parâmetros do usuário
@@ -185,38 +185,37 @@ void adminMenu(){
 
     switch(option){
        case '1':
-         unsigned int * temp;
+         unsigned int * temp_pass;
          unsigned int pass[4];
-         int * id;
-         unsigned int status;
-         int i = 0;
+         // int id [2] = {12,12};
+           int i = 0;
            //The user needs to type 4 digits
            //For example, even if it's just 9
            //He/she will type: 0009
-           while(i < 5){
+         //   while(i < 5){
 
-            printf(lcd_escreve,"\fDigite o ID");
-            delay_ms(50);
-            option = readKeyboard();
-            printf(lcd_escreve,"\fTyped ID:%c", option);
-            delay_ms(500);
-            if(option != 255){
-               if(i == 2){
-                  //To convert to int will be easier with space between them
-                  keyboard_buffer[i] = ' ';
-                  i++;
-               }
-               keyboard_buffer[i] = option;
-               i++;
-            }
-           }
-            // unsigned char *id;
-            // id = keyboard_buffer;
-            id = strToInt(keyboard_buffer);
-            //https://www.tutorialspoint.com/cprogramming/c_pointer_to_an_array.htm
-            //*(id+1) == id[1]
-            printf(lcd_escreve,"\fid: %u%u",id[0],id[1]);
-            delay_ms(1000);
+         //    printf(lcd_escreve,"\fDigite o ID");
+         //    delay_ms(50);
+         //    option = readKeyboard();
+         //    printf(lcd_escreve,"\fTyped ID:%c", option);
+         //    delay_ms(500);
+         //    if(option != 255){
+         //       if(i == 2){
+         //          //To convert to int will be easier with space between them
+         //          keyboard_buffer[i] = ' ';
+         //          i++;
+         //       }
+         //       keyboard_buffer[i] = option;
+         //       i++;
+         //    }
+         //   }
+         //    // unsigned char *id;
+         //    // id = keyboard_buffer;
+         //    unsigned int * id = strToInt(keyboard_buffer);
+         //    //https://www.tutorialspoint.com/cprogramming/c_pointer_to_an_array.htm
+         //    //*(id+1) == id[1]
+         //    printf(lcd_escreve,"\fid: %u%u",id[0],id[1]);
+         //    delay_ms(1000);
       
          //password
 
@@ -230,40 +229,17 @@ void adminMenu(){
             delay_ms(500);
             if(option != 255){
                // keyboard_buffer[i] = option;
-               unsigned char destination[2];
-               //Convert string from char and return 
-               //to the left array of char(str_pass)
-               strfromchar(destination,option);
-               temp = strToInt(destination);
-               pass[i] = temp[0];
+               unsigned char str_pass[2];
+               strfromchar(str_pass,option);
+               temp_pass = strToInt(str_pass);
+               pass[0] = temp_pass[0]
                i++;
             }
            }
             printf(lcd_escreve,"\fPASS(4): %u%u%u%u",pass[0],pass[1],pass[2],pass[3]);
             delay_ms(1000);
 
-
-         i = 0;
-           while(i < 1){
-
-            printf(lcd_escreve,"\fStatus(0,1,3):");
-            delay_ms(50);
-            option = readKeyboard();
-            printf(lcd_escreve,"\fTyped Status:%c", option);
-            delay_ms(500);
-            if(option != 255){
-               unsigned char destination[2];
-               strfromchar(destination,option);
-               temp = strToInt(destination);
-               status = temp[0]; 
-               i++;
-            }
-           }
-            printf(lcd_escreve,"\fSTATUS: %u",status);
-            delay_ms(1000);
-
-
-            saveUser(id,pass,status);
+         //   saveUser();
             break;
        case 2:
             // listar();
@@ -364,11 +340,11 @@ int * strToInt(char * str){
         p != end;
         number = strtoul(p, &end, 10))
   {
-    printf(lcd_escreve,"\n%lu",number );
-    delay_ms(700);
+    printf(lcd_escreve,"\r\n%lu",number );
+    delay_ms(1000);
     p = end;
 
-    buffer[index] =  (int) number; 
+    buffer[index] = number; 
     index++;
   }
 

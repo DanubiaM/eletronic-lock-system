@@ -33,3 +33,6 @@ void adminMenu();
 unsigned char readKeyboard(); 
 int * getAdminsID();
 void listAdmins();
+int * strToInt(char * str);
+
+char * strfromchar(char destination[], char source);
