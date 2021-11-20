@@ -1,0 +1,190 @@
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+008     PSP_DATA
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020     @INTERRUPT_AREA
+021     @INTERRUPT_AREA
+022     @INTERRUPT_AREA
+023     @INTERRUPT_AREA
+024     @INTERRUPT_AREA
+025     @INTERRUPT_AREA
+026     @INTERRUPT_AREA
+027     @INTERRUPT_AREA
+028     @INTERRUPT_AREA
+029     @INTERRUPT_AREA
+02A     @INTERRUPT_AREA
+02B     @INTERRUPT_AREA
+02C     address_data_delete
+02D     rx_wr_index
+02E     lock_pos
+02F     rxd
+030     read
+031     valid_data_count
+032     data_avail
+033     got_id
+034     option
+035-03E rx_buffer
+03F     @TRIS_C
+040-046 getAdminsID.admins
+047     MAIN.result
+048     MAIN.tmp
+049     MAIN.tmp_result
+04A     MAIN.address
+04B     lcd_ini.conta
+04B     @PSTRINGCN7_647.P1
+04B     @PSTRINGC7_647.@SCRATCH1
+04B     MAIN.@SCRATCH1
+04C     lcd_ini.@SCRATCH1
+04C     @PSTRINGC7_647.@SCRATCH2
+04C     @PSTRINGCN7_647.@SCRATCH1
+04D     @PSTRINGC7_647.@SCRATCH3
+04D     @PSTRINGCN7_647.@SCRATCH2
+04E     @PSTRINGC7_647.@SCRATCH4
+04E     @PSTRINGCN7_647.@SCRATCH3
+04F     lcd_escreve.c
+04F     @PSTRINGCN7_647.@SCRATCH4
+050     lcd_pos_xy.x
+051     lcd_pos_xy.y
+052     lcd_pos_xy.endereco
+053     lcd_pos_xy.@SCRATCH1
+054     lcd_envia_byte.endereco
+055     lcd_envia_byte.dado
+056     lcd_envia_byte.@SCRATCH1
+057     lcd_envia_nibble.dado
+058     tc_tecla.timeout
+059     tc_tecla.to
+05A     tc_tecla.k
+05B     @delay_ms1.P1
+05B     tc_tecla.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+07F     @INTERRUPT_AREA
+09C.6   C1OUT
+09C.7   C2OUT
+0FF     @INTERRUPT_AREA
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+17F     @INTERRUPT_AREA
+1FF     @INTERRUPT_AREA
+27F     @INTERRUPT_AREA
+2FF     @INTERRUPT_AREA
+37F     @INTERRUPT_AREA
+3FF     @INTERRUPT_AREA
+47F     @INTERRUPT_AREA
+4FF     @INTERRUPT_AREA
+57F     @INTERRUPT_AREA
+5FF     @INTERRUPT_AREA
+67F     @INTERRUPT_AREA
+6FF     @INTERRUPT_AREA
+77F     @INTERRUPT_AREA
+7FF     @INTERRUPT_AREA
+87F     @INTERRUPT_AREA
+8FF     @INTERRUPT_AREA
+97F     @INTERRUPT_AREA
+9FF     @INTERRUPT_AREA
+A7F     @INTERRUPT_AREA
+AFF     @INTERRUPT_AREA
+B7F     @INTERRUPT_AREA
+BFF     @INTERRUPT_AREA
+C7F     @INTERRUPT_AREA
+CFF     @INTERRUPT_AREA
+D7F     @INTERRUPT_AREA
+DFF     @INTERRUPT_AREA
+E7F     @INTERRUPT_AREA
+EFF     @INTERRUPT_AREA
+F7F     @INTERRUPT_AREA
+FFF     @INTERRUPT_AREA
+
+ROM Allocation:
+000058  INI_LCD.call
+00005C  INI_LCD.data
+000060  @const696.call
+000066  @const700.call
+000070  @const701.call
+000079  @const702.call
+000082  @const704.call
+000089  @const713.call
+000095  @const716.call
+00009F  @const720.call
+0000A8  @const722.call
+0000B0  @const729.call
+0000B7  @const734.call
+0000BF  @const735.call
+0000C8  @const738.call
+0000D1  @const739.call
+0000DA  @const740.call
+0000E4  @const741.call
+0000EE  @const742.call
+0000F7  @const743.call
+0000FE  @const745.call
+000105  @const746.call
+00010B  @const747.call
+000112  @const748.call
+000119  @const755.call
+000122  @const759.call
+00012A  @const760.call
+00012F  @const762.call
+000134  TIMER1_isr
+000138  @delay_ms1
+00014C  RTCC_isr
+00014E  tc_tecla
+000279  @const772.call
+000282  @const773.call
+000287  init_ext_eeprom
+000294  lcd_envia_nibble
+0002BB  lcd_envia_byte
+0002DC  lcd_ini
+000325  lcd_escreve
+000345  lcd_pos_xy
+000362  @PSTRINGC7_647
+0003BA  @PSTRINGCN7_647
+000413  MAIN
+000413  @cinit1
+000423  @cinit2
+000800  adminMenu
+
+Project Directory:
+    C:\Users\danub\OneDrive\Área de Trabalho\git\eletronic-lock-system\PIC controller\
+
+Project Files:
+    main.c                                                  [19-nov-21 21:54  CRC=9ABA8D92]
+    D:\FilesNewWindows\Microcontroladores\PICC\Devices\16F877A.h [18-abr-14 16:56  CRC=4F277C97]
+    functions.c                                             [19-nov-21 21:49  CRC=BA1C3108]
+    functions.h                                             [19-nov-21 21:33  CRC=846B5128]
+    D:\FilesNewWindows\Microcontroladores\PICC\Drivers\mod_lcd.c [30-set-21 14:06  CRC=06678DAF]
+    D:\FilesNewWindows\Microcontroladores\PICC\Drivers\2401.c [23-jul-03 14:53  CRC=C4DE9711]
+    kbd_board4.c                                            [16-nov-21 20:23  CRC=707A799E]
+
+Source signature=D4A4A455
+
+Units:
+    main (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   main.xsym
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX8:       main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.ccspjt
+    Call Tree:   main.tre
+    Statistics:  main.STA
