@@ -1,7 +1,7 @@
 D G "__PCM__" 0 170 ""5.025""
 D G "__DEVICE__" 0 170 "877"
 D G "__DATE__" 0 170 ""20-Nov-21""
-D G "__TIME__" 0 170 ""17:49:19"" "Standard Header file for the PIC16F877A device ////////////////"
+D G "__TIME__" 0 170 ""19:34:18"" "Standard Header file for the PIC16F877A device ////////////////"
 c L "set_tris_a" 1 3 6 "FUNCTION"
 v L "value" 1 37 "int8" `54 
 f B "set_tris_a" 1 37 "void(int8 value)" `53 
@@ -1329,62 +1329,63 @@ V L "keyboard_buffer" 2 167 "int8[14]" `1015
 V L "option" 2 168 "int8" `1016  "printf(lcd_escreve,"\f1: CAD Cliente ");"
 C L "adminMenu" 2 18 9 "FUNCTION"
 V L "temp" 2 188 "*int8" `1018 
-V L "pass" 2 189 "int8[4]" `1019 
-V L "id" 2 190 "*int8" `1020 
+V L "id" 2 189 "int8[2]" `1019 
+V L "pass" 2 190 "int8[4]" `1020 
 V L "status" 2 191 "int8" `1021 
 V L "i" 2 192 "int8" `1022 
 C L "adminMenu" 2 18 3 "FUNCTION"
 C L "adminMenu" 2 18 1 "FUNCTION"
 C L "adminMenu" 2 18 2 "FUNCTION"
 C L "adminMenu" 2 18 1 "FUNCTION"
-C L "adminMenu" 2 217 1 "*"
-C L "adminMenu" 2 217 1 "FUNCTION"
-C L "adminMenu" 2 217 1 "FUNCTION"
-V L "destination" 2 233 "int8[2]" `1028  "Convert string from char and return"
-C L "adminMenu" 2 217 1 "FUNCTION"
-V L "destination" 2 255 "int8[2]" `1032 
-C L "adminMenu" 2 217 1 "FUNCTION"
-C L "adminMenu" 2 217 1 "FUNCTION"
-C L "adminMenu" 2 217 1 "FUNCTION"
-C L "adminMenu" 2 217 1 "FUNCTION"
-C L "adminMenu" 2 217 1 "FUNCTION"
-F G "readKeyboard" 2 289 "int8()" `687 
-V L "tmp" 2 290 "int8" `1034 
-V L "tmp_result" 2 291 "int8" `1035 
-C L "readKeyboard" 2 217 1 "FUNCTION"
-C L "readKeyboard" 2 217 7 "FUNCTION"
-F G "getAdminsID" 2 310 "*int8()" `688 
-V L "address" 2 312 "int8" `1037 
-V L "temp_status" 2 313 "int8" `1038 
-V L "index" 2 314 "int8" `1039 
-V L "admins" 2 315 "int8[7]" `1040 
-C L "getAdminsID" 2 217 1 "FUNCTION"
-V L "i" 2 322 "int8" `1042 
-V L "id" 2 323 "int8" `1043 
-F G "listAdmins" 2 337 "void()" `689 
-V L "admins" 2 338 "*int8" `1044 
-V L "i" 2 344 "int16" `1046 
-V L "str" 2 352 "*int8" `1049 
-F G "strToInt" 2 352 "*int8(*int8 str)" `690 
-V L "p" 2 354 "*int8" `1048 
-C L "strToInt" 2 217 2 "FUNCTION"
-V L "buffer" 2 357 "int8[7]" `1049 
-V L "end" 2 360 "*int8" `1052 
-V L "index" 2 361 "int8" `1053 
-V L "number" 2 363 "int16" `1054 
-V L "destination" 2 378 "*int8" `693 
-V L "source" 2 378 "int8" `1060 
-F G "strfromchar" 2 379 "*int8(*int8 destination,int8 source)" `692 
-C L "strfromchar" 2 217 1 "FUNCTION"
-C L "strfromchar" 2 217 1 "FUNCTION"
-C L "strfromchar" 2 217 1 "FUNCTION"
+C L "adminMenu" 2 219 1 "*"
+C L "adminMenu" 2 219 1 "FUNCTION"
+C L "adminMenu" 2 219 1 "FUNCTION"
+V L "destination" 2 235 "int8[2]" `1028  "Convert string from char and return"
+C L "adminMenu" 2 219 1 "FUNCTION"
+V L "destination" 2 257 "int8[2]" `1032 
+C L "adminMenu" 2 219 1 "FUNCTION"
+C L "adminMenu" 2 219 1 "FUNCTION"
+C L "adminMenu" 2 219 1 "FUNCTION"
+C L "adminMenu" 2 219 1 "FUNCTION"
+C L "adminMenu" 2 219 1 "FUNCTION"
+F G "readKeyboard" 2 291 "int8()" `687 
+V L "tmp" 2 292 "int8" `1034 
+V L "tmp_result" 2 293 "int8" `1035 
+C L "readKeyboard" 2 219 1 "FUNCTION"
+C L "readKeyboard" 2 219 7 "FUNCTION"
+F G "getAdminsID" 2 312 "*int8()" `688 
+V L "address" 2 314 "int8" `1037 
+V L "temp_status" 2 315 "int8" `1038 
+V L "index" 2 316 "int8" `1039 
+V L "admins" 2 317 "int8[7]" `1040 
+C L "getAdminsID" 2 219 1 "FUNCTION"
+V L "i" 2 324 "int8" `1042 
+V L "id" 2 325 "int8" `1043 
+F G "listAdmins" 2 339 "void()" `689 
+V L "admins" 2 340 "*int8" `1044 
+V L "i" 2 346 "int16" `1046 
+V L "str" 2 354 "*int8" `1049 
+F G "strToInt" 2 354 "*int8(*int8 str)" `690 
+V L "p" 2 356 "*int8" `1048 
+C L "strToInt" 2 219 2 "FUNCTION"
+V L "buffer" 2 359 "int8[7]" `1049  "printf(lcd_escreve,"\fParsing: %s",p);"
+C L "strToInt" 2 219 1 "FUNCTION"
+V L "end" 2 362 "*int8" `1050 
+V L "index" 2 363 "int8" `1051 
+V L "number" 2 365 "int8" `1052 
+V L "destination" 2 380 "*int8" `693 
+V L "source" 2 380 "int8" `1056 
+F G "strfromchar" 2 381 "*int8(*int8 destination,int8 source)" `692 
+C L "strfromchar" 2 219 1 "FUNCTION"
+C L "strfromchar" 2 219 1 "FUNCTION"
+C L "strfromchar" 2 219 1 "FUNCTION"
 C L "TIMER1_isr" 0 24 28 "FUNCTION"
-F G "TIMER1_isr" 0 72 "void(*int8 destination,int8 source)" `1058 
-F G "RTCC_isr" 0 77 "void(int8 source)" `1059 
-F G "MAIN" 0 83 "void()" `1060  "VARIAVEIS"
-V L "result" 0 85 "int8" `1061 
-V L "option" 0 86 "int8" `1062 
-V L "address" 0 88 "int8" `1063 
+F G "TIMER1_isr" 0 72 "void(*int8 destination,int8 source)" `1054 
+F G "RTCC_isr" 0 77 "void(int8 source)" `1055 
+F G "MAIN" 0 83 "void()" `1056  "VARIAVEIS"
+V L "result" 0 85 "int8" `1057 
+V L "option" 0 86 "int8" `1058 
+V L "address" 0 88 "int8" `1059 
 C L "MAIN" 0 24 1 "FUNCTION"
 C L "MAIN" 0 24 1 "FUNCTION"
 C L "MAIN" 0 24 1 "FUNCTION"

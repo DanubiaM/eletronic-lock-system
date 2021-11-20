@@ -1,5 +1,5 @@
 ÀÄmain
-   ÃÄMAIN  1/94  Ram=4
+   ÃÄMAIN  0/84  Ram=4
    ³  ÃÄ@cinit1  (Inline)  Ram=0
    ³  ÃÄinit_ext_eeprom  0/13  Ram=0
    ³  ÃÄlcd_ini  0/73  Ram=2
@@ -44,7 +44,7 @@
    ³  ³     ÃÄ@PSTRINGC7_646  0/116  Ram=4
    ³  ³     ³  ÀÄ*
    ³  ³     ÀÄ@delay_ms1  0/20  Ram=1
-   ³  ÃÄadminMenu  1/976  Ram=18
+   ³  ÃÄadminMenu  1/975  Ram=18
    ³  ³  ÃÄreadKeyboard  0/321  Ram=2
    ³  ³  ³  ÃÄtc_tecla  (Inline)  Ram=4
    ³  ³  ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
@@ -72,20 +72,20 @@
    ³  ³  ÃÄlcd_escreve  0/67  Ram=1
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ³  ÃÄstrToInt  0/240  Ram=6
-   ³  ³  ³  ÃÄ@PSTRINGCN7_646  0/122  Ram=5
-   ³  ³  ³  ³  ÀÄ*
-   ³  ³  ³  ÃÄ@PSTRINGR_646  (Inline)  Ram=2
-   ³  ³  ³  ³  ÀÄlcd_escreve  0/67  Ram=1
-   ³  ³  ³  ³     ÀÄ*
-   ³  ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ³  ÃÄstrToInt  0/79  Ram=9
    ³  ³  ³  ÃÄstrtoul  1/532  Ram=52
    ³  ³  ³  ³  ÃÄmemchr  0/43  Ram=9
    ³  ³  ³  ³  ÃÄ@MULS1616  (Inline)  Ram=6
    ³  ³  ³  ³  ÀÄmemchr  0/43  Ram=9
    ³  ³  ³  ÃÄlcd_escreve  0/67  Ram=1
    ³  ³  ³  ³  ÀÄ*
-   ³  ³  ³  ÃÄ@PRINTF_LU_646  (Inline)  Ram=9
+   ³  ³  ³  ÃÄ@PRINTF_U_646  0/63  Ram=2
+   ³  ³  ³  ³  ÃÄ@DIV88  0/23  Ram=3
+   ³  ³  ³  ³  ÃÄlcd_escreve  0/67  Ram=1
+   ³  ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ³  ÃÄ@DIV88  0/23  Ram=3
+   ³  ³  ³  ³  ÃÄlcd_escreve  0/67  Ram=1
+   ³  ³  ³  ³  ³  ÀÄ*
    ³  ³  ³  ³  ÀÄlcd_escreve  0/67  Ram=1
    ³  ³  ³  ³     ÀÄ*
    ³  ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
@@ -94,37 +94,6 @@
    ³  ³  ÃÄ@PSTRINGCN7_646  0/122  Ram=5
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@PRINTF_U_646  0/63  Ram=2
-   ³  ³  ³  ÃÄ@DIV88  0/23  Ram=3
-   ³  ³  ³  ÃÄlcd_escreve  0/67  Ram=1
-   ³  ³  ³  ³  ÀÄ*
-   ³  ³  ³  ÃÄ@DIV88  0/23  Ram=3
-   ³  ³  ³  ÃÄlcd_escreve  0/67  Ram=1
-   ³  ³  ³  ³  ÀÄ*
-   ³  ³  ³  ÀÄlcd_escreve  0/67  Ram=1
-   ³  ³  ³     ÀÄ*
-   ³  ³  ÃÄ@PRINTF_U_646  0/63  Ram=2
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ³  ÃÄ@PSTRINGC7_646  0/116  Ram=4
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ³  ÃÄreadKeyboard  0/321  Ram=2
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@PSTRINGCN7_646  0/122  Ram=5
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄlcd_escreve  0/67  Ram=1
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ³  ÃÄstrfromchar  0/19  Ram=5
-   ³  ³  ÃÄstrToInt  0/240  Ram=6
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@PSTRINGCN7_646  0/122  Ram=5
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@PRINTF_U_646  0/63  Ram=2
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@PRINTF_U_646  0/63  Ram=2
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@PRINTF_U_646  0/63  Ram=2
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@PRINTF_U_646  0/63  Ram=2
    ³  ³  ³  ÀÄ*
@@ -140,7 +109,31 @@
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
    ³  ³  ÃÄstrfromchar  0/19  Ram=5
-   ³  ³  ÃÄstrToInt  0/240  Ram=6
+   ³  ³  ÃÄstrToInt  0/79  Ram=9
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PSTRINGCN7_646  0/122  Ram=5
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PRINTF_U_646  0/63  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PRINTF_U_646  0/63  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PRINTF_U_646  0/63  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PRINTF_U_646  0/63  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ³  ÃÄ@PSTRINGC7_646  0/116  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ³  ÃÄreadKeyboard  0/321  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PSTRINGCN7_646  0/122  Ram=5
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄlcd_escreve  0/67  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ³  ÃÄstrfromchar  0/19  Ram=5
+   ³  ³  ÃÄstrToInt  0/79  Ram=9
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@PSTRINGCN7_646  0/122  Ram=5
    ³  ³  ³  ÀÄ*

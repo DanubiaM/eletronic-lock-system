@@ -1,9 +1,9 @@
 
-ROM used:   3645/8192 (44%)
-            3650/8192 (45%) including unused fragments
+ROM used:   3462/8192 (42%)
+            3555/8192 (43%) including unused fragments
 
-            1.1 Average locations per line
-            4.7 Average locations per statement
+            1.0 Average locations per line
+            4.5 Average locations per statement
 
 RAM used:   59/368 (16%) at main() level
             160/368 (43%) worst case
@@ -15,7 +15,7 @@ Lines Stmts  %   Files
 ----- ----- ---  -----
   169    15   2  main.c
   672     0   0  ..\..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h
-  385   185  24  functions.c
+  387   184  24  functions.c
    39     0   0  functions.h
   165    72   9  mod_lcd.c
    87    23   3  ..\..\..\..\..\Program Files (x86)\PICC\Drivers\2401.c
@@ -25,7 +25,7 @@ Lines Stmts  %   Files
   423     0   0  ..\..\..\..\..\Program Files (x86)\PICC\Drivers\string.h
    28     0   0  ..\..\..\..\..\Program Files (x86)\PICC\Drivers\ctype.h
 ----- -----
- 3407   777 Total
+ 3409   776 Total
 
 Page ROM  %  RAM    Vol Diff  Functions:
 ---- --- --- ---    --- ----  ----------
@@ -48,7 +48,7 @@ Page ROM  %  RAM    Vol Diff  Functions:
 1    532  15   52   2308 12.4  strtoul
  Inline         6   1610  7.5  saveUser
 0      6   0    0             @const974
-0    122   3    5             @PSTRINGCN7_646
+0    122   4    5             @PSTRINGCN7_646
 0     23   1    3             @DIV88
 0     63   2    2             @PRINTF_U_646
 0     10   0    0             @const985
@@ -68,13 +68,13 @@ Page ROM  %  RAM    Vol Diff  Functions:
 0      8   0    0             @const1012
 0      9   0    0             @const1013
 0     50   1    2    120  4.2  resetMemory
-1    976  27   18   2748 10.6  adminMenu
+1    975  28   18   2910 10.7  adminMenu
 0      7   0    0             @const1017
 0      7   0    0             @const1023
-0      7   0    0             @const1024
+0      5   0    0             @const1024
 0      5   0    0    153  4.2  @const1025
 0      8   0    0    153  4.2  @const1026
-0      8   0    0    654  9.4  @const1027
+0      5   0    0    654  9.4  @const1027
 0     10   0    0    654  9.4  @const1029
 0      8   0    0    153  4.2  @const1030
 0      9   0    0    399  6.8  @const1031
@@ -84,35 +84,32 @@ Page ROM  %  RAM    Vol Diff  Functions:
 0      9   0    0      5  1.0  @const1041
 0      8   0    0      5  1.0  @const1045
 0      5   0    0      5  1.0  @const1047
-0    240   7    6    597  6.8  strToInt
-0      6   0    0      5  1.0  @const1050
- Inline         2      5  1.0  @PSTRINGR_646
- Inline         9      5  1.0  @PRINTF_LU_646
+0     79   2    9    498  6.8  strToInt
 0     19   1    5     98  3.2  strfromchar
 0      4   0    0      5  1.0  TIMER1_isr
 0      4   0    0      5  1.0  RTCC_isr
-1     94   3    4    404  3.3  MAIN
-0      9   0    0             @const1066
- Inline         0             @cinit1
+0     84   2    4    404  3.3  MAIN
+0      9   0    0      5  1.0  @const1062
+ Inline         0    404  3.3  @cinit1
 
 Program metrics:
-    Functions               44
-    Statements              777
-    Comments                919
-    Volume (V)              38721
-    Difficulty (D)          219.3
-    Effort to implement (E) 8492562
-    Time to implement (T)   131 hours, 3 minutes
+    Functions               43
+    Statements              776
+    Comments                921
+    Volume (V)              39608
+    Difficulty (D)          221.0
+    Effort to implement (E) 8753673
+    Time to implement (T)   135 hours, 5 minutes
     Est Delivered Bugs (B)  14
     Cyclomatic Complexity   91
-    Maintainability (MI)    125
+    Maintainability (MI)    127
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00003     4  0  
 00004-00057    84  0  
-00058-007FF  1955  5  
-00800-00FFF  1602  446  
+00058-007FF  1867  93  
+00800-00FFF  1507  541  
 01000-017FF     0  2048  
 01800-01FFF     0  2048  
 

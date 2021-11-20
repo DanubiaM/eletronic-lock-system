@@ -11,6 +11,8 @@ typedef struct {
 
 
 void saveUser(int * id, int * pass, int status){
+   printf (lcd_escreve,"\r\nid[0]:%u",id[0]);
+   delay_ms(1000);
    if( id[0] < 256 && id[1] < 256 && getAddressByID(id) > -1 ){
       int address = lastNewUserPosition();
       //recebe os parâmetros do usuário
@@ -184,7 +186,6 @@ void adminMenu(){
     switch(option){
        case '1':
          unsigned int * temp;
-         unsigned int id [2];
          unsigned int pass[4];
          unsigned int status;
          int i = 0;
@@ -210,9 +211,8 @@ void adminMenu(){
            }
             // unsigned char *id;
             // id = keyboard_buffer;
-            temp = strToInt(keyboard_buffer);
-            id[0] = temp[0];
-            id[1] = temp[1];
+            unsigned int * id = strToInt(keyboard_buffer);
+            unsigned int id_array [] = {id[0],id[1]};
             //https://www.tutorialspoint.com/cprogramming/c_pointer_to_an_array.htm
             //*(id+1) == id[1]
             printf(lcd_escreve,"\fid: %u%u",id[0],id[1]);
@@ -263,7 +263,7 @@ void adminMenu(){
             delay_ms(1000);
 
 
-            saveUser(id,pass,status);
+            saveUser(id_array,pass,status);
             break;
        case 2:
             // listar();
@@ -355,8 +355,8 @@ int * strToInt(char * str){
   //https://flaviocopes.com/c-array-length/
 //   int size = (sizeof str) / (sizeof * str);
   static unsigned int buffer[BLOCK_SIZE];  
-//   printf(lcd_escreve,"\fParsing: %s",p);
-//   delay_ms(1000);
+  printf(lcd_escreve,"\fParsing: %s",p);
+  delay_ms(1000);
   char * end;
   int index = 0;
 
@@ -365,7 +365,7 @@ int * strToInt(char * str){
         number = strtoul(p, &end, 10))
   {
     printf(lcd_escreve,"\n%u",number );
-    delay_ms(50);
+    delay_ms(1000);
     p = end;
 
     buffer[index] = number; 
