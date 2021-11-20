@@ -1,8 +1,8 @@
 004-005 @WRITE_PROGRAM_MEMORY8.P1
 004-005 @READ_PROGRAM_MEMORY8.P2
 008     PSP_DATA
-015     CCP_1_LOW
 015     CCP_1
+015     CCP_1_LOW
 016     CCP_1_HIGH
 01B     CCP_2_LOW
 01B     CCP_2
@@ -18,49 +18,56 @@
 028     @INTERRUPT_AREA
 029     @INTERRUPT_AREA
 02A     @INTERRUPT_AREA
-02B     @INTERRUPT_AREA
-02C     address_data_delete
-02D     rx_wr_index
-02E     lock_pos
-02F     rxd
-030     read
-031     valid_data_count
-032     data_avail
-033     got_id
-034     option
-035-03E rx_buffer
-03F     @TRIS_C
-040-046 getAdminsID.admins
-047     MAIN.result
-048     MAIN.tmp
-049     MAIN.tmp_result
-04A     MAIN.address
-04B     lcd_ini.conta
-04B     @PSTRINGCN7_647.P1
-04B     @PSTRINGC7_647.@SCRATCH1
-04B     MAIN.@SCRATCH1
-04C     lcd_ini.@SCRATCH1
-04C     @PSTRINGC7_647.@SCRATCH2
-04C     @PSTRINGCN7_647.@SCRATCH1
-04D     @PSTRINGC7_647.@SCRATCH3
-04D     @PSTRINGCN7_647.@SCRATCH2
-04E     @PSTRINGC7_647.@SCRATCH4
-04E     @PSTRINGCN7_647.@SCRATCH3
-04F     lcd_escreve.c
-04F     @PSTRINGCN7_647.@SCRATCH4
-050     lcd_pos_xy.x
-051     lcd_pos_xy.y
-052     lcd_pos_xy.endereco
-053     lcd_pos_xy.@SCRATCH1
-054     lcd_envia_byte.endereco
-055     lcd_envia_byte.dado
-056     lcd_envia_byte.@SCRATCH1
-057     lcd_envia_nibble.dado
-058     tc_tecla.timeout
-059     tc_tecla.to
-05A     tc_tecla.k
-05B     @delay_ms1.P1
-05B     tc_tecla.@SCRATCH1
+02B     address_data_delete
+02C     rx_wr_index
+02D     lock_pos
+02E     rxd
+02F     read
+030     valid_data_count
+031     data_avail
+032     got_id
+033-03C rx_buffer
+03D     @TRIS_C
+03E-044 getAdminsID.admins
+045     MAIN.result
+046     MAIN.option
+047     MAIN.address
+048     lcd_ini.conta
+048-055 adminMenu.keyboard_buffer
+048     MAIN.@SCRATCH1
+049     lcd_ini.@SCRATCH1
+056     adminMenu.option
+057     adminMenu.i
+058-059 adminMenu.id
+05A     readKeyboard.tmp
+05A     adminMenu.@SCRATCH1
+05B     readKeyboard.tmp_result
+05B     adminMenu.@SCRATCH2
+05C     tc_tecla.timeout
+05C     @PSTRINGC7_646.@SCRATCH1
+05C     adminMenu.@SCRATCH3
+05D     tc_tecla.to
+05D     @PSTRINGC7_646.@SCRATCH2
+05D     adminMenu.@SCRATCH4
+05E     @PSTRINGCN7_646.P1
+05E     tc_tecla.k
+05E     @PSTRINGC7_646.@SCRATCH3
+05F     tc_tecla.@SCRATCH1
+05F     @PSTRINGC7_646.@SCRATCH4
+05F     @PSTRINGCN7_646.@SCRATCH1
+060     @PSTRINGCN7_646.@SCRATCH2
+061     @PSTRINGCN7_646.@SCRATCH3
+062     lcd_escreve.c
+062     @PSTRINGCN7_646.@SCRATCH4
+063     lcd_pos_xy.x
+063     @delay_ms1.P1
+064     lcd_pos_xy.y
+065     lcd_pos_xy.endereco
+066     lcd_pos_xy.@SCRATCH1
+067     lcd_envia_byte.endereco
+068     lcd_envia_byte.dado
+069     lcd_envia_byte.@SCRATCH1
+06A     lcd_envia_nibble.dado
 077     @SCRATCH
 078     @SCRATCH
 078     _RETURN_
@@ -106,64 +113,59 @@ FFF     @INTERRUPT_AREA
 ROM Allocation:
 000058  INI_LCD.call
 00005C  INI_LCD.data
-000060  @const696.call
-000066  @const700.call
-000070  @const701.call
-000079  @const702.call
-000082  @const704.call
-000089  @const713.call
-000095  @const716.call
-00009F  @const720.call
-0000A8  @const722.call
-0000B0  @const729.call
-0000B7  @const734.call
-0000BF  @const735.call
+000060  @const695.call
+000066  @const699.call
+000070  @const700.call
+000079  @const701.call
+000082  @const703.call
+000089  @const712.call
+000095  @const715.call
+00009F  @const719.call
+0000A8  @const721.call
+0000B0  @const728.call
+0000B7  @const733.call
+0000BF  @const734.call
 0000C8  @const738.call
-0000D1  @const739.call
-0000DA  @const740.call
-0000E4  @const741.call
-0000EE  @const742.call
-0000F7  @const743.call
-0000FE  @const745.call
-000105  @const746.call
-00010B  @const747.call
-000112  @const748.call
-000119  @const755.call
-000122  @const759.call
-00012A  @const760.call
-00012F  @const762.call
-000134  TIMER1_isr
-000138  @delay_ms1
-00014C  RTCC_isr
-00014E  tc_tecla
-000279  @const772.call
-000282  @const773.call
-000287  init_ext_eeprom
-000294  lcd_envia_nibble
-0002BB  lcd_envia_byte
-0002DC  lcd_ini
-000325  lcd_escreve
-000345  lcd_pos_xy
-000362  @PSTRINGC7_647
-0003BA  @PSTRINGCN7_647
-000413  MAIN
-000413  @cinit1
-000423  @cinit2
-000800  adminMenu
+0000CF  @const740.call
+0000D6  @const741.call
+0000DD  @const743.call
+0000E4  @const746.call
+0000EB  @const751.call
+0000F4  @const755.call
+0000FC  @const756.call
+000101  @const758.call
+000106  TIMER1_isr
+00010A  RTCC_isr
+00010E  @const767.call
+000117  init_ext_eeprom
+000124  @delay_ms1
+000138  lcd_envia_nibble
+00015F  lcd_envia_byte
+000180  lcd_ini
+0001BD  lcd_escreve
+0001D7  lcd_pos_xy
+0001F4  @PSTRINGC7_646
+00024A  readKeyboard
+00024C  tc_tecla
+000381  @PSTRINGCN7_646
+0003D8  adminMenu
+000483  @cinit1
+000483  MAIN
+000493  @cinit2
 
 Project Directory:
-    C:\Users\danub\OneDrive\Área de Trabalho\git\eletronic-lock-system\PIC controller\
+    E:\University\Microcontrollers\PCW Projects\eletronic-lock-system\PIC controller\
 
 Project Files:
-    main.c                                                  [19-nov-21 21:54  CRC=9ABA8D92]
-    D:\FilesNewWindows\Microcontroladores\PICC\Devices\16F877A.h [18-abr-14 16:56  CRC=4F277C97]
-    functions.c                                             [19-nov-21 21:49  CRC=BA1C3108]
-    functions.h                                             [19-nov-21 21:33  CRC=846B5128]
-    D:\FilesNewWindows\Microcontroladores\PICC\Drivers\mod_lcd.c [30-set-21 14:06  CRC=06678DAF]
-    D:\FilesNewWindows\Microcontroladores\PICC\Drivers\2401.c [23-jul-03 14:53  CRC=C4DE9711]
-    kbd_board4.c                                            [16-nov-21 20:23  CRC=707A799E]
+    main.c                                                  [20-Nov-21 12:11  CRC=32A97978]
+    ..\..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h [18-Apr-14 16:56  CRC=4F277C97]
+    functions.c                                             [20-Nov-21 12:11  CRC=903D340B]
+    functions.h                                             [20-Nov-21 12:06  CRC=846B5128]
+    mod_lcd.c                                               [23-Sep-21 09:12  CRC=7976B6D1]
+    ..\..\..\..\..\Program Files (x86)\PICC\Drivers\2401.c  [23-Jul-03 14:53  CRC=C4DE9711]
+    kbd_board4.c                                            [20-Nov-21 09:12  CRC=707A799E]
 
-Source signature=D4A4A455
+Source signature=B5C3BC60
 
 Units:
     main (main)

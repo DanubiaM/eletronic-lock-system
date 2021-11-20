@@ -161,48 +161,59 @@ void resetMemory(){
 
 void adminMenu(){
 
-  unsigned char keyboard_buffer[BLOCK_SIZE];
-   printf(lcd_escreve,"\f1: CAD Cliente ");
-   delay_ms(500);
-   printf(lcd_escreve,"\r\n2: DEL Cliente");
-   delay_ms(500);
-   printf(lcd_escreve,"\f3: Buscar Cliente ");
-   delay_ms(500);
-   printf(lcd_escreve,"\r\n4: Editar Cliente");
-   delay_ms(500);
-   printf(lcd_escreve,"\f5: SAIR do Menu ");
-   delay_ms(500);
+
+  unsigned char keyboard_buffer[BLOCK_SIZE * 2];
+  unsigned char option;
+   // printf(lcd_escreve,"\f1: CAD Cliente ");
+   // delay_ms(500);
+   // printf(lcd_escreve,"\r\n2: DEL Cliente");
+   // delay_ms(500);
+   // printf(lcd_escreve,"\f3: Buscar Cliente ");
+   // delay_ms(500);
+   // printf(lcd_escreve,"\r\n4: Editar Cliente");
+   // delay_ms(500);
+   // printf(lcd_escreve,"\f5: SAIR do Menu ");
+   // delay_ms(500);
   do{
     
+     option = readKeyboard();
 
-     printf(lcd_escreve,"\r\f Button: %c", option);
-     delay_ms(1000);
+     printf(lcd_escreve,"\f Option: %c", option);
+     delay_ms(500);
 
 
     switch(option){
-       case 1:
+       case '1':
          // int pass [4] ={1,2,3,4};
          // int id [2] = {12,12};
            int i = 0;
-           while( option != '#' ){
+           //The user needs to type 4 digits
+           //For example, even if it's just 9
+           //He/she will type: 0009
+           while(i < 5){
 
-               printf(lcd_escreve,"\fDigite o ID");
-               delay_ms(500);
-               if(option != 255){
-                 printf(lcd_escreve,"\foption: %u", option);
-                 delay_ms(500);
-                 keyboard_buffer[i] += option;
-                 i++;
-                 if(i > 4){
-                    i = 0;
-                 }
+            printf(lcd_escreve,"\fDigite o ID");
+            delay_ms(50);
+            option = readKeyboard();
+            printf(lcd_escreve,"\fTyped ID:%c", option);
+            delay_ms(500);
+            if(option != 255){
+               if(i == 2){
+                  //To convert will be easier with space between them
+                  keyboard_buffer[i] = ' ';
+                  i++;
                }
-               printf(lcd_escreve,"\f Button: %c", option);
-               delay_ms(1000);
-               printf(lcd_escreve,"\f Button: %c", option);
-               delay_ms(1000);
+               keyboard_buffer[i] = option;
+               i++;
+            }
            }
-
+            unsigned char *id;
+            id = keyboard_buffer;
+            //https://www.tutorialspoint.com/cprogramming/c_pointer_to_an_array.htm
+            //*(id+1) == id[1]
+            printf(lcd_escreve,"\fid: %c%c%c%c",id[0],id[1],id[3],id[4]);
+            delay_ms(1000);
+      
          //   saveUser();
             break;
        case 2:
@@ -231,16 +242,18 @@ unsigned char readKeyboard(){
    unsigned char tmp_result;
    
    tmp = tc_tecla(1500); // ms
-   // if(tmp != 255){
-   //    write_ext_eeprom(0, tmp);
-   //    delay_ms(50);
-   //    tmp_result = read_ext_eeprom(0);
-   //    delay_ms(50);
-   //    // tmp_result = tmp;
-   //    printf(lcd_escreve,"\f Button: %c", tmp_result);
-   // }else{ 
-   //    printf(lcd_escreve,"\f   TECLADO  ");
-   // }
+   if(tmp != 255){
+      // write_ext_eeprom(0, tmp);
+      // delay_ms(50);
+      // tmp_result = read_ext_eeprom(0);
+      // delay_ms(50);
+      // tmp_result = tmp;
+      // printf(lcd_escreve,"\f Button: %c", tmp);
+      // delay_ms(50);
+   }else{ 
+      printf(lcd_escreve,"\f   TECLADO  ");
+   }
+
    return tmp;
 }
 

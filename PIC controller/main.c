@@ -18,7 +18,6 @@ signed int8 address_data_delete;
 int8 rx_wr_index = 0;
 int8 lock_pos = 0, rxd, read, valid_data_count;
 int data_avail = FALSE, got_id = FALSE;
-unsigned char option;
 unsigned int8 rx_buffer[RX_BUFFER_SIZE];
 #include "functions.c"
 
@@ -71,15 +70,12 @@ void RDA_isr(void){
 #int_TIMER1
 void TIMER1_isr(void)
 {
-  // option = readKeyboard();
 }
 
 #int_RTCC
 void RTCC_isr(void)
 {
 
-
-   option = tc_tecla(1500); // ms
       
 }
 
@@ -87,8 +83,7 @@ void main()
 {
    //VARIAVEIS
    byte result;
-   unsigned char tmp;
-   unsigned char tmp_result;
+   unsigned char option;
    
    eeprom_address address = 0;
 
@@ -98,7 +93,7 @@ void main()
 
    init_ext_eeprom();
 
-   // enable_interrupts(INT_TIMER0);
+   enable_interrupts(INT_TIMER0);
    enable_interrupts(INT_TIMER1);
 
    enable_interrupts(GLOBAL);
@@ -133,27 +128,16 @@ void main()
    // adminMenu();
    
    //// listAdmins();
+   adminMenu();
  
-   
-   
-   // isIdAvailable(254);
-   // isIdAvailable(200);
-
  
   // address_data_delete = getAddressByID(6);
   // printf(lcd_escreve, "\f Address ID = %d", address_data_delete);
  //  deleteBlock(address_data_delete);
    delay_ms(50);
-   // printUser();
-   delay_ms(1000);
    
    while(TRUE)
    {
-
-      printf(lcd_escreve, "\f op:%c ", option);
-      delay_ms(500);
-
-   
    }
 
 }

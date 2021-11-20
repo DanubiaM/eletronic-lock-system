@@ -14,7 +14,7 @@ Type=4
 1=main.c
 
 [ProjectLog]
-Days=5
+Days=6
 D1=15-11-2021
 D1_L=19
 D1_L1=[33298]Project Opened.
@@ -90,12 +90,17 @@ D5_L10=[72748]Started Editing.
 D5_L11=[73975]Stopped Editing.
 D5_L12=[77671]Started Editing.
 D5_L13=[78114]Stopped Editing.
+D6=20-11-2021
+D6_L=3
+D6_L1=[33323]Project Opened.
+D6_L2=[33803]Started Editing.
+D6_L3=[34103]Stopped Editing.
 
 [Opened Files]
 1=main.c
 2=functions.c
 3=functions.h
-4=..\..\..\IFMT\7 semestre\Microcontroladores\Material Prof\kbd_board4.c
+4=
 5=
 6=..\..\..\IFMT\7 semestre\Microcontroladores\Material Prof\mod_lcd.c
 7=
