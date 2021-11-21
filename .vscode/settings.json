@@ -4,6 +4,7 @@
     ".stylelintrc": "json",
     ".prettierrc": "json",
     "*.tsx": "typescriptreact",
-    "limits": "c"
+    "limits": "c",
+    "string.h": "c"
   }
 }

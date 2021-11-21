@@ -18,11 +18,18 @@
 
 
 
-// -----------------Functions
+/*
+int status -> 0 - Unpaid, 1 - Paid, 3 - Admin
+int chooseAddr:
+         Param < 0 - SAVE in a available address to CREATE 
+         Param >= 0 - SAVE in a existing address to OVERWRITE (edit)
+*/
 void saveUser(int * id, int * pass, int status);
 int getAddressByID(int * id);   
 void searchUser(int * id);
-int deleteUser(int address);
+int deleteUser(int * id);
+void editUser();
+void updateUser(int * id, int * pass, int status);
 
 // int isIdAvailable(int id);    
 void printUser();
