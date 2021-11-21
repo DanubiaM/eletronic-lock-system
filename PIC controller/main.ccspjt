@@ -8,13 +8,13 @@ CCSVersion=5.025
 FileList=main.c
 [Directories]
 Include=
-[C:\Users\danub\OneDrive\Área de Trabalho\git\eletronic-lock-system\Struct-test\main]
+[C:\Users\danub\OneDrive\ï¿½rea de Trabalho\git\eletronic-lock-system\Struct-test\main]
 Type=4
 [mru-list]
 1=main.c
 
 [ProjectLog]
-Days=6
+Days=7
 D1=15-11-2021
 D1_L=19
 D1_L1=[33298]Project Opened.
@@ -92,7 +92,7 @@ D5_L12=[77671]Started Editing.
 D5_L13=[78114]Stopped Editing.
 <<<<<<< HEAD
 D5_L14=[79711]Project Closed.
-=======
+============================
 D6=20-11-2021
 D6_L=35
 D6_L1=[33323]Project Opened.
@@ -130,7 +130,20 @@ D6_L32=[79029]Started Editing.
 D6_L33=[79330]Stopped Editing.
 D6_L34=[79941]Started Editing.
 D6_L35=[80845]Stopped Editing.
+<<<<<<< HEAD
 >>>>>>> 3e62c7437ae4a9cba8974d1b26dbc3ab2f13beb9
+============================
+D7=21-11-2021
+D7_E=32
+D7_D=0
+D7_L=6
+D7_L1=[1425]Project Closed.
+D7_L2=[53953]Project Opened.
+D7_L3=[53989]Started Editing.
+D7_L4=[54444]Stopped Editing.
+>>>>>>> featEdit
+D7_L5=[62911]Project Closed.
+D7_L6=[62911]Project Opened.
 
 [Opened Files]
 1=main.c

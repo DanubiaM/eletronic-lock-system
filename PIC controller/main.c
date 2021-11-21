@@ -113,15 +113,14 @@ void main()
 
    // resetmemory();
 
-   // data_avail = false;
    // int id [2] = {12,34};
    // int pass [4] = {1,2,3,4};
    // saveuser(id, pass, 1);
-   int id1 [2] = {14,0};
+   // int id1 [2] = {14,0};
    // saveuser(id1, pass, 0);
-   int id2 [2] = {70,10};
+   // int id2 [2] = {70,10};
    // saveuser(id2, pass, 1);
-   int id3 [2] = {0,10};
+   // int id3 [2] = {0,10};
    // saveuser(id3, pass, 1);
    // int id4 [2] = {99,99};
    // saveuser(id4, pass, 3);//admin
