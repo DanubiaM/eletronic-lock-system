@@ -1,6 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QDialog
-from modules.main import Login
+from modules.login import Login
 
 aplicacao = QApplication(sys.argv)
 app = QApplication(sys.argv)
