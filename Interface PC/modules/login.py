@@ -6,32 +6,8 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtPrintSupport import *
 import os, sys
 
-from templates.main_gui import Ui_Main
 from templates.login_gui import Ui_LoginAcademy
-from templates.cadastro_gui import Ui_cadastro
-
-
-# -------------------Registration Window
-class Cadastrar(QDialog):
-    def __init__(self,  *args, **argvs) :
-        super(Cadastrar, self).__init__(*args, **argvs)
-        self.ui  = Ui_cadastro()
-        self.ui.setupUi(self)
-
-# -------------------Main Window
-class MainWindow(QMainWindow):
-    def __init__(self, *args, **argvs):
-        super(MainWindow, self).__init__(*args, **argvs)
-        self.ui = Ui_Main()
-        self.ui.setupUi(self)
-        self.ui.actionCadastrar.triggered.connect(self.registration)
-
-    #Registration
-    def registration(self):
-        addUser = Cadastrar()
-        addUser.exec_()
-        #MainWindow.hide(self) hidden Cadastrar window
-
+from modules.mainWindow import MainWindow
 
 # -------------------Login Window
 class Login(QDialog):
@@ -59,12 +35,3 @@ class Login(QDialog):
         else:
             QMessageBox.information(QMessageBox(),"Unsucessful Login", "Erro: Verifique sua senha ou ID")
 
-
-
-
-# -------------------Execute application
-app = QApplication(sys.argv)
-if (QDialog.Accepted == True):
-    window = Login()
-    window.show()
-sys.exit(app.exec_())
