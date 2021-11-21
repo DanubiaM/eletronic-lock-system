@@ -1,7 +1,7 @@
 D G "__PCM__" 0 170 ""5.025""
 D G "__DEVICE__" 0 170 "877"
 D G "__DATE__" 0 170 ""20-Nov-21""
-D G "__TIME__" 0 170 ""20:29:34"" "Standard Header file for the PIC16F877A device ////////////////"
+D G "__TIME__" 0 170 ""22:28:26"" "Standard Header file for the PIC16F877A device ////////////////"
 c L "set_tris_a" 1 3 6 "FUNCTION"
 v L "value" 1 37 "int8" `54 
 f B "set_tris_a" 1 37 "void(int8 value)" `53 
@@ -868,30 +868,30 @@ V L "status" 3 22 "int8" `673
 f G "saveUser" 3 22 "void(*int8 id,*int8 pass,int8 status)" `670 
 V L "id" 3 23 "*int8" `675 
 f G "getAddressByID" 3 23 "int8(*int8 id)" `674 
-V L "address" 3 24 "int8" `677 
-f G "deleteUser" 3 24 "int8(int8 address)" `676 
-V L "id" 3 26 "int8" `679 
-f G "isIdAvailable" 3 26 "int8(int8 id)" `678 
-f G "printUser" 3 27 "void()" `680 
-V L "addrr" 3 28 "int8" `682 
-f G "erase_program_eeprom" 3 28 "void(int8 addrr)" `681 
-f G "incrementID" 3 29 "int8()" `683 
-f G "lastNewUserPosition" 3 30 "int8()" `684 
-f G "resetMemory" 3 31 "void()" `685 
-f G "adminMenu" 3 32 "void()" `686 
-f G "readKeyboard" 3 33 "int8()" `687 
-f G "getAdminsID" 3 34 "*int8()" `688 
-f G "listAdmins" 3 35 "void()" `689 
-V L "str" 3 36 "*int8" `691 
-f G "strToInt" 3 36 "*int8(*int8 str)" `690 
-V L "destination" 3 37 "*int8" `693 
-V L "source" 3 37 "int8" `694 
-f G "strfromchar" 3 37 "*int8(*int8 destination,int8 source)" `692 
-f G "inputId" 3 38 "*int8()" `696 
-V L "msg" 3 39 "*int8" `698 
-V L "max" 3 39 "int8" `699 
-f G "inputToKeyboard" 3 39 "*int8(*int8 msg,int8 max)" `697 
-f G "inputKeyboardUser" 3 40 "void()" `700 
+V L "id" 3 24 "*int8" `677 
+f G "searchUser" 3 24 "void(*int8 id)" `676 
+V L "address" 3 25 "int8" `679 
+f G "deleteUser" 3 25 "int8(int8 address)" `678  "int isIdAvailable(int id);"
+f G "printUser" 3 28 "void()" `680 
+V L "addrr" 3 29 "int8" `682 
+f G "erase_program_eeprom" 3 29 "void(int8 addrr)" `681 
+f G "incrementID" 3 30 "int8()" `683 
+f G "lastNewUserPosition" 3 31 "int8()" `684 
+f G "resetMemory" 3 32 "void()" `685 
+f G "adminMenu" 3 33 "void()" `686 
+f G "readKeyboard" 3 34 "int8()" `687 
+f G "getAdminsID" 3 35 "*int8()" `688 
+f G "listAdmins" 3 36 "void()" `689 
+V L "str" 3 37 "*int8" `691 
+f G "strToInt" 3 37 "*int8(*int8 str)" `690 
+V L "destination" 3 38 "*int8" `693 
+V L "source" 3 38 "int8" `694 
+f G "strfromchar" 3 38 "*int8(*int8 destination,int8 source)" `692 
+f G "inputId" 3 39 "*int8()" `696 
+V L "msg" 3 40 "*int8" `698 
+V L "max" 3 40 "int8" `699 
+f G "inputToKeyboard" 3 40 "*int8(*int8 msg,int8 max)" `697 
+f G "inputKeyboardUser" 3 41 "void()" `700 
 C L "inputKeyboardUser" 2 5 1 "FUNCTION"
 C L "inputKeyboardUser" 2 5 1 "FUNCTION"
 T G "User" 2 7 "{int8[2] id,int8[4] pass,int8 status}" `705  "(C) Copyright 1996,2007 Custom Computer Services           ////"
@@ -1297,118 +1297,124 @@ F G "saveUser" 2 13 "void(*int8 id,*int8 pass,int8 status)" `670
 V L "address" 2 15 "int8" `979 
 C L "saveUser" 2 16 1 "FUNCTION"
 V L "User" 2 17 "User" `980 
-C L "saveUser" 2 16 1 "FUNCTION"
-F G "printUser" 2 49 "void()" `680  "delay_ms(50);"
-V L "tmp_result" 2 51 "int8" `985 
+F G "printUser" 2 45 "void()" `680  "delay_ms(50);"
+V L "tmp_result" 2 47 "int8" `985 
 C L "printUser" 2 16 2 "FUNCTION"
-V L "id" 2 62 "*int8" `997 
-F G "getAddressByID" 2 62 "int8(*int8 id)" `674 
-V L "id_temp" 2 63 "int8[2]" `996 
-V L "address" 2 64 "int8" `997 
-V L "addrr" 2 83 "int8" `1004 
-F G "erase_program_eeprom" 2 83 "void(int8 addrr)" `681 
-V L "i" 2 84 "int8" `1003 
-V L "address" 2 91 "int8" `1006 
-F G "deleteUser" 2 91 "int8(int8 address)" `676 
-V L "data_temp" 2 93 "int8" `1005 
-V L "previous_block" 2 94 "int8" `1006 
-V L "next_block" 2 95 "int8" `1007 
+V L "id" 2 58 "*int8" `997 
+F G "getAddressByID" 2 58 "int8(*int8 id)" `674 
+V L "id_temp" 2 59 "int8[2]" `996 
+V L "address" 2 60 "int8" `997 
+V L "id" 2 79 "*int8" `1004 
+F G "searchUser" 2 79 "void(*int8 id)" `676 
+V L "address" 2 81 "int8" `1003 
+V L "msg_status" 2 86 "int8[10]" `1005 
+V L "addrr" 2 100 "int8" `1012 
+F G "erase_program_eeprom" 2 100 "void(int8 addrr)" `681 
+V L "i" 2 101 "int8" `1011 
+V L "address" 2 108 "int8" `1014 
+F G "deleteUser" 2 108 "int8(int8 address)" `678 
+V L "data_temp" 2 110 "int8" `1013 
+V L "previous_block" 2 111 "int8" `1014 
+V L "next_block" 2 112 "int8" `1015 
 C L "deleteUser" 2 16 1 "FUNCTION"
 C L "deleteUser" 2 16 1 "FUNCTION"
 C L "deleteUser" 2 16 1 "FUNCTION"
-V L "i" 2 106 "int8" `1008 
+V L "i" 2 123 "int8" `1016 
 C L "deleteUser" 2 16 1 "FUNCTION"
 C L "deleteUser" 2 16 1 "FUNCTION"
-F G "lastNewUserPosition" 2 124 "int8()" `684 
-V L "address" 2 125 "int8" `1009 
-V L "id_temp" 2 126 "int8" `1010 
-V L "id" 2 138 "*int8" `1013 
-F G "isIdAvailable" 2 138 "int8(*int8 id)" `1012 
-V L "address" 2 139 "int8" `1014 
-V L "id_temp" 2 140 "int8" `1015 
-C L "isIdAvailable" 2 16 1 "FUNCTION"
-F G "resetMemory" 2 156 "void()" `685 
-V L "address" 2 157 "int8" `1018 
-F G "adminMenu" 2 162 "void()" `686 
-V L "option" 2 165 "int8" `1019  "printf(lcd_escreve,"\f1: CAD Cliente ");"
-C L "adminMenu" 2 16 9 "FUNCTION"
+F G "lastNewUserPosition" 2 141 "int8()" `684 
+V L "address" 2 142 "int8" `1017 
+V L "id_temp" 2 143 "int8" `1018 
+C L "lastNewUserPosition" 2 16 2 "FUNCTION"
+C L "resetMemory" 2 16 14 "FUNCTION"
+F G "resetMemory" 2 173 "void()" `685 
+V L "address" 2 174 "int8" `1019 
+F G "adminMenu" 2 179 "void()" `686 
+V L "option" 2 182 "int8" `1020 
+C L "adminMenu" 2 16 6 "FUNCTION"
+V L "temp" 2 205 "*int8" `1024 
+V L "id" 2 206 "int8[2]" `1025 
 C L "adminMenu" 2 16 1 "FUNCTION"
 C L "adminMenu" 2 16 1 "FUNCTION"
 C L "adminMenu" 2 16 1 "FUNCTION"
 C L "adminMenu" 2 16 1 "FUNCTION"
-C L "adminMenu" 2 16 1 "FUNCTION"
-F G "readKeyboard" 2 208 "int8()" `687 
-V L "tmp" 2 209 "int8" `1021 
-V L "tmp_result" 2 210 "int8" `1022 
+F G "readKeyboard" 2 231 "int8()" `687 
+V L "tmp" 2 232 "int8" `1026 
+V L "tmp_result" 2 233 "int8" `1027 
 C L "readKeyboard" 2 16 1 "FUNCTION"
 C L "readKeyboard" 2 16 7 "FUNCTION"
-F G "getAdminsID" 2 229 "*int8()" `688 
-V L "address" 2 231 "int8" `1024 
-V L "temp_status" 2 232 "int8" `1025 
-V L "index" 2 233 "int8" `1026 
-V L "admins" 2 234 "int8[7]" `1027 
+F G "getAdminsID" 2 252 "*int8()" `688 
+V L "address" 2 254 "int8" `1029 
+V L "temp_status" 2 255 "int8" `1030 
+V L "index" 2 256 "int8" `1031 
+V L "admins" 2 257 "int8[7]" `1032 
 C L "getAdminsID" 2 16 1 "FUNCTION"
-V L "i" 2 241 "int8" `1029 
-V L "id" 2 242 "int8" `1030 
-F G "listAdmins" 2 256 "void()" `689 
-V L "admins" 2 257 "*int8" `1031 
-V L "i" 2 263 "int16" `1033 
-V L "str" 2 271 "*int8" `1036 
-F G "strToInt" 2 271 "*int8(*int8 str)" `690 
-V L "p" 2 273 "*int8" `1035 
+V L "i" 2 264 "int8" `1034 
+V L "id" 2 265 "int8" `1035 
+F G "listAdmins" 2 279 "void()" `689 
+V L "admins" 2 280 "*int8" `1036 
+V L "i" 2 286 "int16" `1038 
+V L "str" 2 294 "*int8" `1041 
+F G "strToInt" 2 294 "*int8(*int8 str)" `690 
+V L "p" 2 296 "*int8" `1040 
 C L "strToInt" 2 16 2 "FUNCTION"
-V L "buffer" 2 276 "int8[7]" `1036  "printf(lcd_escreve,"\fParsing: %s",p);"
+V L "buffer" 2 299 "int8[7]" `1041  "printf(lcd_escreve,"\fParsing: %s",p);"
 C L "strToInt" 2 16 1 "FUNCTION"
-V L "end" 2 279 "*int8" `1037 
-V L "index" 2 280 "int8" `1038 
-V L "number" 2 282 "int8" `1039 
+V L "end" 2 302 "*int8" `1042 
+V L "index" 2 303 "int8" `1043 
+V L "number" 2 305 "int8" `1044 
 C L "strToInt" 2 16 2 "FUNCTION"
-V L "destination" 2 297 "*int8" `693 
-V L "source" 2 297 "int8" `1042 
-F G "strfromchar" 2 298 "*int8(*int8 destination,int8 source)" `692 
+V L "destination" 2 320 "*int8" `693 
+V L "source" 2 320 "int8" `1047 
+F G "strfromchar" 2 321 "*int8(*int8 destination,int8 source)" `692 
 C L "strfromchar" 2 16 1 "FUNCTION"
 C L "strfromchar" 2 16 1 "FUNCTION"
 C L "strfromchar" 2 16 1 "FUNCTION"
-F G "inputId" 2 306 "*int8()" `696 
-V L "keyboard_buffer" 2 307 "int8[14]" `1040 
-V L "option" 2 308 "int8" `1041 
-V L "temp" 2 310 "*int8" `1042 
-V L "i" 2 311 "int8" `1043 
+F G "inputId" 2 329 "*int8()" `696 
+V L "keyboard_buffer" 2 330 "int8[14]" `1045 
+V L "option" 2 331 "int8" `1046 
+V L "temp" 2 333 "*int8" `1047 
+V L "i" 2 334 "int8" `1048 
 C L "inputId" 2 16 3 "FUNCTION"
 C L "inputId" 2 16 1 "FUNCTION"
 C L "inputId" 2 16 2 "FUNCTION"
 C L "inputId" 2 16 3 "FUNCTION"
-C L "inputId" 2 338 3 "*"
-V L "msg" 2 343 "*int8" `698 
-V L "max" 2 343 "int8" `1048 
-F G "inputToKeyboard" 2 343 "*int8(*int8 msg,int8 max)" `697 
-V L "option" 2 344 "int8" `1046 
-V L "data" 2 345 "int8[7]" `1047 
-V L "temp" 2 346 "*int8" `1048 
-V L "i" 2 347 "int8" `1049 
-V L "destination" 2 357 "int8[2]" `1053  "Convert string from char and return"
-C L "inputToKeyboard" 2 338 1 "FUNCTION"
-C L "inputToKeyboard" 2 338 2 "FUNCTION"
-F G "inputKeyboardUser" 2 373 "void()" `700 
-V L "temp" 2 375 "*int8" `1054 
-V L "id" 2 376 "int8[2]" `1055 
-V L "pass" 2 377 "int8[4]" `1056 
-V L "status" 2 378 "int8" `1057 
-V L "msg" 2 386 "int8[1]" `1059 
-V L "max" 2 387 "int8" `1060 
-V L "msg2" 2 396 "int8[1]" `1062 
+C L "inputId" 2 361 3 "*"
+V L "msg" 2 366 "*int8" `698 
+V L "max" 2 366 "int8" `1053 
+F G "inputToKeyboard" 2 366 "*int8(*int8 msg,int8 max)" `697 
+V L "option" 2 367 "int8" `1051 
+V L "data" 2 368 "int8[7]" `1052 
+V L "temp" 2 369 "*int8" `1053 
+V L "i" 2 370 "int8" `1054 
+V L "destination" 2 380 "int8[2]" `1057  "Convert string from char and return"
+C L "inputToKeyboard" 2 361 1 "FUNCTION"
+C L "inputToKeyboard" 2 361 2 "FUNCTION"
+F G "inputKeyboardUser" 2 396 "void()" `700 
+V L "temp" 2 398 "*int8" `1058 
+V L "id" 2 399 "int8[2]" `1059 
+V L "pass" 2 400 "int8[4]" `1060 
+V L "status" 2 401 "int8" `1061 
+V L "msg" 2 409 "int8[1]" `1063 
+V L "max" 2 410 "int8" `1064 
+V L "msg2" 2 419 "int8[1]" `1066 
 C L "TIMER1_isr" 0 24 28 "FUNCTION"
-F G "TIMER1_isr" 0 72 "void()" `1064 
-F G "RTCC_isr" 0 77 "void()" `1065 
-F G "MAIN" 0 83 "void()" `1066  "VARIAVEIS"
-V L "result" 0 85 "int8" `1067 
-V L "option" 0 86 "int8" `1068 
-V L "address" 0 88 "int8" `1069 
+F G "TIMER1_isr" 0 72 "void()" `1068 
+F G "RTCC_isr" 0 77 "void()" `1069 
+F G "MAIN" 0 83 "void()" `1070  "VARIAVEIS"
+V L "result" 0 85 "int8" `1071 
+V L "option" 0 86 "int8" `1072 
+V L "address" 0 88 "int8" `1073 
 C L "MAIN" 0 24 1 "FUNCTION"
 C L "MAIN" 0 24 1 "FUNCTION"
 C L "MAIN" 0 24 1 "FUNCTION"
-C L "MAIN" 0 24 5 "FUNCTION"
-C L "MAIN" 0 24 14 "FUNCTION"
+C L "MAIN" 0 24 10 "FUNCTION"
+V L "id1" 0 120 "int8[2]" `1077 
+C L "MAIN" 0 24 1 "FUNCTION"
+V L "id2" 0 122 "int8[2]" `1078 
+C L "MAIN" 0 24 1 "FUNCTION"
+V L "id3" 0 124 "int8[2]" `1079 
+C L "MAIN" 0 24 4 "FUNCTION"
 C L "MAIN" 0 24 18 "FUNCTION"
 F B "reset_cpu" 0 0
 F B "abs" 1 0

@@ -21,9 +21,10 @@
 // -----------------Functions
 void saveUser(int * id, int * pass, int status);
 int getAddressByID(int * id);   
+void searchUser(int * id);
 int deleteUser(int address);
 
-int isIdAvailable(int id);    
+// int isIdAvailable(int id);    
 void printUser();
 void erase_program_eeprom(int addrr);
 int incrementID();

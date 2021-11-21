@@ -1,7 +1,7 @@
 #include "functions.h"
 
 typedef struct { 
-   int id[2];  
+   int id[2];
    int pass[4]; //password
    int status; //0 - Unpaid, 1 - Paid, 3 - Admin
 }User;
@@ -81,18 +81,11 @@ void searchUser(int * id){
    int address = getAddressByID(id);
    if(address != -1){
       printf (lcd_escreve,"\fID:%u%u",id[0],id[1]);
-      
-
-      char msg_status[10];
-      if(read_ext_eeprom(address+BLOCK_SIZE - 1) == 0){
-         strcpy(msg_status,"NAO PAGO");
-      }else{
-         strcpy(msg_status,"PAGO");
-      }
+      char msg_status[] = (read_ext_eeprom(address+BLOCK_SIZE-1)==0)?"Nao Pago!": "Pago!";
       printf (lcd_escreve,"\r\nStatus:%s",msg_status);
-      delay_ms(2000);
+      delay_ms(1000);
    }else{
-      printf(lcd_escreve,"\fUsuario N Existe");
+      printf(lcd_escreve,"\fUsuario N Existe",id[0],id[1]);
       delay_ms(1000);
    }
 }
@@ -180,11 +173,11 @@ void adminMenu(){
 
 
   unsigned char option;
-   printf(lcd_escreve,"\f1: CAD Cliente ");
-   delay_ms(500);
-   printf(lcd_escreve,"\r\n2: Buscar Cliente");
-   delay_ms(500);
-   // printf(lcd_escreve,"\f3: DEL Cliente ");
+   // printf(lcd_escreve,"\f1: CAD Cliente ");
+   // delay_ms(500);
+   // printf(lcd_escreve,"\r\n2: DEL Cliente");
+   // delay_ms(500);
+   // printf(lcd_escreve,"\f3: Buscar Cliente ");
    // delay_ms(500);
    // printf(lcd_escreve,"\r\n4: Editar Cliente");
    // delay_ms(500);
@@ -202,13 +195,7 @@ void adminMenu(){
          inputKeyboardUser();
          break;
       case '2':
-         unsigned int * temp;
-         unsigned int id [2];
 
-         temp = inputId();
-         id[0] = temp[0];
-         id[1] = temp[1];
-         searchUser(id);
          break;
       case 3:
          // mostrarMes();
