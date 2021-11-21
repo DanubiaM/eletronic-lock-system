@@ -1,0 +1,315 @@
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+008     PSP_DATA
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020     @INTERRUPT_AREA
+021     @INTERRUPT_AREA
+022     @INTERRUPT_AREA
+023     @INTERRUPT_AREA
+024     @INTERRUPT_AREA
+025     @INTERRUPT_AREA
+026     @INTERRUPT_AREA
+027     @INTERRUPT_AREA
+028     @INTERRUPT_AREA
+029     @INTERRUPT_AREA
+02A     @INTERRUPT_AREA
+02B     address_data_delete
+02C     rx_wr_index
+02D     lock_pos
+02E     rxd
+02F     read
+030     valid_data_count
+031     data_avail
+032     got_id
+033-03C rx_buffer
+03D     @TRIS_C
+03E-03F strtok.save
+040-043 _Randseed
+044-04A getAdminsID.admins
+04B-051 strToInt.buffer
+052     MAIN.result
+053     MAIN.option
+054     MAIN.address
+055-056 MAIN.id1
+057-058 MAIN.id2
+059-05A MAIN.id3
+05B     adminMenu.option
+05B     lcd_ini.conta
+05C-05D adminMenu.temp
+05C     lcd_ini.@SCRATCH1
+05E-05F adminMenu.id
+060-061 searchUser.id
+060-061 inputKeyboardUser.temp
+060     adminMenu.@SCRATCH1
+062-063 inputKeyboardUser.id
+062     searchUser.address
+063-06C searchUser.msg_status
+064-067 inputKeyboardUser.pass
+068     inputKeyboardUser.status
+069     inputKeyboardUser.max
+06A     inputKeyboardUser.@SCRATCH1
+06D     searchUser.@SCRATCH1
+06E     searchUser.@SCRATCH2
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+07F     @INTERRUPT_AREA
+09C.6   C1OUT
+09C.7   C2OUT
+0A0-0AE inputKeyboardUser.msg
+0AF-0BF inputKeyboardUser.msg2
+0C1-0C2 saveUser.id
+0C1-0C2 inputToKeyboard.msg
+0C1-0CE inputId.keyboard_buffer
+0C3     inputToKeyboard.max
+0C3-0C4 saveUser.pass
+0C4     inputToKeyboard.option
+0C5     saveUser.status
+0C5-0CB inputToKeyboard.data
+0C6     saveUser.address
+0C7-0CD saveUser.User
+0CC-0CD inputToKeyboard.temp
+0CE     lastNewUserPosition.address
+0CE     inputToKeyboard.i
+0CE-0CF getAddressByID.id
+0CE     saveUser.@SCRATCH1
+0CF     inputId.option
+0CF     lastNewUserPosition.id_temp
+0CF-0D0 inputToKeyboard.destination
+0CF     write_ext_eeprom.address
+0D0-0D1 getAddressByID.id_temp
+0D0-0D1 inputId.temp
+0D0     write_ext_eeprom.data
+0D0     lastNewUserPosition.@SCRATCH1
+0D1-0D2 strfromchar.destination
+0D1     @PSTRINGR_646.@SCRATCH1
+0D1     inputToKeyboard.@SCRATCH1
+0D2     inputId.i
+0D2     getAddressByID.address
+0D2     @PSTRINGR_646.@SCRATCH2
+0D2     inputToKeyboard.@SCRATCH2
+0D3     strfromchar.source
+0D3     readKeyboard.tmp
+0D3-0D4 strToInt.str
+0D3     getAddressByID.@SCRATCH1
+0D3     inputId.@SCRATCH1
+0D3     inputToKeyboard.@SCRATCH3
+0D4     readKeyboard.tmp_result
+0D4     read_ext_eeprom.address
+0D4     getAddressByID.@SCRATCH2
+0D4     strfromchar.@SCRATCH1
+0D4     inputId.@SCRATCH2
+0D5     tc_tecla.timeout
+0D5     @PRINTF_U_646.P1
+0D5     read_ext_eeprom.data
+0D5-0D6 strToInt.p
+0D5     @PSTRINGCN7_646.P1
+0D5     @PSTRINGC7_646.@SCRATCH1
+0D5     strfromchar.@SCRATCH2
+0D6.0   ext_eeprom_ready.ack
+0D6     @I2C_READ_1.P1
+0D6     @PRINTF_U_646.P2
+0D6     tc_tecla.to
+0D6     @PSTRINGC7_646.@SCRATCH2
+0D6     @PSTRINGCN7_646.@SCRATCH1
+0D7     @I2C_WRITE_1.P1
+0D7-0D8 strToInt.end
+0D7     @DIV88.P1
+0D7     tc_tecla.k
+0D7     @I2C_READ_1.@SCRATCH1
+0D7     @PSTRINGC7_646.@SCRATCH3
+0D7     @PSTRINGCN7_646.@SCRATCH2
+0D8     @DIV88.P1
+0D8     @I2C_READ_1.@SCRATCH2
+0D8     tc_tecla.@SCRATCH1
+0D8     @PSTRINGC7_646.@SCRATCH4
+0D8     @PSTRINGCN7_646.@SCRATCH3
+0D9     strToInt.index
+0D9     lcd_escreve.c
+0D9     @PSTRINGCN7_646.@SCRATCH4
+0D9     @DIV88.@SCRATCH1
+0DA     lcd_pos_xy.x
+0DA     strToInt.number
+0DA     @delay_ms1.P1
+0DB-0DC strtoul.s
+0DB     lcd_pos_xy.y
+0DB     strToInt.@SCRATCH1
+0DC     lcd_pos_xy.endereco
+0DC     strToInt.@SCRATCH2
+0DD-0DE strtoul.endptr
+0DD     lcd_pos_xy.@SCRATCH1
+0DE     lcd_envia_byte.endereco
+0DF     lcd_envia_byte.dado
+0DF     strtoul.base
+0E0-0E1 strtoul.sc
+0E0     lcd_envia_byte.@SCRATCH1
+0E1     lcd_envia_nibble.dado
+0E2-0E3 strtoul.s1
+0E4-0E5 strtoul.sd
+0E6-0E7 strtoul.x
+0E8     strtoul.sign
+0E9     strtoul.@SCRATCH1
+0EA     strtoul.@SCRATCH2
+0FF     @INTERRUPT_AREA
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+110-133 strtoul.digits
+135-136 memchr.s
+136-137 @MULS1616.P1
+137     memchr.c
+138-139 memchr.n
+138-139 @MULS1616.P1
+13A     memchr.uc
+13A     @MULS1616.@SCRATCH1
+13B-13C memchr.su
+13B     @MULS1616.@SCRATCH2
+13D     memchr.@SCRATCH1
+17F     @INTERRUPT_AREA
+1FF     @INTERRUPT_AREA
+27F     @INTERRUPT_AREA
+2FF     @INTERRUPT_AREA
+37F     @INTERRUPT_AREA
+3FF     @INTERRUPT_AREA
+47F     @INTERRUPT_AREA
+4FF     @INTERRUPT_AREA
+57F     @INTERRUPT_AREA
+5FF     @INTERRUPT_AREA
+67F     @INTERRUPT_AREA
+6FF     @INTERRUPT_AREA
+77F     @INTERRUPT_AREA
+7FF     @INTERRUPT_AREA
+87F     @INTERRUPT_AREA
+8FF     @INTERRUPT_AREA
+97F     @INTERRUPT_AREA
+9FF     @INTERRUPT_AREA
+A7F     @INTERRUPT_AREA
+AFF     @INTERRUPT_AREA
+B7F     @INTERRUPT_AREA
+BFF     @INTERRUPT_AREA
+C7F     @INTERRUPT_AREA
+CFF     @INTERRUPT_AREA
+D7F     @INTERRUPT_AREA
+DFF     @INTERRUPT_AREA
+E7F     @INTERRUPT_AREA
+EFF     @INTERRUPT_AREA
+F7F     @INTERRUPT_AREA
+FFF     @INTERRUPT_AREA
+
+ROM Allocation:
+000058  INI_LCD.call
+00005C  INI_LCD.data
+000060  @const1006.call
+00006D  @const1007.call
+000076  @const981.call
+000080  @const983.call
+000089  @const984.call
+000092  @const986.call
+000099  @const995.call
+0000A5  @const998.call
+0000AD  @const1002.call
+0000B8  @const1004.call
+0000BD  @const1008.call
+0000C3  @const1010.call
+0000CC  @const1012.call
+0000D4  @const1021.call
+0000DD  @const1022.call
+0000E7  @const1023.call
+0000EE  @const1028.call
+0000F5  @const1033.call
+0000FE  @const1037.call
+000106  @const1039.call
+00010B  @const1049.call
+000112  @const1050.call
+000117  @const1056.call
+00011C  @const1062.call
+000121  @const1065.call
+00012B  @const1067.call
+000131  TIMER1_isr
+000135  RTCC_isr
+000139  @const1076.call
+000142  init_ext_eeprom
+00014F  @delay_ms1
+000163  lcd_envia_nibble
+000194  lcd_envia_byte
+0001BD  lcd_ini
+000206  lcd_escreve
+000227  lcd_pos_xy
+000249  @PSTRINGC7_646
+0002BD  readKeyboard
+0002C0  tc_tecla
+000422  @PSTRINGCN7_646
+00049C  memchr
+0004C7  strtoul
+000659  @MULS1616
+000703  strToInt
+00073F  inputId
+000798  @DIV88
+0007AF  @PRINTF_U_646
+000800  @PSTRINGR_646
+00081F  inputToKeyboard
+00086A  strfromchar
+0008AB  @I2C_WRITE_1
+000907  ext_eeprom_ready
+000953  read_ext_eeprom
+0009A9  @I2C_READ_1
+000A23  getAddressByID
+000AD4  write_ext_eeprom
+000B24  adminMenu
+000B7F  inputKeyboardUser
+000CB2  saveUser
+000CD1  lastNewUserPosition
+000DA0  searchUser
+000E50  @cinit1
+000E50  MAIN
+000E60  @cinit2
+06DB  StrtoulGO
+0136  StrtolGO
+
+Project Directory:
+    E:\University\Microcontrollers\PCW Projects\eletronic-lock-system\PIC controller\
+
+Project Files:
+    main.c                                                  [20-Nov-21 22:28  CRC=4F30A56E]
+    ..\..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h [18-Apr-14 16:56  CRC=4F277C97]
+    functions.c                                             [20-Nov-21 22:28  CRC=0F84D687]
+    functions.h                                             [20-Nov-21 22:11  CRC=A96B79C4]
+    mod_lcd.c                                               [20-Nov-21 20:38  CRC=7976B6D1]
+    ..\..\..\..\..\Program Files (x86)\PICC\Drivers\2401.c  [23-Jul-03 14:53  CRC=C4DE9711]
+    kbd_board4.c                                            [20-Nov-21 09:12  CRC=707A799E]
+    ..\..\..\..\..\Program Files (x86)\PICC\Drivers\stdlib.h [08-Jun-11 14:39  CRC=0B6669CF]
+    ..\..\..\..\..\Program Files (x86)\PICC\Drivers\stddef.h [16-Jul-10 09:27  CRC=897CEC6C]
+    ..\..\..\..\..\Program Files (x86)\PICC\Drivers\string.h [10-Apr-14 09:04  CRC=662B2714]
+    ..\..\..\..\..\Program Files (x86)\PICC\Drivers\ctype.h [03-Jan-08 13:55  CRC=2D1F019F]
+
+Source signature=5B64BA5D
+
+Units:
+    main (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   main.xsym
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX8:       main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.ccspjt
+    Call Tree:   main.tre
+    Statistics:  main.STA
