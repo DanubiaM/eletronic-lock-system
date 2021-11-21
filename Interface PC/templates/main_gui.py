@@ -94,7 +94,7 @@ class Ui_Main(object):
         self.actionEditar.setText(_translate("MainWindow", "Editar"))
         self.actionProcurar.setText(_translate("MainWindow", "Procurar"))
         self.actionExcluir.setText(_translate("MainWindow", "Excluir"))
-import main
+import templates.main
 
 
 if __name__ == "__main__":

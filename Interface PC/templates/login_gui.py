@@ -126,7 +126,7 @@ class Ui_LoginAcademy(object):
         self.input_senha2.setPlaceholderText(_translate("LoginAcademy", "0"))
         self.input_senha3.setPlaceholderText(_translate("LoginAcademy", "0"))
         self.input_senha4.setPlaceholderText(_translate("LoginAcademy", "0"))
-import img
+import templates.img
 
 
 if __name__ == "__main__":
