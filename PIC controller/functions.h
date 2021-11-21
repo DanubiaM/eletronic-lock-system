@@ -34,5 +34,7 @@ unsigned char readKeyboard();
 int * getAdminsID();
 void listAdmins();
 int * strToInt(char * str);
-
 char * strfromchar(char destination[], char source);
+int * inputId();
+int * inputToKeyboard(char * msg, int max);
+void inputKeyboardUser();

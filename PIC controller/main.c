@@ -102,7 +102,7 @@ void main()
    lcd_ini();
    delay_us(50);
    printf(lcd_escreve, "\f  iniciando... ");
-   delay_ms(500);
+   delay_ms(200);
 
    // printf(lcd_escreve, "\fIFMT - Serial");
    // delay_ms(50);
