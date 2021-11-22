@@ -7,11 +7,8 @@
 >>> Warning 202 "main.c" Line 20(5,15): Variable never used:   data_avail
 >>> Warning 202 "main.c" Line 20(25,31): Variable never used:   got_id
 >>> Warning 202 "main.c" Line 21(15,24): Variable never used:   rx_buffer
->>> Warning 202 "E:\University\Microcontrollers\PCW Projects\eletronic-lock-system\PIC controller\functions.c" Line 177(8,15): Variable never used:   id_temp
->>> Warning 202 "E:\University\Microcontrollers\PCW Projects\eletronic-lock-system\PIC controller\functions.c" Line 252(18,28): Variable never used:   tmp_result
->>> Warning 202 "main.c" Line 85(9,15): Variable never used:   result
->>> Warning 202 "main.c" Line 86(18,24): Variable never used:   option
->>> Warning 202 "main.c" Line 88(19,26): Variable never used:   address
-      Memory usage:   ROM=59%      RAM=16% - 62%
-      0 Errors,  14 Warnings.
+>>> Warning 202 "E:\University\Microcontrollers\PCW Projects\eletronic-lock-system\PIC controller\functions.c" Line 187(8,15): Variable never used:   id_temp
+>>> Warning 202 "E:\University\Microcontrollers\PCW Projects\eletronic-lock-system\PIC controller\functions.c" Line 350(18,28): Variable never used:   tmp_result
+      Memory usage:   ROM=42%      RAM=15% - 49%
+      0 Errors,  11 Warnings.
 Build Successful.

@@ -38,6 +38,11 @@ int incrementID();
 int lastNewUserPosition();
 void resetMemory();
 void adminMenu();
+void userMenu();
+void login(int * id);
+int checkPassword(int initBlockAddr, int * pass);
+//show = 1 -> Print(Paid/Unpaid)
+int getUserStatus(int address, int show);
 unsigned char readKeyboard(); 
 int * getAdminsID();
 void listAdmins();

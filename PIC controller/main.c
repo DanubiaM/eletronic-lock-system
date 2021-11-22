@@ -82,34 +82,22 @@ void RTCC_isr(void)
 void main()
 {
    //VARIAVEIS
-   byte result;
-   unsigned char option;
-   
-   eeprom_address address = 0;
 
-   // unsigned char tmp_result;
    setup_timer_0(RTCC_INTERNAL|RTCC_DIV_256|RTCC_8_bit);      //13.1ms overflow
    setup_timer_1(T1_INTERNAL|T1_DIV_BY_8); //Overflow in 104ms | Resolution 1.6 us
-
    init_ext_eeprom();
-
    enable_interrupts(INT_TIMER0);
    enable_interrupts(INT_TIMER1);
-
    enable_interrupts(GLOBAL);
-
 
    lcd_ini();
    delay_us(50);
+
    printf(lcd_escreve, "\f  iniciando... ");
    delay_ms(200);
 
    // printf(lcd_escreve, "\fIFMT - Serial");
    // delay_ms(50);
-
-   // int size = BLOCK_SIZE;
-   // printf(lcd_escreve, "\fBlock_Size:%u", size);
-   // delay_ms(500);
 
    // resetmemory();
 
@@ -126,41 +114,15 @@ void main()
    // saveuser(id4, pass, 3);//admin
    
    
-   // getAddressByID(id2);
-   adminMenu();
+   // userMenu();
+   unsigned int * temp;
+   unsigned int id [2];
+   temp = inputId();
+   id[0] = temp[0];
+   id[1] = temp[1];
+   login(id);
 
 
-
-   // char keyboard_buffer[]= '6';
-   // char n = '9';
-   // unsigned char temp_pass[2];
-   // unsigned int * buffer;
-   // unsigned int pass[4];
-   // strfromchar(temp_pass,n);
-   // buffer = strToInt(temp_pass);
-   // pass[0] = buffer[0];
-
-   // printf(lcd_escreve,"\foutside:%u", pass[0]);
-   // delay_ms(800);
-
-
-   // int index = 2;
-   // if(index>0){//for testing purposes
-   //    for(int i=0; i < index; i++){
-   //       printf(lcd_escreve,"\foutside:%u", buffer[i]);
-   //       delay_ms(800);
-   //    }
-   // }
- 
- 
-  // address_data_delete = getAddressByID(6);
-  // printf(lcd_escreve, "\f Address ID = %d", address_data_delete);
- //  deleteBlock(address_data_delete);
-   delay_ms(50);
-   
-   while(TRUE)
-   {
-   }
 
 }
 

@@ -113,14 +113,8 @@ void searchUser(int * id){
    int address = getAddressByID(id);
    if(address != -1){
       printf (lcd_escreve,"\fID:%u%u",id[0],id[1]);
-      char msg_status[10];
-      if(read_ext_eeprom(address+BLOCK_SIZE - 1) == 0){
-         strcpy(msg_status,"NAO PAGO");
-      }else{
-         strcpy(msg_status,"PAGO");
-      }
-      printf (lcd_escreve,"\r\nStatus:%s",msg_status);
-      delay_ms(2000);
+      int showStatus = 1;
+      getUserStatus(address,showStatus);
    }else{
       printf(lcd_escreve,"\fUsuario N Existe");
       delay_ms(1000);
@@ -133,6 +127,22 @@ void erase_program_eeprom(int addrr){
    }  
    printf (lcd_escreve,"\f User erased ");
    delay_ms(200);
+}
+
+int getUserStatus(int address, int show){
+   int status = read_ext_eeprom(address+BLOCK_SIZE - 1);
+
+   if(show == 1){
+      char msg_status[10];
+      if( status == 0){
+         strcpy(msg_status,"NAO PAGO");
+      }else{
+         strcpy(msg_status,"PAGO");
+      }
+      printf (lcd_escreve,"\r\nStatus:%s",msg_status);
+      delay_ms(1500);
+   }
+   return status;
 }
 
 int deleteUser(int * id){
@@ -247,7 +257,95 @@ void adminMenu(){
    }while(option != '5');
 }
 
+void userMenu(){
+
+   unsigned char option;
+   do{
+      printf(lcd_escreve,"\f1:Login | 5:Sair");
+      delay_ms(50);
+      option = readKeyboard();
+      printf(lcd_escreve,"\r\n Option: %c", option);
+      delay_ms(500);
+
+
+      switch(option){
+         case '1':
+            unsigned int * temp;
+            unsigned int id [2];
+            temp = inputId();
+            id[0] = temp[0];
+            id[1] = temp[1];
+            login(id);
+            break;
+         default:
+            printf(lcd_escreve,"\fDigite um valor");
+            printf(lcd_escreve,"\r\nValido!");
+            delay_ms(500);
+            break;
+      }
+   }while(option != '5');
+}
+
+void login(int * id){
+
+   int address = getAddressByID(id);
+   if(address != -1){//User exists
+      unsigned int * temp;
+      unsigned int pass[4];
+      unsigned int status;
+
+
+      char msg [] = "Digite a senha: ";
+      int max = 4;
+      temp = inputToKeyboard(msg, max);
+      pass[0] = temp[0];
+      pass[1] = temp[1];
+      pass[2] = temp[2];
+      pass[3] = temp[3];
+      int result_pass = checkPassword(address,pass);
+      if(result_pass == 0){
+         int show = 0;
+         int status = getUserStatus(address,show);
+         if(status == 1){//Paid
+            printf(lcd_escreve,"\fBem Vindo(a)!");
+            delay_ms(1000);
+            printf(lcd_escreve,"\fLiga Led e Rele");
+            delay_ms(500);
+         }
+         else{//Unpaid
+            printf(lcd_escreve,"\fConta Existe");
+            delay_ms(1000);
+            printf(lcd_escreve,"\f,Mas Falta Pagar!");
+            delay_ms(500);
+         }
+      }else{
+         printf(lcd_escreve,"\fProcure a secretaria");
+         printf(lcd_escreve,"\r\nP/ resolver");
+         delay_ms(1000);
+         printf(lcd_escreve,"\fNADA eh Ligado!");
+         delay_ms(500);
+      }
+   }
+   else{
+      printf(lcd_escreve,"\fID N Existe");
+      printf(lcd_escreve,"\r\nTente de novo");
+      delay_ms(1000);
+   }
+
+}
+
+int checkPassword(int initBlockAddr, int * pass){
+   int pass_addr = initBlockAddr + 2;
+   int len = strlen(pass); 
+   for(int i=0; i < len;i++,pass_addr++){
+      if(pass[i] != read_ext_eeprom(pass_addr))
+         return -1;
+   }
+   return 0;
+
+}
 unsigned char readKeyboard(){
+
    unsigned char tmp;
    unsigned char tmp_result;
    
