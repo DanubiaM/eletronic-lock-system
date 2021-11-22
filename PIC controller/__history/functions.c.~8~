@@ -197,56 +197,56 @@ void resetMemory(){
 
 // void adminMenu(){
 
-  // unsigned char keyboard_buffer[BLOCK_SIZE];
+//   unsigned char keyboard_buffer[BLOCK_SIZE];
 
-  // do{
-  //    printf(lcd_escreve,"\f1: CAD Cliente ");
-  //    delay_ms(500);
-  //    printf(lcd_escreve,"\r\n2: DEL Cliente");
-  //    delay_ms(500);
-  //    printf(lcd_escreve,"\f3: Buscar Cliente ");
-  //    delay_ms(500);
-  //    printf(lcd_escreve,"\r\n4: Editar Cliente");
-  //    delay_ms(500);
-  //    printf(lcd_escreve,"\f5: SAIR do Menu ");
-  //    delay_ms(500);
+//   do{
+//      printf(lcd_escreve,"\f1: CAD Cliente ");
+//      delay_ms(500);
+//      printf(lcd_escreve,"\r\n2: DEL Cliente");
+//      delay_ms(500);
+//      printf(lcd_escreve,"\f3: Buscar Cliente ");
+//      delay_ms(500);
+//      printf(lcd_escreve,"\r\n4: Editar Cliente");
+//      delay_ms(500);
+//      printf(lcd_escreve,"\f5: SAIR do Menu ");
+//      delay_ms(500);
 
-  //    printf(lcd_escreve,"\f Button: %c", option);
-  //    delay_ms(1000);
+//      printf(lcd_escreve,"\f Button: %c", option);
+//      delay_ms(1000);
 
 
-	//  switch(option){
-	// 	 case 1:
-  //        int pass [4] ={1,2,3,4};
-  //        int id [2] = {12,12};
-  //          int i = 0;
-  //          while( option != '#' ){
-  //              printf(lcd_escreve,"\fDigite o ID");
-  //              delay_ms(500);
-  //              if(option != '255'){
-  //                printf(lcd_escreve,"\foption: %u", option);
-  //                delay_ms(500);
-  //                keyboard_buffer += option;
-  //              }
-  //          }
+// 	 switch(option){
+// 		 case 1:
+//          int pass [4] ={1,2,3,4};
+//          int id [2] = {12,12};
+//            int i = 0;
+//            while( option != '#' ){
+//                printf(lcd_escreve,"\fDigite o ID");
+//                delay_ms(500);
+//                if(option != '255'){
+//                  printf(lcd_escreve,"\foption: %u", option);
+//                  delay_ms(500);
+//                  keyboard_buffer += option;
+//                }
+//            }
 
-  //          saveUser();
-	// 		   break;
-	// 	 case 2:
-	// 		   listar();
-	// 		   break;
-	// 	 case 3:
-	// 		   mostrarMes();
-	// 		   break;
-	// 	 case 4:
-	// 	       printf("\nTENHA UM BOM DIA\n");
-	// 		   break;
-	// 	 default:
-	// 		   printf("\nDIGITE UM VALOR VÁLIDO\n");
-	// 		   break;
+//            saveUser();
+// 			   break;
+// 		 case 2:
+// 			   listar();
+// 			   break;
+// 		 case 3:
+// 			   mostrarMes();
+// 			   break;
+// 		 case 4:
+// 		       printf("\nTENHA UM BOM DIA\n");
+// 			   break;
+// 		 default:
+// 			   printf("\nDIGITE UM VALOR VÁLIDO\n");
+// 			   break;
 
-	// 	}
-	// }while(opc != 4);//só termina quando for 4 
+// 		}
+// 	}while(opc != 4);//só termina quando for 4 
    
  
 

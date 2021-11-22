@@ -5,7 +5,6 @@
 #include "functions.c"
 
 
-
 #FUSES NOWDT                    //No Watch Dog Timer
 #FUSES NOBROWNOUT               //No brownout reset
 #FUSES NOLVP                    //No low voltage prgming, B3(PIC16) or B5(PIC18) used for I/O
@@ -161,6 +160,8 @@ void main()
       delay_ms(1000);
    } 
    
+   printf(lcd_escreve, "\fFunfou!");
+   delay_ms(500);
    
    // isIdAvailable(254);
    // isIdAvailable(200);

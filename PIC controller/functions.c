@@ -96,15 +96,11 @@ int getAddressByID(int * id){
       id_temp[1] = read_ext_eeprom(address+1);
       
       if (id_temp[0] == id[0] && id_temp[1] == id[1]){
-         printf (lcd_escreve,"\fID Existe:%u%u", id_temp[0],id_temp[1]);
-         delay_ms(1000);
          return address;
       }
 
       address += BLOCK_SIZE; 
    }
-   printf (lcd_escreve,"\fID:%u%u \r\nDisponivel",id[0],id[1]);
-   delay_ms(1000);
    return -1;
 }
 
@@ -184,7 +180,7 @@ int deleteUser(int * id){
 
 int lastNewUserPosition(){
    int address = 0;
-   int id_temp;
+   
 
    while( read_ext_eeprom(address) != -1){
       address += BLOCK_SIZE; 
@@ -206,137 +202,95 @@ void adminMenu(){
    unsigned char option;
    unsigned int * temp;
    unsigned int id [2];
-   printf(lcd_escreve,"\f1: CAD Cliente ");
-   delay_ms(500);
-   printf(lcd_escreve,"\r\n2: Buscar Cliente");
-   delay_ms(500);
-   printf(lcd_escreve,"\f3: DEL Cliente ");
-   delay_ms(500);
-   printf(lcd_escreve,"\r\n4: Editar Cliente");
-   delay_ms(500);
-   printf(lcd_escreve,"\f5: SAIR do Menu ");
-   delay_ms(500);
    do{
+      printf(lcd_escreve,"\f1:CAD|2:BUSCAR");
+      printf(lcd_escreve,"\r\n3:DEL|4:EDITAR");
+      delay_ms(1000);
+      printf(lcd_escreve,"\f5: SAIR do Menu ");
+      delay_ms(100);
     
       option = readKeyboard();
-      printf(lcd_escreve,"\f Option: %c", option);
-      delay_ms(500);
 
+      if(option != 255){
+         printf(lcd_escreve,"\f Option: %c", option);
+         delay_ms(500);
 
-      switch(option){
-         case '1':
-            inputKeyboardUser();
-            break;
-         case '2':
-            temp = inputId();
-            id[0] = temp[0];
-            id[1] = temp[1];
-            searchUser(id);
-            break;
-         case '3':
-            temp = inputId();
-            id[0] = temp[0];
-            id[1] = temp[1];
-            signed int success = deleteUser(id);
-            printf(lcd_escreve,"\fSuccess -> %d", success);
-            delay_ms(500);
-            (success >= 1)? 
-            printf(lcd_escreve,"\fusuario deletado"):
-            printf(lcd_escreve,"\fusuario N Existe");
-            delay_ms(500);
-            break;
-         case '4':
-            editUser();
-            break;
-         default:
-            printf(lcd_escreve,"\fDigite um valor");
-            printf(lcd_escreve,"\r\nValido!");
-            delay_ms(500);
-            break;
+         switch(option){
+            case '1':
+               inputKeyboardUser();
+               break;
+            case '2':
+               temp = inputId();
+               id[0] = temp[0];
+               id[1] = temp[1];
+               searchUser(id);
+               break;
+            case '3':
+               temp = inputId();
+               id[0] = temp[0];
+               id[1] = temp[1];
+               signed int success = deleteUser(id);
+               printf(lcd_escreve,"\fSuccess -> %d", success);
+               delay_ms(500);
+               (success >= 1)? 
+               printf(lcd_escreve,"\fusuario deletado"):
+               printf(lcd_escreve,"\fusuario N Existe");
+               delay_ms(500);
+               break;
+            case '4':
+               editUser();
+               break;
+            default:
+               printf(lcd_escreve,"\fDigite um valor");
+               printf(lcd_escreve,"\r\nValido!");
+               delay_ms(500);
+               break;
+         }
       }
    }while(option != '5');
 }
 
-void userMenu(){
 
-   unsigned char option;
-   do{
-      printf(lcd_escreve,"\f1:Login | 5:Sair");
-      delay_ms(50);
-      option = readKeyboard();
-      printf(lcd_escreve,"\r\n Option: %c", option);
-      delay_ms(500);
-
-
-      switch(option){
-         case '1':
-            unsigned int * temp;
-            unsigned int id [2];
-            temp = inputId();
-            id[0] = temp[0];
-            id[1] = temp[1];
-            login(id);
-            break;
-         default:
-            printf(lcd_escreve,"\fDigite um valor");
-            printf(lcd_escreve,"\r\nValido!");
-            delay_ms(500);
-            break;
-      }
-   }while(option != '5');
-}
-
-void login(int * id){
+int login(int * id){
 
    int address = getAddressByID(id);
-   if(address != -1){//User exists
-      unsigned int * temp;
-      unsigned int pass[4];
-      unsigned int status;
-
-
-      char msg [] = "Digite a senha: ";
-      int max = 4;
-      temp = inputToKeyboard(msg, max);
-      pass[0] = temp[0];
-      pass[1] = temp[1];
-      pass[2] = temp[2];
-      pass[3] = temp[3];
-      int result_pass = checkPassword(address,pass);
-      if(result_pass == 0){
-         int show = 0;
-         int status = getUserStatus(address,show);
-         if(status == 1){//Paid
-            printf(lcd_escreve,"\fBem Vindo(a)!");
-            delay_ms(1000);
-            printf(lcd_escreve,"\fLiga Led e Rele");
-            delay_ms(500);
-         }
-         else{//Unpaid
-            printf(lcd_escreve,"\fConta Existe");
-            delay_ms(1000);
-            printf(lcd_escreve,"\f,Mas Falta Pagar!");
-            delay_ms(500);
-         }
-      }else{
-         printf(lcd_escreve,"\fProcure a secretaria");
-         printf(lcd_escreve,"\r\nP/ resolver");
-         delay_ms(1000);
-         printf(lcd_escreve,"\fNADA eh Ligado!");
-         delay_ms(500);
-      }
-   }
-   else{
+   if(address == -1){
       printf(lcd_escreve,"\fID N Existe");
       printf(lcd_escreve,"\r\nTente de novo");
       delay_ms(1000);
+      return -1;
    }
+   unsigned int * temp;
+   unsigned int pass[4];
+
+   char msg [] = "Digite a senha: ";
+   int max = 4;
+   temp = inputToKeyboard(msg, max);
+   pass[0] = temp[0];
+   pass[1] = temp[1];
+   pass[2] = temp[2];
+   pass[3] = temp[3];
+   // printf(lcd_escreve,"\fPASS(4): %u%u%u%u",pass[0],pass[1],pass[2],pass[3]);
+   // delay_ms(1000);
+   int result_pass = checkPassword(address,pass);
+   if(result_pass != 0){
+      printf(lcd_escreve,"\fProcure a secretaria");
+      printf(lcd_escreve,"\r\nP/ resolver");
+      delay_ms(1000);
+      printf(lcd_escreve,"\fNADA eh Ligado!");
+      delay_ms(500);
+      return -1;
+   }
+
+   int show = 0;
+   int status = getUserStatus(address,show);
+   return status;
 
 }
 
 int checkPassword(int initBlockAddr, int * pass){
    int pass_addr = initBlockAddr + 2;
-   int len = strlen(pass); 
+   int len = 4; 
    for(int i=0; i < len;i++,pass_addr++){
       if(pass[i] != read_ext_eeprom(pass_addr))
          return -1;
@@ -349,7 +303,7 @@ unsigned char readKeyboard(){
    unsigned char tmp;
    unsigned char tmp_result;
    
-   tmp = tc_tecla(1500); // ms
+   tmp = tc_tecla(1300); // ms
    if(tmp != 255){
       // write_ext_eeprom(0, tmp);
       // delay_ms(50);
@@ -359,7 +313,7 @@ unsigned char readKeyboard(){
       // printf(lcd_escreve,"\f Button: %c", tmp);
       // delay_ms(50);
    }else{ 
-      printf(lcd_escreve,"\f   TECLADO  ");
+      printf(lcd_escreve,"\f Digite");
    }
 
    return tmp;
@@ -451,9 +405,9 @@ int * inputId(){
       printf(lcd_escreve,"\fDigite o ID: ");
       delay_ms(50);
       option = readKeyboard();
-      printf(lcd_escreve,"\n\rTyped:%c", option);
-      delay_ms(400);
       if(option != 255){
+         printf(lcd_escreve,"\n\rTyped:%c", option);
+         delay_ms(400);
          if(i == 2){
             //To convert to int will be easier with space between them
             keyboard_buffer[i] = ' ';
@@ -467,12 +421,6 @@ int * inputId(){
    // id = keyboard_buffer;
    temp = strToInt(keyboard_buffer);
    return temp;
-   // id[0] = temp[0];
-   // id[1] = temp[1];
-   // //https://www.tutorialspoint.com/cprogramming/c_pointer_to_an_array.htm
-   // //*(id+1) == id[1]
-   // printf(lcd_escreve,"\fid: %u%u",id[0],id[1]);
-   // delay_ms(1000);
 }
 
 int * inputToKeyboard(char * msg, int max){
@@ -486,9 +434,9 @@ int * inputToKeyboard(char * msg, int max){
       printf(lcd_escreve,"\f%s", msg);
       delay_ms(50);
       option = readKeyboard();
-      printf(lcd_escreve,"\n\rTyped:%c", option);
-      delay_ms(400);
       if(option != 255){
+         printf(lcd_escreve,"\n\rTyped:%c", option);
+         delay_ms(400);
          unsigned char destination[2];
          //Convert string from char and return 
          //to the left array of char(str_pass)
@@ -501,53 +449,19 @@ int * inputToKeyboard(char * msg, int max){
 
    temp = data;
    return temp;
-   // printf(lcd_escreve,"\fPASS(4): %u%u%u%u",pass[0],pass[1],pass[2],pass[3]);
-   // delay_ms(1000);
 
 }
 void inputKeyboardUser(){
 
    unsigned int * temp;
    unsigned int id [2];
-   unsigned int pass[4];
-   unsigned int status;
-
    temp = inputId();
    id[0] = temp[0];
    id[1] = temp[1];
+   int address = getAddressByID(id);
    printf(lcd_escreve,"\fid: %u%u",id[0],id[1]);
    delay_ms(500);
-
-   char msg [] = "Digite a senha: ";
-   int max = 4;
-   temp = inputToKeyboard(msg, max);
-   pass[0] = temp[0];
-   pass[1] = temp[1];
-   pass[2] = temp[2];
-   pass[3] = temp[3];
-   printf(lcd_escreve,"\fPASS(4): %u%u%u%u",pass[0],pass[1],pass[2],pass[3]);
-   delay_ms(500);
-
-   char msg2 [] = "Status (0,1,3): ";
-   max = 1;
-   temp = inputToKeyboard(msg2, max);
-   status = temp[0];
-   printf(lcd_escreve,"\fSTATUS: %u",status);
-   delay_ms(500);
-
-   saveUser(id,pass,status);
-}
-
-void editUser(){
-   unsigned int * temp;
-   unsigned int id [2];
-   temp = inputId();
-   id[0] = temp[0];
-   id[1] = temp[1];
-
-   int address = getAddressByID(id);
-   if(address != -1){
-      unsigned int * temp;
+   if(address == -1){//-1: ID is available to use
       unsigned int pass[4];
       unsigned int status;
 
@@ -558,10 +472,42 @@ void editUser(){
       pass[1] = temp[1];
       pass[2] = temp[2];
       pass[3] = temp[3];
+
+      char msg2 [] = "Status (0,1,3): ";
+      max = 1;
+      temp = inputToKeyboard(msg2, max);
+      status = temp[0];
+
+      saveUser(id,pass,status);
+   }else{
+      printf (lcd_escreve,"\fID Jah Existe");
+      delay_ms(1000);
+   }
+}
+
+void editUser(){
+   unsigned int * temp;
+   unsigned int id [2];
+   temp = inputId();
+   id[0] = temp[0];
+   id[1] = temp[1];
+   int address = getAddressByID(id);
+   if(address != -1){
+      unsigned int * temp;
+      unsigned int pass[4];
+      unsigned int status;
+
+      char msg [] = "Nova senha: ";
+      int max = 4;
+      temp = inputToKeyboard(msg, max);
+      pass[0] = temp[0];
+      pass[1] = temp[1];
+      pass[2] = temp[2];
+      pass[3] = temp[3];
       printf(lcd_escreve,"\fPASS(4): %u%u%u%u",pass[0],pass[1],pass[2],pass[3]);
       delay_ms(500);
 
-      char msg2 [] = "Status (0,1,3): ";
+      char msg2 [] = "Novo Status\r\n(0,1,3): ";
       max = 1;
       temp = inputToKeyboard(msg2, max);
       status = temp[0];
@@ -570,7 +516,7 @@ void editUser(){
 
       updateUser(id,pass,status,address);
    }else{
-      printf (lcd_escreve,"\fID N Existe",);
-      delay_ms(500);
+      printf (lcd_escreve,"\fID N Existe");
+      delay_ms(1000);
    }
 }

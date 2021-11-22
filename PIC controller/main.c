@@ -67,28 +67,28 @@ void RDA_isr(void){
 
 
 
-#int_TIMER1
-void TIMER1_isr(void)
-{
-}
+// #int_TIMER1
+// void TIMER1_isr(void)
+// {
+// }
 
-#int_RTCC
-void RTCC_isr(void)
-{
+// #int_RTCC
+// void RTCC_isr(void)
+// {
 
       
-}
+// }
 
 void main()
 {
    //VARIAVEIS
 
-   setup_timer_0(RTCC_INTERNAL|RTCC_DIV_256|RTCC_8_bit);      //13.1ms overflow
-   setup_timer_1(T1_INTERNAL|T1_DIV_BY_8); //Overflow in 104ms | Resolution 1.6 us
+   // setup_timer_0(RTCC_INTERNAL|RTCC_DIV_256|RTCC_8_bit);      //13.1ms overflow
+   // setup_timer_1(T1_INTERNAL|T1_DIV_BY_8); //Overflow in 104ms | Resolution 1.6 us
    init_ext_eeprom();
-   enable_interrupts(INT_TIMER0);
-   enable_interrupts(INT_TIMER1);
-   enable_interrupts(GLOBAL);
+   // enable_interrupts(INT_TIMER0);
+   // enable_interrupts(INT_TIMER1);
+   // enable_interrupts(GLOBAL);
 
    lcd_ini();
    delay_us(50);
@@ -114,15 +114,66 @@ void main()
    // saveuser(id4, pass, 3);//admin
    
    
-   // userMenu();
+   // unsigned int * temp;
+   // unsigned int id [2];
+   // temp = inputId();
+   // id[0] = temp[0];
+   // id[1] = temp[1];
+   // login(id);
+
+   unsigned char option;
    unsigned int * temp;
    unsigned int id [2];
-   temp = inputId();
-   id[0] = temp[0];
-   id[1] = temp[1];
-   login(id);
+   int status;
+   do{
+      printf(lcd_escreve,"\f1:Login|2:Admin");
+      delay_ms(500);
+      option = readKeyboard();
+
+      if(option != 255){
+         printf(lcd_escreve,"\r\n Option: %c", option);
+         delay_ms(500);
+
+         switch(option){
+            case '1':
+               temp = inputId();
+               id[0] = temp[0];
+               id[1] = temp[1];
+               status = login(id);
+               if(status == 1 || status == 3){
+                  printf(lcd_escreve,"\fBem Vindo(a)!");
+                  delay_ms(1000);
+                  printf(lcd_escreve,"\fLiga Led e Rele");
+                  delay_ms(500);
+               }else{//Unpaid
+                  printf(lcd_escreve,"\fConta Existe");
+                  printf(lcd_escreve,"\r\r,Mas Falta Pagar!");
+                  delay_ms(1000);
+               }
+               break;
+            case '2':
+               temp = inputId();
+               id[0] = temp[0];
+               id[1] = temp[1];
+               status = login(id);
+               if(status == 3){
+                  adminMenu();
+               }
+               else{
+                  printf(lcd_escreve,"\fN Permitido");
+                  delay_ms(500);
+               }
+               break;
+            default:
+               printf(lcd_escreve,"\fDigite um valor");
+               printf(lcd_escreve,"\r\nValido!");
+               delay_ms(500);
+               break;
+         }
+      }
 
 
+   }while(option != '5');
 
 }
 

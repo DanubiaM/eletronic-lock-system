@@ -1,4 +1,15 @@
 //#include <16F877A.h>
+#include <16F877A.h>
+#device ADC=8
+
+
+#FUSES NOWDT                    //No Watch Dog Timer
+#FUSES NOBROWNOUT               //No brownout reset
+#FUSES NOLVP                    //No low voltage prgming, B3(PIC16) or B5(PIC18) used for I/O
+#FUSES HS 
+
+#use delay(crystal=20000000)
+
 #ifndef lcd_enable 
    #define lcd_enable     pin_e1
    #define lcd_rs         pin_e2
@@ -8,10 +19,6 @@
    #define lcd_d6         pin_d6
    #define lcd_d7         pin_d7
 #endif
-
-#include "mod_lcd.c"
-#include "2401.c"
-#include "kbd_board4.c"
 
 // -----------------Functions
 void saveUser(int * id, int * pass, int status);

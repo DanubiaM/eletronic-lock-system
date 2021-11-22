@@ -1,9 +1,6 @@
+
 #include <16F877A.h>
 #device ADC=8
-
-#include "functions.c"
-
-
 
 #FUSES NOWDT                    //No Watch Dog Timer
 #FUSES NOBROWNOUT               //No brownout reset
@@ -11,6 +8,20 @@
 #FUSES HS 
 
 #use delay(crystal=20000000)
+
+
+//#include "functions.h"
+
+//#include "mod_lcd.c"
+
+#include "2401.c"
+
+#include "kbd_board4.c"
+
+
+//#include "functions.c"
+
+
 //#use rs232(baud=9600,parity=N,xmit=PIN_C6,rcv=PIN_C7,bits=8,stream=PORT1)
 
 // -------Variables' Declaration
@@ -18,7 +29,7 @@ signed int8 address_data_delete;
 
 int8 rx_wr_index = 0;
 int8 lock_pos = 0, rxd, read, valid_data_count;
-unsigned int8 rx_buffer[RX_BUFFER_SIZE];
+//unsigned int8 rx_buffer[RX_BUFFER_SIZE];
 int data_avail = FALSE, got_id = FALSE;
 
 // -------
@@ -160,6 +171,8 @@ void main()
       delay_ms(1000);
    } 
    
+   printf(lcd_escreve, "\fFunfou!");
+   delay_ms(500);
    
    // isIdAvailable(254);
    // isIdAvailable(200);

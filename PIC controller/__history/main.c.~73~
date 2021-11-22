@@ -1,8 +1,6 @@
+
 #include <16F877A.h>
 #device ADC=8
-#include "functions.c"
-
-
 
 #FUSES NOWDT                    //No Watch Dog Timer
 #FUSES NOBROWNOUT               //No brownout reset
@@ -12,21 +10,17 @@
 #use delay(crystal=20000000)
 //#use rs232(baud=9600,parity=N,xmit=PIN_C6,rcv=PIN_C7,bits=8,stream=PORT1)
 
-// -------Variables' Declaration
-signed int8 address_data_delete;
 
+// -------Variables' Declaration
+#define RX_BUFFER_SIZE 10
+#define BLOCK_SIZE sizeof(User) 
+signed int8 address_data_delete;
 int8 rx_wr_index = 0;
 int8 lock_pos = 0, rxd, read, valid_data_count;
-unsigned int8 rx_buffer[RX_BUFFER_SIZE];
 int data_avail = FALSE, got_id = FALSE;
+unsigned int8 rx_buffer[RX_BUFFER_SIZE];
+#include "functions.c"
 
-// -------
-
-
-// -----------------Functions
-
-
-// ----------------
 /*
 // ---- MSG from serial communication
 #int_RDA
@@ -70,110 +64,114 @@ void RDA_isr(void){
 }
 */
 
-//Define the default pins before calling the LCD driver
-#ifndef lcd_enable 
-   #define lcd_enable     pin_e1
-   #define lcd_rs         pin_e2
-   //#define lcd_rw       pin_e2  
-   #define lcd_d4         pin_d4
-   #define lcd_d5         pin_d5
-   #define lcd_d6         pin_d6
-   #define lcd_d7         pin_d7
-#endif
-
-#include "mod_lcd.c"
-
-#include "2401.c"
-
-#include "kbd_board4.c"
 
 
-#int_TIMER1
-void TIMER1_isr(void)
-{
-   // readKeyboard();
-}
 
-#int_RTCC
-void RTCC_isr(void)
-{
+// #int_TIMER1
+// void TIMER1_isr(void)
+// {
+// }
 
+// #int_RTCC
+// void RTCC_isr(void)
+// {
 
-   
       
-}
+// }
 
 void main()
 {
    //VARIAVEIS
-   byte result;
-   unsigned char tmp;
-   unsigned char tmp_result;
-   
-   eeprom_address address = 0;
 
-   // unsigned char tmp_result;
-   setup_timer_0(RTCC_INTERNAL|RTCC_DIV_256|RTCC_8_bit);      //13.1ms overflow
-   setup_timer_1(T1_INTERNAL|T1_DIV_BY_8); //Overflow in 104ms | Resolution 1.6 us
-
+   // setup_timer_0(RTCC_INTERNAL|RTCC_DIV_256|RTCC_8_bit);      //13.1ms overflow
+   // setup_timer_1(T1_INTERNAL|T1_DIV_BY_8); //Overflow in 104ms | Resolution 1.6 us
    init_ext_eeprom();
-
    // enable_interrupts(INT_TIMER0);
    // enable_interrupts(INT_TIMER1);
-
    // enable_interrupts(GLOBAL);
-
 
    lcd_ini();
    delay_us(50);
+
    printf(lcd_escreve, "\f  iniciando... ");
-   delay_ms(500);
+   delay_ms(200);
 
-   printf(lcd_escreve, "\fIFMT - Serial");
-   delay_ms(50);
+   // printf(lcd_escreve, "\fIFMT - Serial");
+   // delay_ms(50);
 
-   int size = BLOCK_SIZE;
-   printf(lcd_escreve, "\fBlock_Size:%u", size);
-   delay_ms(500);
+   // resetmemory();
 
-   resetMemory();
-   
-   data_avail = FALSE;
-   int pass [4] = {1,2,3,4};
-   int id [2] = {12,12};
-   saveUser(id, pass, 1);
-   int id1 [2] = {14,0};
-   saveUser(id1, pass, 0);
-   int id2 [2] = {5,5};
-   saveUser(id2, pass, 1);
-   int id3 [2] = {70,00};
-   saveUser(id3, pass, 1);
-   int id4 [2] = {254,254};
-   saveUser(id4, pass, 3);//admin
-
-   int * admins;
-
-   admins = getAdminsID();
-   for (int16 i=0; i < sizeof(admins); i+=2){
-      printf(lcd_escreve, "\fid:%u%u",admins[i], admins[i+1]);
-      delay_ms(1000);
-   } 
+   // int id [2] = {12,34};
+   // int pass [4] = {1,2,3,4};
+   // saveuser(id, pass, 1);
+   // int id1 [2] = {14,0};
+   // saveuser(id1, pass, 0);
+   // int id2 [2] = {70,10};
+   // saveuser(id2, pass, 1);
+   // int id3 [2] = {0,10};
+   // saveuser(id3, pass, 1);
+   // int id4 [2] = {99,99};
+   // saveuser(id4, pass, 3);//admin
    
    
-   // isIdAvailable(254);
-   // isIdAvailable(200);
+   // unsigned int * temp;
+   // unsigned int id [2];
+   // temp = inputId();
+   // id[0] = temp[0];
+   // id[1] = temp[1];
+   // login(id);
 
- 
-  // address_data_delete = getAddressByID(6);
-  // printf(lcd_escreve, "\f Address ID = %d", address_data_delete);
- //  deleteBlock(address_data_delete);
-   delay_ms(50);
-   // printUser();
-   delay_ms(1000);
-   
-   while(TRUE)
-   {
-   
-   }
+   unsigned char option;
+   unsigned int * temp;
+   unsigned int id [2];
+   int status;
+   do{
+      printf(lcd_escreve,"\f1:Login|2:Admin");
+      delay_ms(500);
+      option = readKeyboard();
+
+      if(option != 255){
+         printf(lcd_escreve,"\r\n Option: %c", option);
+         delay_ms(500);
+
+         switch(option){
+            case '1':
+               temp = inputId();
+               id[0] = temp[0];
+               id[1] = temp[1];
+               // free(temp);
+               login(id);
+               status = login(id);
+               if(status == 3){
+                  printf(lcd_escreve,"\fBem Vindo(a)!");
+                  delay_ms(1000);
+                  printf(lcd_escreve,"\fLiga Led e Rele");
+                  delay_ms(500);
+               }
+               break;
+            case '2':
+               temp = inputId();
+               id[0] = temp[0];
+               id[1] = temp[1];
+               tatus = login(id);
+               if(status == 3){
+                  adminMenu();
+               }
+               // else{
+               //    printf(lcd_escreve,"\fN Permitido");
+               //    delay_ms(500);
+               // }
+               break;
+            default:
+               printf(lcd_escreve,"\fDigite um valor");
+               printf(lcd_escreve,"\r\nValido!");
+               delay_ms(500);
+               break;
+         }
+      }
+
+
+   }while(option != '5');
 
 }
+

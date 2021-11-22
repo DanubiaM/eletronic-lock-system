@@ -67,53 +67,40 @@ void RDA_isr(void){
 
 
 
-#int_TIMER1
-void TIMER1_isr(void)
-{
-}
+// #int_TIMER1
+// void TIMER1_isr(void)
+// {
+// }
 
-#int_RTCC
-void RTCC_isr(void)
-{
+// #int_RTCC
+// void RTCC_isr(void)
+// {
 
       
-}
+// }
 
 void main()
 {
    //VARIAVEIS
-   byte result;
-   unsigned char option;
-   
-   eeprom_address address = 0;
 
-   // unsigned char tmp_result;
-   setup_timer_0(RTCC_INTERNAL|RTCC_DIV_256|RTCC_8_bit);      //13.1ms overflow
-   setup_timer_1(T1_INTERNAL|T1_DIV_BY_8); //Overflow in 104ms | Resolution 1.6 us
-
+   // setup_timer_0(RTCC_INTERNAL|RTCC_DIV_256|RTCC_8_bit);      //13.1ms overflow
+   // setup_timer_1(T1_INTERNAL|T1_DIV_BY_8); //Overflow in 104ms | Resolution 1.6 us
    init_ext_eeprom();
-
-   enable_interrupts(INT_TIMER0);
-   enable_interrupts(INT_TIMER1);
-
-   enable_interrupts(GLOBAL);
-
+   // enable_interrupts(INT_TIMER0);
+   // enable_interrupts(INT_TIMER1);
+   // enable_interrupts(GLOBAL);
 
    lcd_ini();
    delay_us(50);
+
    printf(lcd_escreve, "\f  iniciando... ");
    delay_ms(200);
 
    // printf(lcd_escreve, "\fIFMT - Serial");
    // delay_ms(50);
 
-   // int size = BLOCK_SIZE;
-   // printf(lcd_escreve, "\fBlock_Size:%u", size);
-   // delay_ms(500);
-
    // resetmemory();
 
-   // data_avail = false;
    // int id [2] = {12,34};
    // int pass [4] = {1,2,3,4};
    // saveuser(id, pass, 1);
@@ -127,41 +114,66 @@ void main()
    // saveuser(id4, pass, 3);//admin
    
    
-   getAddressByID(id2);
-   // adminMenu();
+   // unsigned int * temp;
+   // unsigned int id [2];
+   // temp = inputId();
+   // id[0] = temp[0];
+   // id[1] = temp[1];
+   // login(id);
+
+   unsigned char option;
+   unsigned int * temp;
+   unsigned int id [2];
+   int status;
+   do{
+      printf(lcd_escreve,"\f1:Login|2:Admin");
+      delay_ms(500);
+      option = readKeyboard();
+
+      if(option != 255){
+         printf(lcd_escreve,"\r\n Option: %c", option);
+         delay_ms(500);
+
+         switch(option){
+            case '1':
+               temp = inputId();
+               id[0] = temp[0];
+               id[1] = temp[1];
+               status = login(id);
+               if(status == 1 || status == 3){
+                  printf(lcd_escreve,"\fBem Vindo(a)!");
+                  delay_ms(1000);
+                  printf(lcd_escreve,"\fLiga Led e Rele");
+                  delay_ms(500);
+               }else{//Unpaid
+                  printf(lcd_escreve,"\fConta Existe");
+                  printf(lcd_escreve,"\r\r,Mas Falta Pagar!");
+                  delay_ms(1000);
+               }
+               break;
+            case '2':
+               temp = inputId();
+               id[0] = temp[0];
+               id[1] = temp[1];
+               status = login(id);
+               if(status == 3){
+                  adminMenu();
+               }
+               else{
+                  printf(lcd_escreve,"\fN Permitido");
+                  delay_ms(500);
+               }
+               break;
+            default:
+               printf(lcd_escreve,"\fDigite um valor");
+               printf(lcd_escreve,"\r\nValido!");
+               delay_ms(500);
+               break;
+         }
+      }
 
 
-
-   // char keyboard_buffer[]= '6';
-   // char n = '9';
-   // unsigned char temp_pass[2];
-   // unsigned int * buffer;
-   // unsigned int pass[4];
-   // strfromchar(temp_pass,n);
-   // buffer = strToInt(temp_pass);
-   // pass[0] = buffer[0];
-
-   // printf(lcd_escreve,"\foutside:%u", pass[0]);
-   // delay_ms(800);
-
-
-   // int index = 2;
-   // if(index>0){//for testing purposes
-   //    for(int i=0; i < index; i++){
-   //       printf(lcd_escreve,"\foutside:%u", buffer[i]);
-   //       delay_ms(800);
-   //    }
-   // }
- 
- 
-  // address_data_delete = getAddressByID(6);
-  // printf(lcd_escreve, "\f Address ID = %d", address_data_delete);
- //  deleteBlock(address_data_delete);
-   delay_ms(50);
-   
-   while(TRUE)
-   {
-   }
+   }while(option != '5');
 
 }
 

@@ -1,22 +1,22 @@
 
-ROM used:   3465/8192 (42%)
-            3472/8192 (42%) including unused fragments
+ROM used:   5140/8192 (63%)
+            5740/8192 (70%) including unused fragments
 
-            1.0 Average locations per line
-            3.8 Average locations per statement
+            1.4 Average locations per line
+            5.7 Average locations per statement
 
-RAM used:   55/368 (15%) at main() level
-            181/368 (49%) worst case
+RAM used:   45/368 (12%) at main() level
+            222/368 (60%) worst case
 
-Stack used: 6 worst case (5 in main + 1 for interrupts)
+Stack used: 7 worst case (7 in main + 0 for interrupts)
 Stack size: 8
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-  129    15   2  main.c
+  180    46   5  main.c
   672     0   0  ..\..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h
-  577   312  35  functions.c
-   54     0   0  functions.h
+  523   281  31  functions.c
+   53     0   0  functions.h
   165    72   8  mod_lcd.c
    87    23   3  ..\..\..\..\..\Program Files (x86)\PICC\Drivers\2401.c
    56   123  14  kbd_board4.c
@@ -25,119 +25,122 @@ Lines Stmts  %   Files
   423     0   0  ..\..\..\..\..\Program Files (x86)\PICC\Drivers\string.h
    28     0   0  ..\..\..\..\..\Program Files (x86)\PICC\Drivers\ctype.h
 ----- -----
- 3574   904 Total
+ 3570   904 Total
 
 Page ROM  %  RAM    Vol Diff  Functions:
 ---- --- --- ---    --- ----  ----------
-0     20   1    1             @delay_ms1
-0      8   0    0             @const630
+0     20   0    1             @delay_ms1
+0      8   0    0      5  1.0  @const630
 0     49   1    1    260  1.9  lcd_envia_nibble
 0     41   1    3    176  2.7  lcd_envia_byte
-0     73   2    2    433  4.3  lcd_ini
+0     73   1    2    433  4.3  lcd_ini
  Inline         4    186  5.5  lcd_pos_xy
-0     67   2    1    290  4.1  lcd_escreve
+0     67   1    1    290  4.1  lcd_escreve
  Inline         3             @I2C_READ_1
-1     92   3    1             @I2C_WRITE_1
+1     92   2    1             @I2C_WRITE_1
 0     13   0    0     32  1.0  init_ext_eeprom
- Inline         1     84  2.4  ext_eeprom_ready
-1    284   8    2    207  3.3  read_ext_eeprom
+1     76   1    1     84  2.4  ext_eeprom_ready
+1     80   2    2    134  2.8  write_ext_eeprom
+1    208   4    2    207  3.3  read_ext_eeprom
  Inline         4   3587  6.5  tc_tecla
 0     43   1    9    276  7.0  memchr
- Inline         5    140  5.0  strlen
  Inline         6             @MULS1616
-0    530  15   52   2308 12.4  strtoul
-0     10   0    0             @const995
-0    116   3    4             @PSTRINGC7_646
+0    572  11   52   2308 12.4  strtoul
+ Inline         6   1494  7.5  saveUser
+0     10   0    0             @const994
+0    116   2    4             @PSTRINGC7_646
+0      9   0    0             @const996
 0      9   0    0             @const997
-0      9   0    0             @const998
-0     10   0    0             @const1005
+ Inline         7   1410  6.5  updateUser
+0     10   0    0             @const1004
+0      9   0    0             @const1005
 0      9   0    0             @const1006
-0      9   0    0             @const1007
-0      7   0    0             @const1009
-0    122   4    5             @PSTRINGCN7_646
-1     23   1    3             @DIV88
-0     12   0    0             @const1018
- Inline         7    664  8.3  getAddressByID
-0      8   0    0             @const1021
-1     69   2    2             @PRINTF_U_646
-0     11   0    0             @const1025
-0      5   0    0             @const1027
-0      9   0    0             @const1029
-0      8   0    0             @const1031
- Inline         5    360  6.3  getUserStatus
-0     13   0    0             @const1034
-0      9   0    0             @const1035
-0      6   0    0             @const1036
+0      7   0    0             @const1008
+0    122   2    5             @PSTRINGCN7_646
+1     23   0    3             @DIV88
+ Inline         6             @PRINTF_D_646
+0     12   0    0             @const1017
+1     58   1    6    408  8.0  getAddressByID
+ Inline         5    294  5.3  searchUser
+0      5   0    0             @const1021
+1     69   1    2             @PRINTF_U_646
+0      9   0    0    294  5.3  @const1026
+1     33   1    2    191  4.9  erase_program_eeprom
+0      8   0    0             @const1028
+1     84   2    5    360  6.3  getUserStatus
+0     13   0    0             @const1031
+0      9   0    0    360  6.3  @const1032
+0      6   0    0             @const1033
 1     31   1    2             @PSTRINGR_646
-0      9   0    0             @const1049
-0     10   0    0             @const1050
+ Inline         4    719 10.1  deleteUser
+ Inline         2    110  4.1  lastNewUserPosition
+2   1644  32    6   1431  9.1  adminMenu
+0      8   0    0    120  4.2  @const1045
+0      9   0    0   1431  9.1  @const1046
+0      9   0    0             @const1047
+0      7   0    0             @const1048
+0      8   0    0             @const1050
 0      9   0    0             @const1051
-0     10   0    0             @const1052
+0      9   0    0             @const1052
 0      9   0    0             @const1053
-0      7   0    0             @const1054
-0      8   0    0             @const1056
-0      9   0    0             @const1057
-0      9   0    0             @const1058
-0      9   0    0             @const1059
-0      5   0    0             @const1060
-0      9   0    0             @const1062
-0      7   0    0             @const1063
-0      9   0    0             @const1066
-0      5   0    0             @const1067
-1    725  21    4   1402  6.4  login
-0      8   0    0    368  7.8  @const1077
-0      9   0    0    153  4.2  @const1078
-0      7   0    0    153  4.2  @const1079
-0     10   0    0    368  7.8  @const1080
-0     11   0    0    654  9.4  @const1081
-0      7   0    0    368  7.8  @const1082
-0      9   0    0    399  6.8  @const1083
-0      7   0    0    368  7.8  @const1084
-0      8   0    0    414  7.1  @const1085
- Inline         6    289  8.2  checkPassword
-0    357  10    2    153  4.2  readKeyboard
-0      7   0    0    153  4.2  @const1091
-0      9   0    0    654  9.4  @const1096
-0      8   0    0    399  6.8  @const1100
-0      5   0    0    414  7.1  @const1102
-0     60   2    9    414  7.1  strToInt
+0      5   0    0             @const1054
+1    236   5    4   1050  6.4  login
+0      7   0    0             @const1056
+0      8   0    0   1352  6.3  @const1057
+0     11   0    0             @const1063
+0      7   0    0   1786  6.8  @const1064
+0      9   0    0             @const1065
+ Inline         6    276  8.2  checkPassword
+0    357   7    2    153  4.2  readKeyboard
+0      5   0    0    153  4.2  @const1073
+0      9   0    0    654  9.4  @const1078
+0      8   0    0    399  6.8  @const1082
+0      5   0    0    654  9.4  @const1084
+0     60   1    9    414  7.1  strToInt
  Inline         5     98  3.2  strfromchar
-1     99   3   20    571  7.5  inputId
+0     89   2   20    571  7.5  inputId
+0      8   0    0    571  7.5  @const1094
+0      6   0    0    414  7.1  @const1095
+1    140   3   17    625  7.4  inputToKeyboard
+0      6   0    0    399  6.8  @const1101
+ Inline         5   1113  5.9  inputKeyboardUser
+0      5   0    0   1205  3.7  @const1106
 0      8   0    0    571  7.5  @const1112
-0      6   0    0    625  7.4  @const1113
- Inline        17    625  7.4  inputToKeyboard
-0      6   0    0   1205  3.7  @const1119
-0      5   0    0   1205  3.7  @const1125
-0     10   0    0    474  3.9  @const1128
-0      6   0    0   1331  6.0  @const1130
-0     10   0    0   1331  6.0  @const1139
-0      6   0    0      5  1.0  @const1141
-0      7   0    0      5  1.0  @const1142
-0      4   0    0      5  1.0  TIMER1_isr
-0      4   0    0      5  1.0  RTCC_isr
-1    101   3    0    474  3.9  MAIN
-0      9   0    0    474  3.9  @const1148
- Inline         0             @cinit1
+ Inline         5   1324  6.0  editUser
+0     10   0    0   1331  6.0  @const1121
+0      6   0    0   1331  6.0  @const1123
+0      7   0    0             @const1124
+1    329   6    1   1652  9.6  MAIN
+0      9   0    0   1652  9.6  @const1128
+0      9   0    0   1686  9.6  @const1133
+0      7   0    0   1205  3.7  @const1134
+0      8   0    0   1205  3.7  @const1135
+0      9   0    0   1719  9.6  @const1136
+0      7   0    0             @const1137
+0     10   0    0   1331  6.0  @const1138
+0      7   0    0   1331  6.0  @const1139
+0      9   0    0   1503  9.1  @const1140
+0      5   0    0             @const1141
+ Inline         0   1091  8.6  @cinit1
 
 Program metrics:
-    Functions               47
+    Functions               58
     Statements              904
-    Comments                896
-    Volume (V)              45878
-    Difficulty (D)          252.2
-    Effort to implement (E) 11570470
-    Time to implement (T)   178 hours, 33 minutes
-    Est Delivered Bugs (B)  17
-    Cyclomatic Complexity   81
-    Maintainability (MI)    110
+    Comments                904
+    Volume (V)              87675
+    Difficulty (D)          362.9
+    Effort to implement (E) 31816922
+    Time to implement (T)   491 hours, 0 minutes
+    Est Delivered Bugs (B)  33
+    Cyclomatic Complexity   144
+    Maintainability (MI)    80
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00003     4  0  
-00004-00057    84  0  
-00058-007FF  1953  7  
-00800-00FFF  1424  624  
-01000-017FF     0  2048  
+00004-007FF  2033  11  
+00800-00FFF  1459  589  
+01000-017FF  1644  404  
 01800-01FFF     0  2048  
 
 
