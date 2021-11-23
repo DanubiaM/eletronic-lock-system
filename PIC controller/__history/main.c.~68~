@@ -1,7 +1,7 @@
-#include <16F877A.h>
-#device ADC=8
-#include "functions.c"
 
+
+
+#include "functions.c"
 
 
 #FUSES NOWDT                    //No Watch Dog Timer
@@ -159,6 +159,8 @@ void main()
       delay_ms(1000);
    } 
    
+   printf(lcd_escreve, "\fFunfou!");
+   delay_ms(500);
    
    // isIdAvailable(254);
    // isIdAvailable(200);

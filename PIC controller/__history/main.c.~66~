@@ -163,6 +163,8 @@ void main()
       delay_ms(1000);
    } 
    
+   printf(lcd_escreve, "\fFunfou!");
+   delay_ms(500);
    
    // isIdAvailable(254);
    // isIdAvailable(200);
