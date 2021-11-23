@@ -5,6 +5,7 @@
     ".prettierrc": "json",
     "*.tsx": "typescriptreact",
     "limits": "c",
-    "string.h": "c"
+    "string.h": "c",
+    "cstdio": "c"
   }
 }

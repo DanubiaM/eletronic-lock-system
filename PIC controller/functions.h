@@ -15,6 +15,12 @@
 #include "2401.c"
 #include "kbd_board4.c"
 
+typedef struct { 
+   int id[2];  
+   int pass[4]; //password
+   int status; //0 - Unpaid, 1 - Paid, 3 - Admin
+}User;
+
 
 
 
@@ -30,9 +36,9 @@ void searchUser(int * id);
 int deleteUser(int * id);
 void editUser();
 void updateUser(int * id, int * pass, int status);
-
+void receiveClient();
 // int isIdAvailable(int id);    
-void printUser();
+void printUser(User user);
 void erase_program_eeprom(int addrr);
 int incrementID();
 int lastNewUserPosition();
