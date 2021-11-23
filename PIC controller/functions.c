@@ -1,10 +1,5 @@
 #include "functions.h"
 
-typedef struct { 
-   int id[2];  
-   int pass[4]; //password
-   int status; //0 - Unpaid, 1 - Paid, 3 - Admin
-}User;
 
 #include <stdlib.h>
 #include <string.h>
@@ -74,17 +69,32 @@ void updateUser(int * id, int * pass, int status, int address){
 
 }
 
-void printUser(){
-   //delay_ms(50);
-   int tmp_result = read_ext_eeprom(0);  
+void printUser(User user){
+   printf (lcd_escreve,"\fCliente ID: %u%u",user.id[0],user.id[1]);
+   printf(lcd_escreve, "\r\nPw:%u%u%u%u St:%u",user.pass[0],user.pass[1],user.pass[2],user.pass[3],user.status);
+   delay_ms(1000);
+}
 
-   delay_ms(50);  
+void receiveClient(){
    
-   printf (lcd_escreve,"\f Button: %d", tmp_result);
-   printf(lcd_escreve, "\r\nPw:%d%d%d%d St:%d %d", read_ext_eeprom(1), read_ext_eeprom(2), read_ext_eeprom(3), read_ext_eeprom(4), read_ext_eeprom(5), read_ext_eeprom(6));
-   
-   //printf(lcd_escreve, "\f Client () else´{}{}
-   // printf(lcd_escreve, "\r\nPw:%c%c%c%c St:%c %c", U1.pass[0], U1.pass[1], U1.pass[2], U1.pass[3], U1.status, U1.type_usr);
+   int * rx_buffer_int;
+   printf (lcd_escreve,"\f%s\r\n",string);
+   delay_ms(1000);
+   rx_buffer_int = strToInt(string);
+   // for(int i =0; i < RX_BUFFER_SIZE; i++){
+   //    printf (lcd_escreve,"\fPos:%d Value:%d",i,rx_buffer_int[i]);
+   //    delay_ms(500);
+   // }
+
+   User user;
+   user.id[0] = rx_buffer_int[0];
+   user.id[1] = rx_buffer_int[1];
+   user.pass[0] = rx_buffer_int[2];
+   user.pass[1] = rx_buffer_int[3];
+   user.pass[2] = rx_buffer_int[4];
+   user.pass[3] = rx_buffer_int[5];
+   user.status = rx_buffer_int[6];
+   printUser(user);
 }
 
 int getAddressByID(int * id){

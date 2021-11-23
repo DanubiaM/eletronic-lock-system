@@ -14,7 +14,7 @@ Type=4
 1=main.c
 
 [ProjectLog]
-Days=6
+Days=7
 D1=15-11-2021
 D1_L=19
 D1_L1=[33298]Project Opened.
@@ -74,7 +74,7 @@ D5_E=9
 D5_D=0
 D5_L6=[73563]Project Closed.
 D6=22-11-2021
-D6_L=13
+D6_L=17
 D6_L1=[66030]Project Opened.
 D6_L2=[66409]Started Editing.
 D6_L3=[66709]Stopped Editing.
@@ -90,12 +90,24 @@ D6_E=4
 D6_D=0
 D6_L12=[71127]Project Closed.
 D6_L13=[71371]Project Opened.
+D6_L14=[84444]Started Editing.
+D6_L15=[85286]Stopped Editing.
+D6_L16=[85679]Started Editing.
+D6_L17=[86371]Stopped Editing.
+D7=23-11-2021
+D7_L=6
+D7_L1=[865]Started Editing.
+D7_L2=[1199]Stopped Editing.
+D7_L3=[1942]Started Editing.
+D7_L4=[2541]Stopped Editing.
+D7_L5=[3259]Started Editing.
+D7_L6=[3780]Stopped Editing.
 
 [Opened Files]
 1=main.c
 2=functions.c
 3=functions.h
-4=..\..\..\..\..\Program Files (x86)\PICC\Drivers\2401.c
+4=
 5=kbd_board4.c
 6=
 [main.c]

@@ -302,3 +302,4 @@ kdb_board4.c
 *.err
 
 
+*.vscode/
