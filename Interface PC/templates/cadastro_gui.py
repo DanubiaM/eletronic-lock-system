@@ -102,6 +102,9 @@ class Ui_cadastro(object):
         self.input_senha3.setPlaceholderText(_translate("Dialog", "0"))
         self.input_senha4.setPlaceholderText(_translate("Dialog", "0"))
         self.input_status.setPlaceholderText(_translate("Dialog", " 1 - 2 - 3"))
+      
+
+        
 import templates.cadastro
 
 
