@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>540</width>
+    <width>682</width>
     <height>401</height>
    </rect>
   </property>
@@ -27,15 +27,20 @@
    <widget class="QTableWidget" name="table_list">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>10</x>
       <y>50</y>
-      <width>251</width>
+      <width>361</width>
       <height>291</height>
      </rect>
     </property>
     <column>
      <property name="text">
       <string>Id</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Senha</string>
      </property>
     </column>
     <column>
@@ -47,8 +52,8 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>20</y>
+      <x>10</x>
+      <y>10</y>
       <width>251</width>
       <height>21</height>
      </rect>
@@ -65,7 +70,7 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>-110</x>
+      <x>310</x>
       <y>180</y>
       <width>431</width>
       <height>161</height>
@@ -83,7 +88,7 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>541</width>
+      <width>681</width>
       <height>371</height>
      </rect>
     </property>
@@ -107,8 +112,7 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);
-font: 63 10pt &quot;Bahnschrift SemiBold&quot;;</string>
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -117,12 +121,10 @@ font: 63 10pt &quot;Bahnschrift SemiBold&quot;;</string>
     <bool>false</bool>
    </attribute>
    <addaction name="actionCadastrar"/>
-   <addaction name="separator"/>
    <addaction name="actionEditar"/>
-   <addaction name="separator"/>
-   <addaction name="actionProcurar"/>
-   <addaction name="separator"/>
+   <addaction name="actionPesquisar"/>
    <addaction name="actionExcluir"/>
+   <addaction name="actionAtualizar"/>
   </widget>
   <action name="actionCadastrar">
    <property name="text">
@@ -133,15 +135,29 @@ font: 63 10pt &quot;Bahnschrift SemiBold&quot;;</string>
    <property name="text">
     <string>Editar</string>
    </property>
-  </action>
-  <action name="actionProcurar">
-   <property name="text">
-    <string>Procurar</string>
+   <property name="toolTip">
+    <string>Selecione um ID na tabela abaixo</string>
    </property>
   </action>
   <action name="actionExcluir">
    <property name="text">
     <string>Excluir</string>
+   </property>
+   <property name="toolTip">
+    <string>Selecione um ID na tabela abaixo</string>
+   </property>
+  </action>
+  <action name="actionAtualizar">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Atualizar</string>
+   </property>
+  </action>
+  <action name="actionPesquisar">
+   <property name="text">
+    <string>Pesquisar</string>
    </property>
   </action>
  </widget>
