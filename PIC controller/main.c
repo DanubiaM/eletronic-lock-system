@@ -13,21 +13,24 @@
 
 // -------Variables' Declaration
 #define BLOCK_SIZE sizeof(User) 
-#define RX_BUFFER_SIZE 15
+#define RX_BUFFER_SIZE 20
 int8 rx_wr_index = 0;
 int8 lock_pos = 0, rxd, read, valid_data_count;
 int data_avail = FALSE, got_id = FALSE;
-unsigned int8 rx_buffer[RX_BUFFER_SIZE];
-char string [RX_BUFFER_SIZE];
+char rx_buffer[RX_BUFFER_SIZE];
+char history[RX_BUFFER_SIZE];
+int n_bytes = 0;
+// char string [RX_BUFFER_SIZE];
 #include "functions.c"
 
 // ---- MSG from serial communication
 #int_RDA
 void RDA_isr(void){
    rx_buffer[rx_wr_index] = getc();
-   string[rx_wr_index] = rx_buffer[rx_wr_index];
+   // history[rx_wr_index] = fgetc(Wireless);
    rxd = rx_buffer[rx_wr_index];
    rx_wr_index++;
+   //n_bytes = rcv_buffer_bytes(Wireless);
 
    if(rx_wr_index > RX_BUFFER_SIZE){
       rx_wr_index = 0;
@@ -100,20 +103,39 @@ void main()
    delay_ms(500);
 
    // resetmemory();
+   // char data[RX_BUFFER_SIZE] = "00 10 5 6 6 5 1";
+   // char data[RX_BUFFER_SIZE] = ;
+   while (true){
 
-   // int id [2] = {12,34};
-   // int pass [4] = {1,2,3,4};
-   // saveuser(id, pass, 1);
-   // int id1 [2] = {14,0};
-   // saveuser(id1, pass, 0);
-   // int id2 [2] = {70,10};
-   // saveuser(id2, pass, 1);
-   // int id3 [2] = {0,10};
-   // saveuser(id3, pass, 1);
-   // int id4 [2] = {99,99};
-   // saveuser(id4, pass, 3);//admin
-   
-   
+      // int * rx_buffer_int;
+      // rx_buffer_int = strToInt(data);
+
+      // resetMemory();
+
+      printf (lcd_escreve,"\fEm Modo Espera");
+      printf (lcd_escreve,"\r\nde dados ...");
+      delay_ms(100);
+      User user;
+      while(true){
+         if(data_avail){
+            if(rx_buffer[0] =='#' && rx_buffer[2] =='#'){
+               printf (lcd_escreve,"\fFim da Comunicacao");
+               delay_ms(1000);
+               break;
+            }
+            data_avail = FALSE;
+            user = receiveUser();
+            printUser(user);
+            // overwriteUser(user);
+            // rx_wr_index = 0;
+            printf (lcd_escreve,"\fPIC em modo Espera");
+            printf (lcd_escreve,"\r\nEsperando dados...");
+            delay_ms(100);
+         }
+      }
+
+   }
+ 
    // unsigned int * temp;
    // unsigned int id [2];
    // temp = inputId();
@@ -121,17 +143,24 @@ void main()
    // id[1] = temp[1];
    // login(id);
 
-   while(true){
-      if(data_avail){
-         output_high(PIN_D3);
-         data_avail = FALSE;
-         receiveClient();
-      }
-   }
+   // waitUpdate();
 
-
-   // unsigned char option; unsigned int * temp;
+   // unsigned char option; 
+   // unsigned int * temp;
    // unsigned int id [2];
+   
+   // // int id10 [2] = {12,34};
+   // // int pass [4] = {1,2,3,4};
+   // // saveuser(id10, pass, 1);
+   // // int id1 [2] = {14,0};
+   // // saveuser(id1, pass, 0);
+   // // int id2 [2] = {70,10};
+   // // saveuser(id2, pass, 1);
+   // // int id3 [2] = {0,10};
+   // // saveuser(id3, pass, 1);
+   // // int id4 [2] = {99,99};
+   // // saveuser(id4, pass, 3);//admin
+   
    // int status;
    // do{
    //    printf(lcd_escreve,"\f1:Login|2:Admin");

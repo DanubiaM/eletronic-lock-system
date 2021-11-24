@@ -1,115 +1,128 @@
 
-ROM used:   1942/8192 (24%)
-            1942/8192 (24%) including unused fragments
+ROM used:   2289/8192 (28%)
+            2289/8192 (28%) including unused fragments
 
-            0.5 Average locations per line
-            2.1 Average locations per statement
+            0.6 Average locations per line
+            2.4 Average locations per statement
 
-RAM used:   75/368 (20%) at main() level
-            156/368 (42%) worst case
+RAM used:   89/368 (24%) at main() level
+            228/368 (62%) worst case
 
 Stack used: 5 worst case (4 in main + 1 for interrupts)
 Stack size: 8
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-  188    45   5  main.c
+  217    58   6  main.c
   672     0   0  ..\..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h
-  533   293  32  functions.c
-   59     0   0  functions.h
-  165    72   8  mod_lcd.c
-   87    23   3  ..\..\..\..\..\Program Files (x86)\PICC\Drivers\2401.c
+  601   332  34  functions.c
+   61     0   0  functions.h
+  165    72   7  mod_lcd.c
+   87    23   2  ..\..\..\..\..\Program Files (x86)\PICC\Drivers\2401.c
    56   123  13  kbd_board4.c
- 1351   359  39  ..\..\..\..\..\Program Files (x86)\PICC\Drivers\stdlib.h
+ 1351   359  37  ..\..\..\..\..\Program Files (x86)\PICC\Drivers\stdlib.h
    32     0   0  ..\..\..\..\..\Program Files (x86)\PICC\Drivers\stddef.h
   423     0   0  ..\..\..\..\..\Program Files (x86)\PICC\Drivers\string.h
    28     0   0  ..\..\..\..\..\Program Files (x86)\PICC\Drivers\ctype.h
 ----- -----
- 3594   915 Total
+ 3693   967 Total
 
 Page ROM  %  RAM    Vol Diff  Functions:
 ---- --- --- ---    --- ----  ----------
 0     20   1    1             @delay_ms1
-0      8   0    0    771  6.3  @const631
-0     49   3    1    260  1.9  lcd_envia_nibble
+0      8   0    0             @const632
+0     49   2    1    260  1.9  lcd_envia_nibble
 0     41   2    3    176  2.7  lcd_envia_byte
-0     73   4    2    433  4.3  lcd_ini
+0     71   3    2    433  4.3  lcd_ini
  Inline         4    186  5.5  lcd_pos_xy
-0     65   3    1    290  4.1  lcd_escreve
+0     67   3    1    290  4.1  lcd_escreve
 0     13   1    0     32  1.0  init_ext_eeprom
 0     43   2    9    276  7.0  memchr
  Inline         6             @MULS1616
-0    530  27   52   2308 12.4  strtoul
-0     10   1    0             @const997
-0     86   4    4             @PSTRINGC7_647
-0      9   0    0             @const999
-0      9   0    0             @const1000
-0     10   1    0             @const1007
-0      9   0    0             @const1008
-0      9   0    0             @const1009
- Inline         8    317  2.7  printUser
-0      9   0    0             @const1010
-0     86   4    5             @PSTRINGCN7_647
-0     21   1    3             @DIV88
-0     53   3    2             @PRINTF_U_647
-0     10   1    0             @const1019
-0    252  13    3    585  3.8  receiveClient
- Inline         2    294  5.3  @PSTRINGR_647
-0      5   0    0    408  8.0  @const1027
-0      9   0    0    294  5.3  @const1029
-0      8   0    0    360  6.3  @const1031
-0      6   0    0    719 10.1  @const1036
-0      8   0    0    120  4.2  @const1047
-0      9   0    0   1431  9.1  @const1048
-0      9   0    0             @const1049
-0      7   0    0             @const1050
-0      8   0    0             @const1052
+0    572  25   52   2308 12.4  strtoul
+0     10   0    0             @const1001
+0     84   4    4             @PSTRINGC7_648
+0      9   0    0             @const1003
+0      9   0    0             @const1004
+0     10   0    0             @const1011
+0      9   0    0             @const1012
+0      9   0    0             @const1013
+0     71   3    8    208  2.5  printUser
+0     10   0    0             @const1014
+0    122   5    5             @PSTRINGCN7_648
+0     23   1    3             @DIV88
+0     63   3    2             @PRINTF_U_648
+0    198   9   47    694  4.3  receiveUser
+ Inline         2             @PSTRINGR_648
+0      5   0    0    294  5.3  @const1032
+0      9   0    0             @const1034
+0      6   0    0             @const1040
+0      8   0    0    178  4.2  @const1048
+0      8   0    0   1623  9.1  @const1052
+0      9   0    0             @const1053
+0     12   1    0             @const1054
+0     11   0    0             @const1055
 0      9   0    0             @const1056
-0      9   0    0             @const1057
-0      9   0    0             @const1058
-0      5   0    0   1050  6.4  @const1059
-0      7   0    0   1050  6.4  @const1061
-0      8   0    0             @const1062
-0     11   1    0             @const1068
-0      7   0    0             @const1069
-0      9   0    0    276  8.2  @const1070
-0      5   0    0    153  4.2  @const1078
-0      9   0    0    654  9.4  @const1083
-0      8   0    0    399  6.8  @const1087
-0      5   0    0    414  7.1  @const1089
+0      7   0    0             @const1057
+0      8   0    0             @const1059
+0      9   0    0             @const1063
+0      9   0    0             @const1064
+0      9   0    0             @const1065
+0      5   0    0             @const1066
+0      7   0    0   1050  6.4  @const1068
+0      8   0    0             @const1069
+0     11   0    0             @const1075
+0      7   0    0             @const1076
+0      9   0    0             @const1077
+0      5   0    0    153  4.2  @const1085
+0      9   0    0    654  9.4  @const1090
+0      8   0    0    399  6.8  @const1094
+0      5   0    0             @const1096
  Inline         9    414  7.1  strToInt
-0      8   0    0    571  7.5  @const1099
-0      6   0    0    625  7.4  @const1100
-0      6   0    0   1113  5.9  @const1106
-0      5   0    0   1113  5.9  @const1111
-0      8   0    0   1324  6.0  @const1117
-0     10   1    0   1324  6.0  @const1126
-0      6   0    0             @const1128
-0      7   0    0    819  6.3  @const1129
-0    105   5    3    819  6.3  RDA_isr
-0     98   5    1    303  3.1  MAIN
-0      9   0    0    303  3.1  @const1134
-0      8   0    0             @const1135
+0      8   0    0    571  7.5  @const1106
+0      6   0    0             @const1107
+0      6   0    0             @const1113
+0      5   0    0   1113  5.9  @const1118
+0      8   0    0             @const1124
+0     10   0    0   1324  6.0  @const1133
+0      6   0    0             @const1135
+0      7   0    0             @const1136
+0      8   0    0    496  5.1  @const1137
+0      8   0    0             @const1138
+0     10   0    0             @const1140
+0     10   0    0             @const1141
+0     11   0    0             @const1142
+0      9   0    0    858  6.7  @const1144
+0      9   0    0             @const1145
+0     78   3    2    759  6.3  RDA_isr
+1    241  11    4    772  5.2  MAIN
+0      9   0    0    743  5.2  @const1150
+0      8   0    0             @const1151
+0      8   0    0             @const1152
+0      8   0    0             @const1153
+0     10   0    0             @const1155
+0     10   0    0             @const1156
+0     11   0    0             @const1157
  Inline         0             @cinit1
 
 Program metrics:
-    Functions               36
-    Statements              915
-    Comments                894
-    Volume (V)              39760
-    Difficulty (D)          211.7
-    Effort to implement (E) 8418985
-    Time to implement (T)   129 hours, 55 minutes
-    Est Delivered Bugs (B)  14
-    Cyclomatic Complexity   80
-    Maintainability (MI)    131
+    Functions               26
+    Statements              967
+    Comments                932
+    Volume (V)              28019
+    Difficulty (D)          141.9
+    Effort to implement (E) 3976604
+    Time to implement (T)   61 hours, 22 minutes
+    Est Delivered Bugs (B)  8
+    Cyclomatic Complexity   59
+    Maintainability (MI)    83
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00003     4  0  
 00004-00050    77  0  
-00051-007FF  1861  106  
-00800-00FFF     0  2048  
+00051-007FF  1967  0  
+00800-00FFF   241  1807  
 01000-017FF     0  2048  
 01800-01FFF     0  2048  
 

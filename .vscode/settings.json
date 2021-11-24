@@ -6,6 +6,7 @@
     "*.tsx": "typescriptreact",
     "limits": "c",
     "string.h": "c",
-    "cstdio": "c"
+    "cstdio": "c",
+    "typeinfo": "c"
   }
 }
