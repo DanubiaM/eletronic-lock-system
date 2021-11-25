@@ -208,10 +208,10 @@ int lastNewUserPosition(){
 }
 
 void resetMemory(){
-   int address = 0;
-   for(; read_ext_eeprom(address) != -1; address += BLOCK_SIZE){
-      erase_program_eeprom(address);
-    }
+
+   for(int address=0;address<=254;address++){
+         write_ext_eeprom(address,-1);
+   }   
    printf (lcd_escreve,"\fMemory Cleaned");
    delay_ms(200);
 }

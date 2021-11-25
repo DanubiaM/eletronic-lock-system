@@ -1,0 +1,162 @@
+
+ROM used:   5961/8192 (73%)
+            6664/8192 (81%) including unused fragments
+
+            1.6 Average locations per line
+            6.0 Average locations per statement
+
+RAM used:   66/368 (18%) at main() level
+            243/368 (66%) worst case
+
+Stack used: 8 worst case (7 in main + 1 for interrupts)
+Stack size: 8
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  194    91   9  main.c
+  672     0   0  ..\..\..\Program Files (x86)\PICC\Devices\16F877A.h
+  601   332  33  functions.c
+   61     0   0  functions.h
+  165    72   7  mod_lcd.c
+   87    23   2  ..\..\..\Program Files (x86)\PICC\Drivers\2401.c
+   56   123  12  kbd_board4.c
+ 1351   359  36  ..\..\..\Program Files (x86)\PICC\Drivers\stdlib.h
+   32     0   0  ..\..\..\Program Files (x86)\PICC\Drivers\stddef.h
+  423     0   0  ..\..\..\Program Files (x86)\PICC\Drivers\string.h
+   28     0   0  ..\..\..\Program Files (x86)\PICC\Drivers\ctype.h
+----- -----
+ 3670  1000 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0     20   0    1             @delay_ms1
+0      8   0    0             @const631
+0     49   1    1    260  1.9  lcd_envia_nibble
+0     41   1    3    176  2.7  lcd_envia_byte
+0     71   1    2    433  4.3  lcd_ini
+ Inline         4    186  5.5  lcd_pos_xy
+0     67   1    1    290  4.1  lcd_escreve
+ Inline         3    333  7.3  @I2C_READ_1
+0     92   2    1    290  6.0  @I2C_WRITE_1
+0     13   0    0     32  1.0  init_ext_eeprom
+0     76   1    1     84  2.4  ext_eeprom_ready
+0     80   1    2    134  2.8  write_ext_eeprom
+0    208   3    2    207  3.3  read_ext_eeprom
+ Inline         4   3587  6.5  tc_tecla
+0     43   1    9    276  7.0  memchr
+ Inline         6     88  3.2  @MULS1616
+1    583  10   52   2308 12.4  strtoul
+0    205   3    6   1494  7.5  saveUser
+0     10   0    0             @const1000
+0    116   2    4    719 10.1  @PSTRINGC7_647
+0      9   0    0    110  4.1  @const1002
+0      9   0    0    178  4.2  @const1003
+ Inline         7   1410  6.5  updateUser
+0     10   0    0   1050  6.4  @const1010
+0      9   0    0    276  8.2  @const1011
+0      9   0    0    153  4.2  @const1012
+ Inline         8    208  2.5  printUser
+0     10   0    0    399  6.8  @const1013
+0    122   2    5    414  7.1  @PSTRINGCN7_647
+1     23   0    3     98  3.2  @DIV88
+1     69   1    2    571  7.5  @PRINTF_U_647
+ Inline        47    694  4.3  receiveUser
+0     29   0    2   1324  6.0  @PSTRINGR_647
+0     58   1    6    408  8.0  getAddressByID
+ Inline         5    294  5.3  searchUser
+0      5   0    0    294  5.3  @const1031
+0      9   0    0   1803  9.6  @const1033
+1     21   0    2    133  5.1  erase_program_eeprom
+1     98   2    5    360  6.3  getUserStatus
+0     13   0    0    360  6.3  @const1037
+0      9   0    0             @const1038
+0      6   0    0             @const1039
+ Inline         4    719 10.1  deleteUser
+ Inline         2    110  4.1  lastNewUserPosition
+0     29   0    0    155  3.7  resetMemory
+0      8   0    0    155  3.7  @const1047
+2   1755  29    6   1623  9.1  adminMenu
+0      8   0    0   1623  9.1  @const1051
+0      9   0    0             @const1052
+0     12   0    0             @const1053
+0     11   0    0             @const1054
+0      9   0    0             @const1055
+0      7   0    0             @const1056
+0      8   0    0             @const1058
+ Inline         6             @PRINTF_D_647
+0      9   0    0   1050  6.4  @const1062
+0      9   0    0             @const1063
+0      9   0    0             @const1064
+0      5   0    0             @const1065
+1    246   4    4   1050  6.4  login
+0      7   0    0   1050  6.4  @const1067
+0      8   0    0    276  8.2  @const1068
+0     11   0    0    153  4.2  @const1074
+0      7   0    0             @const1075
+0      9   0    0    654  9.4  @const1076
+ Inline         6    276  8.2  checkPassword
+1    369   6    2    153  4.2  readKeyboard
+0      5   0    0    153  4.2  @const1084
+0      9   0    0    654  9.4  @const1089
+0      8   0    0    399  6.8  @const1093
+0      5   0    0             @const1095
+0     64   1    9    414  7.1  strToInt
+ Inline         5     98  3.2  strfromchar
+1    101   2   20    571  7.5  inputId
+0      8   0    0    571  7.5  @const1105
+0      6   0    0   1113  5.9  @const1106
+1    136   2   17    625  7.4  inputToKeyboard
+0      6   0    0   1324  6.0  @const1112
+ Inline         5   1113  5.9  inputKeyboardUser
+0      5   0    0   1113  5.9  @const1117
+0      8   0    0             @const1123
+ Inline         5   1324  6.0  editUser
+0     10   0    0   1324  6.0  @const1132
+0      6   0    0             @const1134
+0      7   0    0             @const1135
+ Inline         4    496  5.1  waitUpdate
+0      8   0    0    496  5.1  @const1136
+0      8   0    0    858  6.7  @const1137
+0     10   0    0             @const1139
+0     10   0    0             @const1140
+0     11   0    0    268  6.0  @const1141
+0      9   0    0    858  6.7  @const1143
+0      9   0    0             @const1144
+0     78   1    2    759  6.3  RDA_isr
+3    520   9    1   2752  9.9  MAIN
+0      9   0    0    810  5.3  @const1149
+0      8   0    0   1719  9.6  @const1150
+0      9   0    0             @const1161
+0      7   0    0             @const1162
+0      8   0    0             @const1163
+0      9   0    0             @const1164
+0      7   0    0             @const1165
+0     10   0    0             @const1166
+0      7   0    0             @const1167
+0      9   0    0             @const1168
+0      5   0    0             @const1169
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               74
+    Statements              1000
+    Comments                873
+    Volume (V)              96677
+    Difficulty (D)          450.9
+    Effort to implement (E) 43587032
+    Time to implement (T)   672 hours, 38 minutes
+    Est Delivered Bugs (B)  41
+    Cyclomatic Complexity   161
+    Maintainability (MI)    50
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-00050    77  0  
+00051-007FF  1959  8  
+00800-00FFF  1646  402  
+01000-017FF  1755  293  
+01800-01FFF   520  1528  
+
+
+

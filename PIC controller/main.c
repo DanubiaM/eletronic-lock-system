@@ -18,8 +18,7 @@ int8 rx_wr_index = 0;
 int8 lock_pos = 0, rxd, read, valid_data_count;
 int data_avail = FALSE, got_id = FALSE;
 char rx_buffer[RX_BUFFER_SIZE];
-char history[RX_BUFFER_SIZE];
-int n_bytes = 0;
+int turn_on = 0;
 // char string [RX_BUFFER_SIZE];
 #include "functions.c"
 
@@ -27,10 +26,9 @@ int n_bytes = 0;
 #int_RDA
 void RDA_isr(void){
    rx_buffer[rx_wr_index] = getc();
-   // history[rx_wr_index] = fgetc(Wireless);
    rxd = rx_buffer[rx_wr_index];
    rx_wr_index++;
-   //n_bytes = rcv_buffer_bytes(Wireless);
+
 
    if(rx_wr_index > RX_BUFFER_SIZE){
       rx_wr_index = 0;
@@ -80,7 +78,14 @@ void RDA_isr(void){
 
       
 // }
-
+// #INT_EXT
+// void  EXT_isr(void) 
+// {
+//    if(++turn_on> 5){
+//       resetMemory();
+//       turn_on = 0;
+//    }
+// }
 void main()
 {
    //VARIAVEIS
@@ -90,6 +95,7 @@ void main()
    init_ext_eeprom();
    // enable_interrupts(INT_TIMER0);
    // enable_interrupts(INT_TIMER1);
+   enable_interrupts(INT_EXT);
    enable_interrupts(INT_RDA);
    enable_interrupts(GLOBAL);
 
@@ -102,39 +108,6 @@ void main()
    printf(lcd_escreve, "\fIFMT - Serial");
    delay_ms(500);
 
-   // resetmemory();
-   // char data[RX_BUFFER_SIZE] = "00 10 5 6 6 5 1";
-   // char data[RX_BUFFER_SIZE] = ;
-   while (true){
-
-      // int * rx_buffer_int;
-      // rx_buffer_int = strToInt(data);
-
-      // resetMemory();
-
-      printf (lcd_escreve,"\fEm Modo Espera");
-      printf (lcd_escreve,"\r\nde dados ...");
-      delay_ms(100);
-      User user;
-      while(true){
-         if(data_avail){
-            if(rx_buffer[0] =='#' && rx_buffer[2] =='#'){
-               printf (lcd_escreve,"\fFim da Comunicacao");
-               delay_ms(1000);
-               break;
-            }
-            data_avail = FALSE;
-            user = receiveUser();
-            printUser(user);
-            // overwriteUser(user);
-            // rx_wr_index = 0;
-            printf (lcd_escreve,"\fPIC em modo Espera");
-            printf (lcd_escreve,"\r\nEsperando dados...");
-            delay_ms(100);
-         }
-      }
-
-   }
  
    // unsigned int * temp;
    // unsigned int id [2];
@@ -145,72 +118,76 @@ void main()
 
    // waitUpdate();
 
-   // unsigned char option; 
-   // unsigned int * temp;
-   // unsigned int id [2];
+   // resetMemory();
+
+   unsigned char option; 
+   unsigned int * temp;
+   unsigned int id [2];
+
+   resetMemory();
    
-   // // int id10 [2] = {12,34};
-   // // int pass [4] = {1,2,3,4};
-   // // saveuser(id10, pass, 1);
-   // // int id1 [2] = {14,0};
-   // // saveuser(id1, pass, 0);
-   // // int id2 [2] = {70,10};
-   // // saveuser(id2, pass, 1);
-   // // int id3 [2] = {0,10};
-   // // saveuser(id3, pass, 1);
-   // // int id4 [2] = {99,99};
-   // // saveuser(id4, pass, 3);//admin
+   int id10 [2] = {12,34};
+   int pass [4] = {1,2,3,4};
+   saveUser(id10, pass, 1);
+   int id1 [2] = {14,0};
+   saveUser(id1, pass, 0);
+   int id2 [2] = {70,10};
+   saveUser(id2, pass, 1);
+   int id3 [2] = {0,10};
+   saveUser(id3, pass, 1);
+   int id4 [2] = {99,99};
+   saveUser(id4, pass, 3);//admin
    
-   // int status;
-   // do{
-   //    printf(lcd_escreve,"\f1:Login|2:Admin");
-   //    delay_ms(500);
-   //    option = readKeyboard();
+   int status;
+   do{
+      printf(lcd_escreve,"\f1:Login|2:Admin");
+      delay_ms(500);
+      option = readKeyboard();
 
-   //    if(option != 255){
-   //       printf(lcd_escreve,"\r\n Option: %c", option);
-   //       delay_ms(500);
+      if(option != 255){
+         printf(lcd_escreve,"\r\n Option: %c", option);
+         delay_ms(500);
 
-   //       switch(option){
-   //          case '1':
-   //             temp = inputId();
-   //             id[0] = temp[0];
-   //             id[1] = temp[1];
-   //             status = login(id);
-   //             if(status == 1 || status == 3){
-   //                printf(lcd_escreve,"\fBem Vindo(a)!");
-   //                delay_ms(1000);
-   //                printf(lcd_escreve,"\fLiga Led e Rele");
-   //                delay_ms(500);
-   //             }else{//Unpaid
-   //                printf(lcd_escreve,"\fConta Existe");
-   //                printf(lcd_escreve,"\r\r,Mas Falta Pagar!");
-   //                delay_ms(1000);
-   //             }
-   //             break;
-   //          case '2':
-   //             temp = inputId();
-   //             id[0] = temp[0];
-   //             id[1] = temp[1];
-   //             status = login(id);
-   //             if(status == 3){
-   //                adminMenu();
-   //             }
-   //             else{
-   //                printf(lcd_escreve,"\fN Permitido");
-   //                delay_ms(500);
-   //             }
-   //             break;
-   //          default:
-   //             printf(lcd_escreve,"\fDigite um valor");
-   //             printf(lcd_escreve,"\r\nValido!");
-   //             delay_ms(500);
-   //             break;
-   //       }
-   //    }
+         switch(option){
+            case '1':
+               temp = inputId();
+               id[0] = temp[0];
+               id[1] = temp[1];
+               status = login(id);
+               if(status == 1 || status == 3){
+                  printf(lcd_escreve,"\fBem Vindo(a)!");
+                  delay_ms(1000);
+                  printf(lcd_escreve,"\fLiga Led e Rele");
+                  delay_ms(500);
+               }else{//Unpaid
+                  printf(lcd_escreve,"\fConta Existe");
+                  printf(lcd_escreve,"\r\r,Mas Falta Pagar!");
+                  delay_ms(1000);
+               }
+               break;
+            case '2':
+               temp = inputId();
+               id[0] = temp[0];
+               id[1] = temp[1];
+               status = login(id);
+               if(status == 3){
+                  adminMenu();
+               }
+               else{
+                  printf(lcd_escreve,"\fN Permitido");
+                  delay_ms(500);
+               }
+               break;
+            default:
+               printf(lcd_escreve,"\fDigite um valor");
+               printf(lcd_escreve,"\r\nValido!");
+               delay_ms(500);
+               break;
+         }
+      }
 
 
-   // }while(option != '5');
+   }while(option != '5');
 
 }
 
