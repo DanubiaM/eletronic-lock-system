@@ -38,7 +38,7 @@ class Cadastrar(QDialog):
         
 
         try:
-            self.conn = sqlite3.connect("db/academy.db")  
+            self.conn = sqlite3.connect("./Interface PC/db/academy.db")  
             self.c = self.conn.cursor()                                      
 
             if id_user == "" or password_user == "" or status_user == "":               

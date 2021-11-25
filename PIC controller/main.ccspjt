@@ -95,13 +95,15 @@ D6_L15=[85286]Stopped Editing.
 D6_L16=[85679]Started Editing.
 D6_L17=[86371]Stopped Editing.
 D7=23-11-2021
-D7_L=6
+D7_L=8
 D7_L1=[865]Started Editing.
 D7_L2=[1199]Stopped Editing.
 D7_L3=[1942]Started Editing.
 D7_L4=[2541]Stopped Editing.
 D7_L5=[3259]Started Editing.
 D7_L6=[3780]Stopped Editing.
+D7_L7=[29147]Project Opened.
+D7_L8=[66360]Project Closed.
 
 [Opened Files]
 1=main.c

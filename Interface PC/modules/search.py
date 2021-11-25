@@ -23,7 +23,7 @@ class Search(QDialog):
         try:        
                     
             #Loading Data
-            self.connection = sqlite3.connect("db/academy.db")    
+            self.connection = sqlite3.connect("./Interface PC/db/academy.db")    
             self.c = self.connection.cursor()                                 
             query = "SELECT * FROM User WHERE  id = " + self.ui.input_id.text()            
             resultQuery = self.c.execute(query)                      

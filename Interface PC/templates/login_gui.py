@@ -61,7 +61,7 @@ class Ui_LoginAcademy(object):
 "background-color: rgb(198, 229, 255);")
         self.btnConectar.setObjectName("btnConectar")
         self.line = QtWidgets.QFrame(LoginAcademy)
-        self.line.setGeometry(QtCore.QRect(0, 30, 281, 20))
+        self.line.setGeometry(QtCore.QRect(0, 30, 531, 20))
         self.line.setFrameShape(QtWidgets.QFrame.HLine)
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")
@@ -90,9 +90,21 @@ class Ui_LoginAcademy(object):
         self.comboBox_COMS.setObjectName("comboBox_COMS")
         self.label_5 = QtWidgets.QLabel(LoginAcademy)
         self.label_5.setGeometry(QtCore.QRect(-6, -5, 541, 481))
+        self.label_5.setMinimumSize(QtCore.QSize(541, 481))
+        self.label_5.setMaximumSize(QtCore.QSize(541, 481))
         self.label_5.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.label_5.setText("")
         self.label_5.setObjectName("label_5")
+        self.btnEnviar = QtWidgets.QPushButton(LoginAcademy)
+        self.btnEnviar.setGeometry(QtCore.QRect(250, 10, 121, 21))
+        self.btnEnviar.setStyleSheet("background-color: rgb(42, 206, 255);\n"
+"font: 75 8pt \"MS Shell Dlg 2\";")
+        self.btnEnviar.setObjectName("btnEnviar")
+        self.btnReceber = QtWidgets.QPushButton(LoginAcademy)
+        self.btnReceber.setGeometry(QtCore.QRect(400, 10, 131, 21))
+        self.btnReceber.setStyleSheet("background-color: rgb(42, 206, 255);\n"
+"font: 75 8pt \"MS Shell Dlg 2\";")
+        self.btnReceber.setObjectName("btnReceber")
         self.label_5.raise_()
         self.label.raise_()
         self.label_3.raise_()
@@ -108,13 +120,15 @@ class Ui_LoginAcademy(object):
         self.input_senha4.raise_()
         self.label_2.raise_()
         self.comboBox_COMS.raise_()
+        self.btnEnviar.raise_()
+        self.btnReceber.raise_()
 
         self.retranslateUi(LoginAcademy)
         QtCore.QMetaObject.connectSlotsByName(LoginAcademy)
 
     def retranslateUi(self, LoginAcademy):
         _translate = QtCore.QCoreApplication.translate
-        LoginAcademy.setWindowTitle(_translate("LoginAcademy", "Realizar Login"))
+        LoginAcademy.setWindowTitle(_translate("LoginAcademy", "Dialog"))
         self.label.setText(_translate("LoginAcademy", "ELETRONIC LOCK SYSTEM - GYM IFMT"))
         self.label_3.setText(_translate("LoginAcademy", "ID"))
         self.label_4.setText(_translate("LoginAcademy", "Senha"))
@@ -126,6 +140,8 @@ class Ui_LoginAcademy(object):
         self.input_senha2.setPlaceholderText(_translate("LoginAcademy", "0"))
         self.input_senha3.setPlaceholderText(_translate("LoginAcademy", "0"))
         self.input_senha4.setPlaceholderText(_translate("LoginAcademy", "0"))
+        self.btnEnviar.setText(_translate("LoginAcademy", "Enviar atualizações"))
+        self.btnReceber.setText(_translate("LoginAcademy", "Receber atualizações"))
 import templates.img
 
 

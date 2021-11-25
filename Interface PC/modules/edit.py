@@ -30,7 +30,7 @@ class Edit(QDialog):
         status_user = self.ui.input_status.text()
 
         try:
-            self.conn = sqlite3.connect("db/academy.db")            
+            self.conn = sqlite3.connect("./Interface PC/db/academy.db")            
             self.c = self.conn.cursor()                  
             self.c.execute("UPDATE User SET id = {}, password = {}, status = {} WHERE id  = {}".format(int(id_user), int(password_user), status_user, int(id_user) ))                             
             self.conn.commit()

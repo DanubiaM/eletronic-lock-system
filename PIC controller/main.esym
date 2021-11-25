@@ -1,8 +1,7 @@
-C L "MAIN" 0 24 43 "FUNCTION"
-D G "__PCM__" 0 189 ""5.025""
-D G "__DEVICE__" 0 189 "877"
-D G "__DATE__" 0 189 ""23-Nov-21""
-D G "__TIME__" 0 189 ""01:02:22"" "Standard Header file for the PIC16F877A device ////////////////"
+D G "__PCM__" 0 0 ""5.025""
+D G "__DEVICE__" 0 0 ""
+D G "__DATE__" 0 0 ""23-nov-21""
+D G "__TIME__" 0 0 ""08:10:09"" "Standard Header file for the PIC16F877A device ////////////////"
 c L "set_tris_a" 1 3 6 "FUNCTION"
 v L "value" 1 37 "int8" `54 
 f B "set_tris_a" 1 37 "void(int8 value)" `53 
@@ -794,8 +793,9 @@ D G "lcd_d4" 3 7 "pin_d4"
 D G "lcd_d5" 3 8 "pin_d5"
 D G "lcd_d6" 3 9 "pin_d6"
 D G "lcd_d7" 3 10 "pin_d7"
-D G "lcd_type" 4 20 "2"
-D G "lcd_seg_lin" 4 21 "0x40"
+D G "lcd_type" 4 20 "2" "0=5x7, 1=5x10, 2=2 linhas"
+D G "lcd_seg_lin" 4 21 "0x40" "Endereço da segunda linha na RAM do LCD"
+C L "jump_to_isr" 4 2 1 "FUNCTION"
 V G "INI_LCD" 4 24 "[4]" `631 
 C L "lcd_le_byte" 4 2 1 "FUNCTION"
 F G "lcd_le_byte" 4 28 "int8()" `634 
@@ -831,7 +831,7 @@ F G "lcd_escreve" 4 134 "void(int8 c)" `647
 V L "x" 4 150 "int8" `650 
 V L "y" 4 150 "int8" `651  "le caractere do display"
 F G "lcd_le" 4 152 "int8(int8 x,int8 y)" `649 
-V L "valor" 4 153 "int8" `652  "seleciona a posiï¿½ï¿½o do caractere"
+V L "valor" 4 153 "int8" `652  "seleciona a posição do caractere"
 C L "lcd_le" 4 2 1 "FUNCTION"
 C L "lcd_le" 4 2 1 "FUNCTION"
 C L "lcd_le" 4 2 1 "FUNCTION"

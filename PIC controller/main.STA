@@ -14,23 +14,23 @@ Stack size: 8
 Lines Stmts  %   Files
 ----- ----- ---  -----
   188    45   5  main.c
-  672     0   0  ..\..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h
+  672     0   0  D:\FilesNewWindows\Microcontroladores\PICC\Devices\16F877A.h
   533   293  32  functions.c
    59     0   0  functions.h
-  165    72   8  mod_lcd.c
-   87    23   3  ..\..\..\..\..\Program Files (x86)\PICC\Drivers\2401.c
+  165    72   8  D:\FilesNewWindows\Microcontroladores\PICC\Drivers\mod_lcd.c
+   87    23   3  D:\FilesNewWindows\Microcontroladores\PICC\Drivers\2401.c
    56   123  13  kbd_board4.c
- 1351   359  39  ..\..\..\..\..\Program Files (x86)\PICC\Drivers\stdlib.h
-   32     0   0  ..\..\..\..\..\Program Files (x86)\PICC\Drivers\stddef.h
-  423     0   0  ..\..\..\..\..\Program Files (x86)\PICC\Drivers\string.h
-   28     0   0  ..\..\..\..\..\Program Files (x86)\PICC\Drivers\ctype.h
+ 1351   359  39  D:\FilesNewWindows\Microcontroladores\PICC\Drivers\stdlib.h
+   32     0   0  D:\FilesNewWindows\Microcontroladores\PICC\Drivers\stddef.h
+  423     0   0  D:\FilesNewWindows\Microcontroladores\PICC\Drivers\string.h
+   28     0   0  D:\FilesNewWindows\Microcontroladores\PICC\Drivers\ctype.h
 ----- -----
  3594   915 Total
 
 Page ROM  %  RAM    Vol Diff  Functions:
 ---- --- --- ---    --- ----  ----------
 0     20   1    1             @delay_ms1
-0      8   0    0    771  6.3  @const631
+0      8   0    0             @const631
 0     49   3    1    260  1.9  lcd_envia_nibble
 0     41   2    3    176  2.7  lcd_envia_byte
 0     73   4    2    433  4.3  lcd_ini
@@ -54,55 +54,55 @@ Page ROM  %  RAM    Vol Diff  Functions:
 0     53   3    2             @PRINTF_U_647
 0     10   1    0             @const1019
 0    252  13    3    585  3.8  receiveClient
- Inline         2    294  5.3  @PSTRINGR_647
-0      5   0    0    408  8.0  @const1027
-0      9   0    0    294  5.3  @const1029
-0      8   0    0    360  6.3  @const1031
-0      6   0    0    719 10.1  @const1036
-0      8   0    0    120  4.2  @const1047
-0      9   0    0   1431  9.1  @const1048
+ Inline         2             @PSTRINGR_647
+0      5   0    0             @const1027
+0      9   0    0             @const1029
+0      8   0    0             @const1031
+0      6   0    0             @const1036
+0      8   0    0             @const1047
+0      9   0    0             @const1048
 0      9   0    0             @const1049
 0      7   0    0             @const1050
 0      8   0    0             @const1052
 0      9   0    0             @const1056
 0      9   0    0             @const1057
 0      9   0    0             @const1058
-0      5   0    0   1050  6.4  @const1059
-0      7   0    0   1050  6.4  @const1061
+0      5   0    0             @const1059
+0      7   0    0             @const1061
 0      8   0    0             @const1062
 0     11   1    0             @const1068
 0      7   0    0             @const1069
-0      9   0    0    276  8.2  @const1070
-0      5   0    0    153  4.2  @const1078
-0      9   0    0    654  9.4  @const1083
-0      8   0    0    399  6.8  @const1087
-0      5   0    0    414  7.1  @const1089
+0      9   0    0             @const1070
+0      5   0    0             @const1078
+0      9   0    0             @const1083
+0      8   0    0             @const1087
+0      5   0    0             @const1089
  Inline         9    414  7.1  strToInt
-0      8   0    0    571  7.5  @const1099
-0      6   0    0    625  7.4  @const1100
-0      6   0    0   1113  5.9  @const1106
-0      5   0    0   1113  5.9  @const1111
-0      8   0    0   1324  6.0  @const1117
-0     10   1    0   1324  6.0  @const1126
+0      8   0    0             @const1099
+0      6   0    0             @const1100
+0      6   0    0             @const1106
+0      5   0    0             @const1111
+0      8   0    0             @const1117
+0     10   1    0             @const1126
 0      6   0    0             @const1128
-0      7   0    0    819  6.3  @const1129
+0      7   0    0             @const1129
 0    105   5    3    819  6.3  RDA_isr
 0     98   5    1    303  3.1  MAIN
-0      9   0    0    303  3.1  @const1134
+0      9   0    0             @const1134
 0      8   0    0             @const1135
  Inline         0             @cinit1
 
 Program metrics:
-    Functions               36
+    Functions               13
     Statements              915
-    Comments                894
-    Volume (V)              39760
-    Difficulty (D)          211.7
-    Effort to implement (E) 8418985
-    Time to implement (T)   129 hours, 55 minutes
-    Est Delivered Bugs (B)  14
-    Cyclomatic Complexity   80
-    Maintainability (MI)    131
+    Comments                895
+    Volume (V)              10043
+    Difficulty (D)          55.9
+    Effort to implement (E) 561103
+    Time to implement (T)   8 hours, 40 minutes
+    Est Delivered Bugs (B)  2
+    Cyclomatic Complexity   32
+    Maintainability (MI)    81
 
  Segment     Used  Free
 -----------  ----  ----

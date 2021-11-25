@@ -22,7 +22,7 @@ class Delete(QDialog):
     def queryDelete(self):
         try:      
             
-            self.connection = sqlite3.connect("db/academy.db")             
+            self.connection = sqlite3.connect("./Interface PC/db/academy.db")             
             self.c = self.connection.cursor()   
                                       
             query = "DELETE from User WHERE  id = " + self.ui.input_id.text()   

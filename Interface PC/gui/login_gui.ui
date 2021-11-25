@@ -147,7 +147,7 @@ background-color: rgb(198, 229, 255);</string>
     <rect>
      <x>0</x>
      <y>30</y>
-     <width>281</width>
+     <width>531</width>
      <height>20</height>
     </rect>
    </property>
@@ -251,11 +251,57 @@ background-color: rgb(198, 229, 255);</string>
      <height>481</height>
     </rect>
    </property>
+   <property name="minimumSize">
+    <size>
+     <width>541</width>
+     <height>481</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>541</width>
+     <height>481</height>
+    </size>
+   </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnEnviar">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>10</y>
+     <width>121</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(42, 206, 255);
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Enviar atualizações</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnReceber">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>10</y>
+     <width>131</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(42, 206, 255);
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Receber atualizações</string>
    </property>
   </widget>
   <zorder>label_5</zorder>
@@ -273,6 +319,8 @@ background-color: rgb(198, 229, 255);</string>
   <zorder>input_senha4</zorder>
   <zorder>label_2</zorder>
   <zorder>comboBox_COMS</zorder>
+  <zorder>btnEnviar</zorder>
+  <zorder>btnReceber</zorder>
  </widget>
  <resources>
   <include location="img.qrc"/>

@@ -208,22 +208,22 @@ ROM Allocation:
 0136  StrtolGO
 
 Project Directory:
-    E:\University\Microcontrollers\PCW Projects\eletronic-lock-system\PIC controller\
+    C:\Users\danub\OneDrive\Área de Trabalho\git\eletronic-lock-system\PIC controller\
 
 Project Files:
-    main.c                                                  [23-Nov-21 00:58  CRC=ECF0DF3E]
-    ..\..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h [18-Apr-14 16:56  CRC=4F277C97]
-    functions.c                                             [23-Nov-21 01:02  CRC=917B63F3]
-    functions.h                                             [22-Nov-21 23:34  CRC=04976A94]
-    mod_lcd.c                                               [19-Nov-21 20:18  CRC=6F1C4CD9]
-    ..\..\..\..\..\Program Files (x86)\PICC\Drivers\2401.c  [23-Jul-03 14:53  CRC=C4DE9711]
-    kbd_board4.c                                            [20-Nov-21 09:12  CRC=707A799E]
-    ..\..\..\..\..\Program Files (x86)\PICC\Drivers\stdlib.h [08-Jun-11 14:39  CRC=0B6669CF]
-    ..\..\..\..\..\Program Files (x86)\PICC\Drivers\stddef.h [16-Jul-10 09:27  CRC=897CEC6C]
-    ..\..\..\..\..\Program Files (x86)\PICC\Drivers\string.h [10-Apr-14 09:04  CRC=662B2714]
-    ..\..\..\..\..\Program Files (x86)\PICC\Drivers\ctype.h [03-Jan-08 13:55  CRC=2D1F019F]
+    main.c                                                  [23-nov-21 01:43  CRC=ECF0DF3E]
+    D:\FilesNewWindows\Microcontroladores\PICC\Devices\16F877A.h [18-abr-14 16:56  CRC=4F277C97]
+    functions.c                                             [23-nov-21 01:43  CRC=917B63F3]
+    functions.h                                             [23-nov-21 01:43  CRC=04976A94]
+    D:\FilesNewWindows\Microcontroladores\PICC\Drivers\mod_lcd.c [30-set-21 14:06  CRC=06678DAF]
+    D:\FilesNewWindows\Microcontroladores\PICC\Drivers\2401.c [23-jul-03 14:53  CRC=C4DE9711]
+    kbd_board4.c                                            [16-nov-21 20:23  CRC=707A799E]
+    D:\FilesNewWindows\Microcontroladores\PICC\Drivers\stdlib.h [08-jun-11 14:39  CRC=0B6669CF]
+    D:\FilesNewWindows\Microcontroladores\PICC\Drivers\stddef.h [16-jul-10 09:27  CRC=897CEC6C]
+    D:\FilesNewWindows\Microcontroladores\PICC\Drivers\string.h [10-abr-14 09:04  CRC=662B2714]
+    D:\FilesNewWindows\Microcontroladores\PICC\Drivers\ctype.h [03-jan-08 13:55  CRC=2D1F019F]
 
-Source signature=CBED0871
+Source signature=63384947
 
 Units:
     main (main)
