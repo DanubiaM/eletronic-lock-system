@@ -70,19 +70,31 @@ void updateUser(int * id, int * pass, int status, int address){
 }
 
 void printUser(User user){
-   printf (lcd_escreve,"\fCliente ID: %u%u",user.id[0],user.id[1]);
+   // printf (lcd_escreve,"\fCliente ID: %u%u",user.id[0],user.id[1]);
+   // printf(lcd_escreve, "\r\nPw:%u%u%u%u St:%u",user.pass[0],user.pass[1],user.pass[2],user.pass[3],user.status);
+   // printf (lcd_escreve,"\fCliente ID: %u%u",user.id[0],user.id[1]);
    printf(lcd_escreve, "\r\nPw:%u%u%u%u St:%u",user.pass[0],user.pass[1],user.pass[2],user.pass[3],user.status);
    delay_ms(1000);
 }
 
-void receiveClient(){
+User receiveUser(){
    
    int * rx_buffer_int;
-   printf (lcd_escreve,"\f%s\r\n",string);
-   delay_ms(1000);
+   char string[RX_BUFFER_SIZE];
+   int numbers[RX_BUFFER_SIZE];
+   strcpy(string, rx_buffer);
    rx_buffer_int = strToInt(string);
+   // for(int i=0;i < RX_BUFFER_SIZE; i++){
+   //    numbers[i] = rx_buffer_int[i];
+   //    write_ext_eeprom(i, numbers[i]);
+   // }
+   printf (lcd_escreve,"\f%s",string);
+   delay_ms(500);
+   // printf(lcd_escreve, "\r\nPw:%d%d%d St:%d",user.pass[0],user.pass[1],user.pass[2],user.pass[3],user.status);
+   // delay_ms(1000);
    // for(int i =0; i < RX_BUFFER_SIZE; i++){
-   //    printf (lcd_escreve,"\fPos:%d Value:%d",i,rx_buffer_int[i]);
+   //    printf (lcd_escreve,"\rPos:%d Value:%d",i,rx_buffer_int[i]);
+   //    printf (lcd_escreve,"Pos:%d Value:%d",i,rx_buffer_int[i]);
    //    delay_ms(500);
    // }
 
@@ -94,7 +106,8 @@ void receiveClient(){
    user.pass[2] = rx_buffer_int[4];
    user.pass[3] = rx_buffer_int[5];
    user.status = rx_buffer_int[6];
-   printUser(user);
+
+   return user;
 }
 
 int getAddressByID(int * id){
@@ -131,8 +144,6 @@ void erase_program_eeprom(int addrr){
    for(int i=0; i < BLOCK_SIZE; i++){
          write_ext_eeprom(addrr + i, -1);
    }  
-   printf (lcd_escreve,"\f User erased ");
-   delay_ms(200);
 }
 
 int getUserStatus(int address, int show){
@@ -190,22 +201,19 @@ int deleteUser(int * id){
 
 int lastNewUserPosition(){
    int address = 0;
-   
-
    while( read_ext_eeprom(address) != -1){
       address += BLOCK_SIZE; 
    }
-   // printf (lcd_escreve,"\fAddress: %u", address);
-   // delay_ms(500);
-   
    return address;
-
 }
 
 void resetMemory(){
    int address = 0;
-   for(; read_ext_eeprom(address) != -1;
-    erase_program_eeprom(address), address += BLOCK_SIZE);
+   for(; read_ext_eeprom(address) != -1; address += BLOCK_SIZE){
+      erase_program_eeprom(address);
+    }
+   printf (lcd_escreve,"\fMemory Cleaned");
+   delay_ms(200);
 }
 
 void adminMenu(){
@@ -216,7 +224,10 @@ void adminMenu(){
       printf(lcd_escreve,"\f1:CAD|2:BUSCAR");
       printf(lcd_escreve,"\r\n3:DEL|4:EDITAR");
       delay_ms(1000);
-      printf(lcd_escreve,"\f5: SAIR do Menu ");
+      printf(lcd_escreve,"\f5:Atualizar Base Dados");
+      printf(lcd_escreve,"\r\n6:Enviar Base Dados");
+      delay_ms(500);
+      printf(lcd_escreve,"\n7: SAIR do Menu ");
       delay_ms(100);
     
       option = readKeyboard();
@@ -250,6 +261,9 @@ void adminMenu(){
             case '4':
                editUser();
                break;
+            case '5':
+               waitUpdate();
+               break;
             default:
                printf(lcd_escreve,"\fDigite um valor");
                printf(lcd_escreve,"\r\nValido!");
@@ -257,7 +271,7 @@ void adminMenu(){
                break;
          }
       }
-   }while(option != '5');
+   }while(option != '7');
 }
 
 
@@ -380,6 +394,8 @@ int * strToInt(char * str){
   char * end;
   int index = 0;
 
+//   printf (lcd_escreve,"\fP: %s",p);
+//   delay_ms(1000);
   for (unsigned int number = strtoul(p, &end, 10);
         p != end;
         number = strtoul(p, &end, 10))
@@ -387,6 +403,9 @@ int * strToInt(char * str){
     p = end;
 
     buffer[index] = number; 
+   //  printf (lcd_escreve,"\fNumber: %u", number);
+   //  printf (lcd_escreve,"\r%u", number);
+   //  delay_ms(1000);
     index++;
   }
 
@@ -528,5 +547,54 @@ void editUser(){
    }else{
       printf (lcd_escreve,"\fID N Existe");
       delay_ms(1000);
+   }
+}
+
+void waitUpdate(){
+   resetMemory();
+   printf (lcd_escreve,"\fEm Modo Espera");
+   printf (lcd_escreve,"\r\nde dados ...");
+   delay_ms(100);
+   User user;
+   while(true){
+      if(data_avail){
+         if(rx_buffer[0] =='#' && rx_buffer[2] =='#'){
+            printf (lcd_escreve,"\fFim da Comunicacao");
+            delay_ms(1000);
+            break;
+         }
+         data_avail = FALSE;
+         user = receiveUser();
+         printUser(user);
+         // overwriteUser(user);
+         // rx_wr_index = 0;
+         printf (lcd_escreve,"\fPIC em modo Espera");
+         printf (lcd_escreve,"\r\nEsperando dados...");
+         delay_ms(100);
+      }
+   }
+}
+
+void overwriteUser(User user){
+
+   if(user.id[0] <= 99 && user.id[1] <= 99 && getAddressByID(user.id) == -1 ){
+      int address = lastNewUserPosition();
+
+      write_ext_eeprom(address, user.id[0]);
+      write_ext_eeprom(address+1, user.id[1]);
+      write_ext_eeprom(address+2, user.pass[0]);
+      write_ext_eeprom(address+3, user.pass[1]);
+      write_ext_eeprom(address+4, user.pass[2]);
+      write_ext_eeprom(address+5, user.pass[3]);       
+      write_ext_eeprom(address+6, user.status);
+
+      // printf (lcd_escreve,"\fUsuario Cadastrado");
+      // delay_ms(500);
+
+   }else{
+      printf (lcd_escreve,"\fID incompativel");
+      printf (lcd_escreve,"\r\nTente novamente");
+      delay_ms(500);
+
    }
 }
