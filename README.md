@@ -1,5 +1,10 @@
 # Eletronic Lock System ✨
 
+### Como o sistema funciona ?
+
+- [📃`Article` in Portuguese](https://github.com/DanubiaM/eletronic-lock-system/blob/main/ARTICLE_Lock_Electronic_System_Microcontrollers.pdf)
+- [🎞️ `Video` in Portuguese](https://www.youtube.com/watch?v=ln394oost-Q)
+
 ### Funcionalidades  🦾
 O sistema de gerenciamento de catraca utiliza dois canais para realizar a liberação do usuário, via interface computacional e PIC (teclado e LCD). Nesses canais é possivel o usuario realizar o login como administrador com opções de gerenciamento dos alunos (CRUD) e login como usuario padrão para liberação da catraca. 
 
